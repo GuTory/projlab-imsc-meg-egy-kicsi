@@ -1,29 +1,42 @@
 package terkep;
 
-import jdk.jshell.spi.ExecutionControl;
+import lombok.Getter;
 import virologus.Virologus;
 
 import java.util.ArrayList;
 
 public class Mezo {
 
-    public void virologusbe(Virologus v){
+    /**
+     * A mezőben lévő virológusok.
+     */
+    @Getter
+    protected ArrayList<Virologus> virologusok;
+
+    /**
+     * A mezővel szomszédos mezők
+     */
+    @Getter
+    protected ArrayList<Mezo> szomszedok;
+
+    /**
+     * Virológus beléptetése a mezőre
+     */
+    final public void virologusbe(Virologus virologus){
 
     }
 
-    public void virologusKi(Virologus v){
+    /**
+     * Virológus kiléptetése a mezőről
+     */
+    final public void virologusKi(Virologus virologus){
 
     }
 
-    public void akcio(Virologus v){
+    /**
+     * A mezőben elvégezhető akció (a mezőben ez éppen semmi, de a leszármazottak felüldefiniálják)
+     */
+    public void akcio(Virologus virologus){
 
-    }
-
-    public ArrayList<Mezo> getSzomszedok() throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("no");
-    }
-
-    public ArrayList<Virologus> getVirologusok(){
-        return null;
     }
 }
