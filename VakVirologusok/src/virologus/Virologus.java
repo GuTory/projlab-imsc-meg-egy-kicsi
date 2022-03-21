@@ -43,7 +43,7 @@ public class Virologus {
         ellenallasok[TeljesSzazalekos] = new Szazalekos();
         ellenallasok[ReszlegesSzazalekos] = new Szazalekos();*/
 
-        taska = new Taska();
+        taska = new Taska(); //asd
     }
 
     public void kor() {
