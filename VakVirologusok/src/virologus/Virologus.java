@@ -5,6 +5,7 @@ import agens.Kod;
 import felszereles.Felszereles;
 import terkep.Mezo;
 import util.Taska;
+import skeleton.Skeleton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +48,16 @@ public class Virologus {
     }
 
     public void kor() {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
+        String tudFelvenni = Skeleton.dontes("Tud felvenni felszerelest? (i - IGEN/n - NEM)");
+
+        if (tudFelvenni.equals("")|| tudFelvenni.equals("i")) {
+            beFelszereles(null);
+            kiFelszereles(null);
+        }
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     public void kodMegtanul(Kod k) {
@@ -58,15 +68,15 @@ public class Virologus {
 
     }
 
-    public void megkent(Virologus keno, Agens mivel) {
-
-    }
-
     public void kiFelszereles(Felszereles f) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     public void beFelszereles(Felszereles f) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 }
