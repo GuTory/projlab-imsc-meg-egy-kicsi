@@ -2,6 +2,7 @@ package util;
 
 import agens.Agens;
 import felszereles.Felszereles;
+import jdk.jshell.spi.ExecutionControl;
 import lombok.Getter;
 import virologus.Virologus;
 
@@ -34,8 +35,8 @@ public class Taska {
 
     }
 
-    public Anyagok anyagKivesz(Anyagok anyagok) {
-        return null;
+    public boolean anyagKivesz(Anyagok anyagok) throws ExecutionControl.NotImplementedException {
+        throw new ExecutionControl.NotImplementedException("Nincs implementálva");
     }
 
     public void kapacitasNovel(int ertek) {
