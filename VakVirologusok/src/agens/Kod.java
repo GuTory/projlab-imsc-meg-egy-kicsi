@@ -1,6 +1,7 @@
 package agens;
 
 import jdk.jshell.spi.ExecutionControl;
+import skeleton.Skeleton;
 import util.Anyagok;
 import util.Taska;
 import virologus.Virologus;
@@ -47,7 +48,13 @@ public abstract class Kod {
      * @return a kivétel sikerességét adja vissza. Ha nem volt elég anyag, akkor sikertelen - false-t ad vissza.
      */
     public boolean koltsegLevon(Taska taska) throws ExecutionControl.NotImplementedException {
-        return taska.anyagKivesz(koltseg);
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        boolean siker = taska.anyagKivesz(koltseg);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        return siker;
     }
 
     /**Getterek**/
@@ -56,6 +63,8 @@ public abstract class Kod {
      * @return szavatossag
      */
     public int getSzavatossag() {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
         return szavatossag;
     }
 }

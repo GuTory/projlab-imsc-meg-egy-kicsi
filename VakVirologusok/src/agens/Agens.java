@@ -1,6 +1,7 @@
 package agens;
 
 import jdk.jshell.spi.ExecutionControl;
+import skeleton.Skeleton;
 import virologus.Virologus;
 
 import virologus.Virologus;
@@ -22,8 +23,12 @@ public class Agens {
      * @param kod
      */
     public Agens(Kod kod){
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         this.kod = kod;
         ttl = kod.getSzavatossag();
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
@@ -31,7 +36,11 @@ public class Agens {
      * @param virologus, ezen a virológuson fejti ki a hatását az ágens.
      */
     public void hatas(Virologus virologus) throws ExecutionControl.NotImplementedException {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         kod.hatas(virologus);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
@@ -39,13 +48,21 @@ public class Agens {
      * @param ttl
      */
     public void setTtl(int ttl){
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         this.ttl = ttl;
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
      * Csökkenti a ttl-t 1-gyel, minden körben.
      */
     public void ttlCsokkent(){
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         ttl--;
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 }
