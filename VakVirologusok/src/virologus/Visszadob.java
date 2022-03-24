@@ -18,7 +18,7 @@ public class Visszadob extends Ellenallas{
      * @return a kenés sikeressége
      */
     @Override
-    public boolean megkent(Virologus ki, Virologus kit, Agens mivel) throws ExecutionControl.NotImplementedException {
+    public boolean megkent(Virologus ki, Virologus kit, Agens mivel) {
         throw new ExecutionControl.NotImplementedException("Nincs implementálva");
     }
 }

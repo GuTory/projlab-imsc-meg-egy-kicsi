@@ -1,6 +1,9 @@
 package virologus;
 
-import jdk.jshell.spi.ExecutionControl;
+import terkep.Mezo;
+
+import java.util.List;
+import java.util.Random;
 
 public class VitustancViselkedes extends Viselkedes{
     public VitustancViselkedes() {
@@ -8,7 +11,17 @@ public class VitustancViselkedes extends Viselkedes{
     }
 
     @Override
-    public void mozog() throws ExecutionControl.NotImplementedException {
-        super.mozog();
+    public void mozog(Virologus ki, Mezo jelenlegi) {
+        List<Mezo> szomszedok = jelenlegi.getSzomszedok();
+        Mezo uj = szomszedok.get(new Random().nextInt(szomszedok.size()));
+        jelenlegi.virologusKi(ki);
+        uj.virologusbe(ki);
+        ki.setHely(uj);
+        uj.akcio(ki);
+    }
+
+    @Override
+    public String toString() {
+        return "Vitustanc ";
     }
 }

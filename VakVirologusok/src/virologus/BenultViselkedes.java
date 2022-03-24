@@ -4,7 +4,9 @@ import agens.Agens;
 import agens.Kod;
 import felszereles.Felszereles;
 import jdk.jshell.spi.ExecutionControl;
+import terkep.Mezo;
 import util.Anyagok;
+import util.Taska;
 
 public class BenultViselkedes extends Viselkedes {
     public BenultViselkedes() {
@@ -12,37 +14,42 @@ public class BenultViselkedes extends Viselkedes {
     }
 
     @Override
-    public boolean taskaElvehetoE() throws ExecutionControl.NotImplementedException {
-        return super.taskaElvehetoE();
+    public boolean taskaElvehetoE() {
+        return true;
     }
 
     @Override
-    public void mozog() throws ExecutionControl.NotImplementedException {
-        super.mozog();
+    public void mozog(Virologus ki, Mezo hely) {
+        ;
     }
 
     @Override
-    public Anyagok anyagLop(Virologus kitol) throws ExecutionControl.NotImplementedException {
-        return super.anyagLop(kitol);
+    public Anyagok anyagLop(Virologus kitol) {
+        return null;
     }
 
     @Override
-    public Felszereles felszerelesLop(Virologus kitol) throws ExecutionControl.NotImplementedException {
-        return super.felszerelesLop(kitol);
+    public Felszereles felszerelesLop(Virologus kitol) {
+        return null;
     }
 
     @Override
-    public Agens agensLop(Virologus kitol) throws ExecutionControl.NotImplementedException {
-        return super.agensLop(kitol);
+    public Agens agensLop(Virologus kitol) {
+        return null;
     }
 
     @Override
-    public void ken(Virologus ki, Virologus kit, Agens mivel) throws ExecutionControl.NotImplementedException {
-        super.ken(ki, kit, mivel);
+    public void ken(Virologus ki, Virologus kit, Agens mivel) {
+        ;
     }
 
     @Override
-    public Agens agensEbbol(Kod kod) throws ExecutionControl.NotImplementedException {
-        return super.agensEbbol(kod);
+    public Agens agensEbbol(Kod kod, Taska taska) {
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Benult ";
     }
 }

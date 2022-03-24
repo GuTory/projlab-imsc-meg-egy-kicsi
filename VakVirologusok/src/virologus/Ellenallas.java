@@ -29,7 +29,7 @@ public abstract class Ellenallas {
      * @param mivel a virológusra kent ágens
      * @return a kenés sikeressége
      */
-    abstract public boolean megkent(Virologus ki, Virologus kit, Agens mivel) throws ExecutionControl.NotImplementedException;
+    abstract public boolean megkent(Virologus ki, Virologus kit, Agens mivel);
 
     /**
      * Beállítja az ellenállás érvényességét egy megfelelő szintre.
@@ -38,14 +38,14 @@ public abstract class Ellenallas {
      * <li>>0: csak ennyi körig érvényes az ellenállás</li>
      * @param szint az érvényesség szintje
      */
-    public void setErvenyesseg(int szint) throws ExecutionControl.NotImplementedException { //TODO: ne felejtsük el a setIdobelyeg()-et meghívni benne
+    public void setErvenyesseg(int szint) { //TODO: ne felejtsük el a setIdobelyeg()-et meghívni benne
         throw new ExecutionControl.NotImplementedException("Nincs implementálva");
     }
 
     /**
      * Lekérdezi és beállítja az időbélyeg értékét.
      */
-    public void setIdobelyeg() throws ExecutionControl.NotImplementedException {
+    public void setIdobelyeg() {
         throw new ExecutionControl.NotImplementedException("Nincs implementálva");
     }
 
