@@ -4,6 +4,19 @@ import java.util.Scanner;
 
 public class Skeleton {
 
+    /**
+     * <h3>Használat:</h3>
+     *
+     * Függvény elején:
+     * Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+     *
+     * Függvény végén:
+     * Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+     *
+     * Kérdés:
+     * String tudFelvenni = Skeleton.dontes("Tud felvenni felszerelest? (i - IGEN/n - NEM)");
+     * **/
+
     private static String tabs = "";
 
     public static void metodusEleje(String metodusNev) {
