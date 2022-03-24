@@ -20,7 +20,7 @@ public class Agens {
     /**
      * Konstruktorban megkapja, majd eltárolja, hogy melyik kódból lett létrehozva az adott ágens.
      * Beállítja az ágens szavatosságát, az adott kód által.
-     * @param kod
+     * @param kod A kód, ami alapján az ágenst léterhozták
      */
     public Agens(Kod kod){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
@@ -45,7 +45,7 @@ public class Agens {
 
     /**
      * Beállítja az élettartamát a kód
-     * @param ttl
+     * @param ttl A beállítani kívánt élettartam
      */
     public void setTtl(int ttl){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
@@ -58,11 +58,13 @@ public class Agens {
     /**
      * Csökkenti a ttl-t 1-gyel, minden körben.
      */
-    public void ttlCsokkent(){
+    public boolean ttlCsokkent(){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
         ttl--;
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        return ttl != 0;
     }
 }
