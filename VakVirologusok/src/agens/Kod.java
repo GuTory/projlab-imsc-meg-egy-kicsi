@@ -5,6 +5,8 @@ import util.Anyagok;
 import util.Taska;
 import virologus.Virologus;
 
+import util.Anyagok;
+
 public abstract class Kod {
     /**
      * A kódnak az azonosítója, ezzel lehet beazonosítani a különböző kódokat.
@@ -45,8 +47,7 @@ public abstract class Kod {
      * @return a kivétel sikerességét adja vissza. Ha nem volt elég anyag, akkor sikertelen - false-t ad vissza.
      */
     public boolean koltsegLevon(Taska taska) throws ExecutionControl.NotImplementedException {
-        taska.anyagKivesz(koltseg);
-        throw new ExecutionControl.NotImplementedException("Nincs implementálva");
+        return taska.anyagKivesz(koltseg);
     }
 
     /**Getterek**/

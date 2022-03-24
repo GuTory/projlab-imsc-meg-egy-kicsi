@@ -4,7 +4,7 @@ import jdk.jshell.spi.ExecutionControl;
 import util.Taska;
 import virologus.Virologus;
 
-public class Vedelem {
+public class Vedelem extends Kod{
 
     /**
      * Létrehoz egy ágenst, aminek a hatása védelem lesz.
@@ -12,7 +12,9 @@ public class Vedelem {
      * @return Agens, visszaadja a létrejött ágenst.
      */
     public Agens agensLetrehoz(Taska taska) throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("Nincs implementálva");
+        if(this.koltsegLevon(taska))
+            return new Agens(this);
+        else return null;
     }
 
     /**
@@ -20,6 +22,6 @@ public class Vedelem {
      * @param virologus, rá fejti ki hatását az ágens.
      */
     public void hatas(Virologus virologus) throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("Nincs implementálva");
+        virologus.setEllenallasErvenyesseg(virologus.TeljesSzazalekos, elettartam);
     }
 }
