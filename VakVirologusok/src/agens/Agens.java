@@ -1,5 +1,6 @@
 package agens;
 
+import jdk.jshell.spi.ExecutionControl;
 import virologus.Virologus;
 
 public class Agens {
@@ -27,7 +28,7 @@ public class Agens {
      * Meghívja a tartalmazó kódnak a hatás metódusát, és az alapján hat a virológusra, akit attribútumként kap.
      * @param virologus, ezen a virológuson fejti ki a hatását az ágens.
      */
-    public void hatas(Virologus virologus){
+    public void hatas(Virologus virologus) throws ExecutionControl.NotImplementedException {
         kod.hatas(virologus);
     }
 
