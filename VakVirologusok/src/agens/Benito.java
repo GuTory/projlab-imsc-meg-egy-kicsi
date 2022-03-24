@@ -1,5 +1,9 @@
 package agens;
 
+import jdk.jshell.spi.ExecutionControl;
+import util.Taska;
+import virologus.Virologus;
+
 public class Benito extends Kod{
 
     /**
@@ -7,7 +11,7 @@ public class Benito extends Kod{
      * @param taska, levonja belőle a költség anyagát.
      * @return Agens, visszaadja a létrejött ágenst.
      */
-    public Agens agensLetrehoz(Taska taska){
+    public Agens agensLetrehoz(Taska taska) throws ExecutionControl.NotImplementedException {
         throw new ExecutionControl.NotImplementedException("Nincs implementálva");
     }
 
@@ -16,7 +20,7 @@ public class Benito extends Kod{
      * paraméterben kapott számú vitustancViselkedést.
      * @param virologus, rá fejti ki hatását az ágens.
      */
-    public void hatas(Virologus virologus){
+    public void hatas(Virologus virologus) throws ExecutionControl.NotImplementedException {
         throw new ExecutionControl.NotImplementedException("Nincs implementálva");
     }
 }
