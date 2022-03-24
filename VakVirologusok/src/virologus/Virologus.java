@@ -8,6 +8,7 @@ import lombok.Setter;
 import lombok.Getter;
 import terkep.Mezo;
 import util.Taska;
+import skeleton.Skeleton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,7 +88,6 @@ public class Virologus {
      */
     public void megkent(Virologus keno, Agens mivel) throws ExecutionControl.NotImplementedException {
         throw new ExecutionControl.NotImplementedException("Nincs implementálva");
-
     }
 
     /**
