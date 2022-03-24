@@ -18,7 +18,7 @@ public abstract class Ellenallas {
     /**
      * Ha csak bizonyos körig érvényes a védekezés, akkor a megkent az alapján fogja eldönteni, hogy érvényes-e,
      * hogy a beállított időbélyeghez hozzáadja az ervenyesseg-et és ez nagyobb-e,
-     * mint a Jatek-tól lekérdezett jelenlegi időbélyeg.
+     * mint a jatek.Jatek-tól lekérdezett jelenlegi időbélyeg.
      */
     protected int idobelyeg;
 

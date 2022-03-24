@@ -1,4 +1,7 @@
+package jatek;
+
 import agens.Kod;
+import jatek.Jatek;
 import jdk.jshell.spi.ExecutionControl;
 import skeleton.Skeleton;
 import terkep.Mezo;

@@ -1,3 +1,5 @@
+package jatek;
+
 import jdk.jshell.spi.ExecutionControl;
 import skeleton.Skeleton;
 import virologus.Virologus;
