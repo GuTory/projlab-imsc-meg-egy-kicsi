@@ -3,6 +3,8 @@ package agens;
 import jdk.jshell.spi.ExecutionControl;
 import virologus.Virologus;
 
+import virologus.Virologus;
+
 public class Agens {
     /**
      * Az ágens hátralévő élettartama, kiinduló értéke a szavatosság, ha 0 lesz akkor megszűnik.
