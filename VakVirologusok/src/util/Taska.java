@@ -107,8 +107,12 @@ public class Taska {
      */
     public boolean agensBerak(Agens agens) {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        boolean siker = Skeleton.igenNem("Be tud rakni ennyi ágenst a táskába?");
+
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
-        return false;
+
+        return siker;
     }
 
     /**

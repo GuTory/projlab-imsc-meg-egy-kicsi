@@ -47,7 +47,7 @@ public abstract class Kod {
      * @param taska, ahonnan kiveszi az anyagokat.
      * @return a kivétel sikerességét adja vissza. Ha nem volt elég anyag, akkor sikertelen - false-t ad vissza.
      */
-    public boolean koltsegLevon(Taska taska) throws ExecutionControl.NotImplementedException {
+    public boolean koltsegLevon(Taska taska) {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
         boolean siker = taska.anyagKivesz(koltseg);
@@ -57,7 +57,7 @@ public abstract class Kod {
         return siker;
     }
 
-    /**Getterek**/
+    /* Getterek */
     /**
      * Visszaadja a kódnak a szavatosságát.
      * @return szavatossag

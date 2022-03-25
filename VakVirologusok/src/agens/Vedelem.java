@@ -12,7 +12,7 @@ public class Vedelem extends Kod{
      * @param taska, levonja belőle a költség anyagát.
      * @return Agens, visszaadja a létrejött ágenst.
      */
-    public Agens agensLetrehoz(Taska taska) throws ExecutionControl.NotImplementedException {
+    public Agens agensLetrehoz(Taska taska) {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
         if(this.koltsegLevon(taska)) {
