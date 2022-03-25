@@ -39,14 +39,8 @@ public abstract class Ellenallas {
      * @param szint az érvényesség szintje
      */
     public void setErvenyesseg(int szint) { //TODO: ne felejtsük el a setIdobelyeg()-et meghívni benne
-        throw new ExecutionControl.NotImplementedException("Nincs implementálva");
-    }
-
-    /**
-     * Lekérdezi és beállítja az időbélyeg értékét.
-     */
-    public void setIdobelyeg() {
-        throw new ExecutionControl.NotImplementedException("Nincs implementálva");
+        ervenyesseg =  szint;
+        if (ervenyesseg > 0) idobelyeg = Jatek.getIdobelyeg();
     }
 
 }
