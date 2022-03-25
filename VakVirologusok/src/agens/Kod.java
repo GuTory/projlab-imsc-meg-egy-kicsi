@@ -29,6 +29,13 @@ public abstract class Kod {
      */
     protected int szavatossag;
 
+    public Kod(int id, Anyagok koltseg, int elettartam, int szavatossag){
+        this.id = id;
+        this.koltseg = koltseg;
+        this.elettartam = elettartam;
+        this.szavatossag = szavatossag;
+    }
+
     /**
      * Egy absztrakt metódus, létrehoz egy ágenst a kiválasztott kódból, és visszaadja.
      * @param taska, kiveszi a paraméterben kapott táskából a szükséges költséget.

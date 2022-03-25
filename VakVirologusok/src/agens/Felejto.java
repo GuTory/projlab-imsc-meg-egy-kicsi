@@ -2,10 +2,22 @@ package agens;
 
 import jdk.jshell.spi.ExecutionControl;
 import skeleton.Skeleton;
+import util.Anyagok;
 import util.Taska;
 import virologus.Virologus;
 
 public class Felejto extends Kod{
+    /**
+     * Létrehoz egy felejtő kódot, beállítja az azonosítóját, a költségét, az élettartamát
+     * és a szavatosságát.
+     * @param id
+     * @param koltseg
+     * @param elettartam
+     * @param szavatossag
+     */
+    public Felejto(int id, Anyagok koltseg, int elettartam, int szavatossag){
+        super(id, koltseg, elettartam, szavatossag);
+    }
 
     /**
      * Létrehoz egy ágenst, aminek a hatása felejtő lesz.
