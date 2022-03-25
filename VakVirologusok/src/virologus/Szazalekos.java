@@ -19,7 +19,7 @@ public class Szazalekos extends Ellenallas{
 
     /**
      * Ha az érvényesség 0, akkor hamissal visszatér. Ha az érvényesség negatív, vagy az érvényesség pozitív és
-     * ellenallas.idobelyeg + ervenyesseg < Jatek.getIdobelyeg(), akkor sorsol egy random számot 0 és 100 között.
+     * ellenallas.idobelyeg + ervenyesseg < jatek.Jatek.getIdobelyeg(), akkor sorsol egy random számot 0 és 100 között.
      * Ha ez a random szám kisebb mint a vedArany, akkor igazzal
      * tér vissza. Minden más esetben hamissal tér vissza.
      * @param ki a kenő virológus

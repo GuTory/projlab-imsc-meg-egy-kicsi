@@ -1,5 +1,6 @@
 package felszereles;
 
+import skeleton.Skeleton;
 import util.Taska;
 import virologus.Virologus;
 
@@ -16,8 +17,12 @@ public class Zsak extends Felszereles{
      * @param taska
      */
     public  void fel(Virologus virologus, Taska taska){
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         taska.kapacitasNovel(novel);
         taska.felszerelesBerak(this);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
@@ -27,8 +32,12 @@ public class Zsak extends Felszereles{
      * @param taska
      */
     public  void le(Virologus virologus, Taska taska){
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         taska.kapacitasNovel(-novel);
         taska.felszerelesKivesz(this);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
@@ -36,6 +45,8 @@ public class Zsak extends Felszereles{
      * @return zsak_ID - zsák azonosítója.
      */
     public int getID(){
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
         return Felszereles_ID.zsak_ID;
     }
 }

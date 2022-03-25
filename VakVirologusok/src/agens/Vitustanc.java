@@ -1,6 +1,7 @@
 package agens;
 
 import jdk.jshell.spi.ExecutionControl;
+import skeleton.Skeleton;
 import util.Taska;
 import virologus.Virologus;
 import virologus.VitustancViselkedes;
@@ -12,9 +13,14 @@ public class Vitustanc extends Kod{
      * @return Agens, visszaadja a létrejött ágenst.
      */
     public Agens agensLetrehoz(Taska taska) throws ExecutionControl.NotImplementedException {
-        if(this.koltsegLevon(taska))
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        if(this.koltsegLevon(taska)){
+            Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
             return new Agens(this);
-        else return null;
+        }
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+        return null;
     }
 
     /**
@@ -23,6 +29,10 @@ public class Vitustanc extends Kod{
      * @param virologus, rá fejti ki hatását az ágens.
      */
     public void hatas(Virologus virologus) throws ExecutionControl.NotImplementedException {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         virologus.addViselkedes(elettartam, new VitustancViselkedes());
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 }
