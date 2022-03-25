@@ -4,5 +4,6 @@
 *.war
 *.ear
 *.nar
+*.iml
 .idea
 hs_err_pid*
