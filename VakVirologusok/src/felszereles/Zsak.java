@@ -8,7 +8,7 @@ public class Zsak extends Felszereles{
     /**
      * Ennyivel növeli a táska méretét a zsák.
      */
-    int novel;
+    final int novel = 2;
 
     /**
      * A paraméterben kapott virológusnak a táska kapacitását növeli, majd belerakja

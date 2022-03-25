@@ -8,10 +8,26 @@ import terkep.Mezo;
 import virologus.Virologus;
 
 public class Varos {
-    private static Kod kodok;
-    private static Virologus virologusok;
-    private static Mezo mezok;
+    /**
+     * A városban található kódok összessége.
+     */
+    private static Kod[] kodok;
 
+    /**
+     * A városban található virológusok összessége.
+     */
+    private static Virologus[] virologusok;
+
+    /**
+     * A városban található mezők összessége.
+     */
+    private static Mezo[] mezok;
+
+    /**
+     * Ellenőrzi, hogy a paraméterben kapott virológus minden kódot megtanult-e, ha igen,
+     * akkor véget vet a játéknak, és kihirdeti a győztest.
+     * @param virologus
+     */
     public static void vegeEllenoriz(Virologus virologus) throws ExecutionControl.NotImplementedException {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 

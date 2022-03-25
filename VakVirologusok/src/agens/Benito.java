@@ -2,11 +2,24 @@ package agens;
 
 import jdk.jshell.spi.ExecutionControl;
 import skeleton.Skeleton;
+import util.Anyagok;
 import util.Taska;
 import virologus.BenultViselkedes;
 import virologus.Virologus;
 
 public class Benito extends Kod{
+    /**
+     * Létrehoz egy bénító kódot, beállítja az azonosítóját, a költségét, az élettartamát
+     * és a szavatosságát.
+     * @param id
+     * @param koltseg
+     * @param elettartam
+     * @param szavatossag
+     */
+    public Benito(int id, Anyagok koltseg, int elettartam, int szavatossag){
+        super(id, koltseg, elettartam, szavatossag);
+    }
+
     /**
      * Létrehoz egy ágenst, aminek a hatása bénító lesz.
      * @param taska, levonja belőle a költség anyagát.
