@@ -30,6 +30,7 @@ public class Virologus {
     PriorityQueue
      <li>add(elem) hozzáad a sor végéhez</li>
      <li>poll() visszaadja és le is veszi az első elemet a sorból</li>**/
+    @Getter
     private LinkedList<Viselkedes> alternativViselkedesek;
 
     private Ellenallas[] ellenallasok;
@@ -51,7 +52,7 @@ public class Virologus {
         ellenallasok[TeljesSzazalekos] = new Szazalekos(100);
         ellenallasok[ReszlegesSzazalekos] = new Szazalekos(82.3);
 
-        taska = new Taska();
+        taska = new Taska(this);
     }
 
     private Viselkedes jelenlegiViselkedes() {

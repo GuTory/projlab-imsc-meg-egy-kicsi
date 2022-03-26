@@ -33,14 +33,16 @@ public class Skeleton {
         System.out.println(tabs + kerdes);
         System.out.print(tabs);
         Scanner sc = new Scanner(System.in);
-        return sc.nextLine();
+        String valasz = sc.nextLine();
+        return valasz;
     }
 
     public static boolean igenNem(String kerdes){
         System.out.println(tabs + kerdes + " (i - IGEN/n - Nem)");
         System.out.print(tabs);
         Scanner sc = new Scanner(System.in);
-        if(sc.equals("i") || sc.equals("")) return true;
+        String valasz = sc.nextLine();
+        if (valasz.equals("i") || valasz.equals("")) return true;
         return false;
     }
 
