@@ -4,7 +4,10 @@ import agens.Agens;
 import agens.Kod;
 import felszereles.Felszereles;
 import jdk.jshell.spi.ExecutionControl;
+import skeleton.Skeleton;
+import terkep.Mezo;
 import util.Anyagok;
+import util.Taska;
 
 public class BenultViselkedes extends Viselkedes {
     public BenultViselkedes() {
@@ -12,37 +15,54 @@ public class BenultViselkedes extends Viselkedes {
     }
 
     @Override
-    public boolean taskaElvehetoE() throws ExecutionControl.NotImplementedException {
-        return super.taskaElvehetoE();
+    public boolean taskaElvehetoE() {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+        return true;
     }
 
     @Override
-    public void mozog() throws ExecutionControl.NotImplementedException {
-        super.mozog();
+    public void mozog(Virologus ki, Mezo hely) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     @Override
-    public Anyagok anyagLop(Virologus kitol) throws ExecutionControl.NotImplementedException {
-        return super.anyagLop(kitol);
+    public Anyagok anyagLop(Virologus kitol) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+        return null;
     }
 
     @Override
-    public Felszereles felszerelesLop(Virologus kitol) throws ExecutionControl.NotImplementedException {
-        return super.felszerelesLop(kitol);
+    public Felszereles felszerelesLop(Virologus kitol) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+        return null;
     }
 
     @Override
-    public Agens agensLop(Virologus kitol) throws ExecutionControl.NotImplementedException {
-        return super.agensLop(kitol);
+    public Agens agensLop(Virologus kitol) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+        return null;
     }
 
     @Override
-    public void ken(Virologus ki, Virologus kit, Agens mivel) throws ExecutionControl.NotImplementedException {
-        super.ken(ki, kit, mivel);
+    public void ken(Virologus ki, Virologus kit, Agens mivel) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     @Override
-    public Agens agensEbbol(Kod kod) throws ExecutionControl.NotImplementedException {
-        return super.agensEbbol(kod);
+    public Agens agensEbbol(Kod kod, Taska taska) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Benult ";
     }
 }

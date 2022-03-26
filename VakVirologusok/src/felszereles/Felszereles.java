@@ -10,14 +10,14 @@ public abstract class Felszereles{
      * @param virologus, akin kifejti a hatását.
      * @param taska, ahova berakja a tárgyat.
      */
-    public abstract void fel(Virologus virologus, Taska taska) throws ExecutionControl.NotImplementedException;
+    public abstract void fel(Virologus virologus, Taska taska);
 
     /**
      * Elveszi a hatását az adott virológustól, és kiveszi a táskájából.
      * @param virologus, akitől elveszi a hatását.
      * @param taska, ahonnan kiveszi a tárgyat.
      */
-    public abstract void le(Virologus virologus, Taska taska) throws ExecutionControl.NotImplementedException;
+    public abstract void le(Virologus virologus, Taska taska);
 
     /**
      * Visszaadja az adott tárgynak az ID-ját, amit a Felszereles_ID osztályból olvas ki.

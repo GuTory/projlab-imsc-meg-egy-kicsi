@@ -6,4 +6,5 @@
 *.nar
 *.iml
 .idea
+*.iml
 hs_err_pid*

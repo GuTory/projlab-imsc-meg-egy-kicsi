@@ -7,13 +7,11 @@ import jdk.jshell.spi.ExecutionControl;
 import lombok.Setter;
 import lombok.Getter;
 import terkep.Mezo;
+import util.Anyagok;
 import util.Taska;
 import skeleton.Skeleton;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * A játékos által irányított osztály, melynek meg kell tanulnia az összes kódot, hogy véget érjen a játék.
@@ -32,7 +30,7 @@ public class Virologus {
     PriorityQueue
      <li>add(elem) hozzáad a sor végéhez</li>
      <li>poll() visszaadja és le is veszi az első elemet a sorból</li>**/
-    private Queue<Viselkedes> alternativViselkedesek;
+    private LinkedList<Viselkedes> alternativViselkedesek;
 
     private Ellenallas[] ellenallasok;
 
@@ -46,14 +44,24 @@ public class Virologus {
         kodok = new ArrayList<>();
 
         alapViselkedes = new Viselkedes();
-        alternativViselkedesek = new PriorityQueue<>();
+        alternativViselkedesek = new LinkedList<>();
 
-        ellenallasok = new Ellenallas[3];   //TODO: ezeknek a kostruktorának helyes beállítása
-        /*ellenallasok[Visszadob] = new Visszadob();
-        ellenallasok[TeljesSzazalekos] = new Szazalekos();
-        ellenallasok[ReszlegesSzazalekos] = new Szazalekos();*/
+        ellenallasok = new Ellenallas[3];
+        ellenallasok[Visszadob] = new Visszadob();
+        ellenallasok[TeljesSzazalekos] = new Szazalekos(100);
+        ellenallasok[ReszlegesSzazalekos] = new Szazalekos(82.3);
 
         taska = new Taska();
+    }
+
+    private Viselkedes jelenlegiViselkedes() {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        Viselkedes sorbol = alternativViselkedesek.pollFirst();
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        return sorbol != null ? sorbol : alapViselkedes;
     }
 
     /**
@@ -62,23 +70,30 @@ public class Virologus {
      */
     public void kor() throws ExecutionControl.NotImplementedException {
         throw new ExecutionControl.NotImplementedException("Nincs implementálva");
+
     }
 
     /**
      * Megtanulja azt a kódot, amit paraméterként kap.
      * @param kod a megtanulni kívánt kód.
      */
-    public void kodMegtanul(Kod kod) throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("Nincs implementálva");
+    public void kodMegtanul(Kod kod) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
+        kodok.add(kod);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
      * Elfelejti az összes eddig megtanult kódot.
      */
-    public void kodFelejt() throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("Nincs implementálva");
+    public void kodFelejt() {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
+        kodok = new ArrayList<>();
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
@@ -87,26 +102,48 @@ public class Virologus {
      * @param keno a kenést végző virológus.
      * @param mivel a virológusra kent ágens
      */
-    public void megkent(Virologus keno, Agens mivel) throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("Nincs implementálva");
+    public void megkent(Virologus keno, Agens mivel) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        if (keno == this) {
+            mivel.hatas(this);
+            return;
+        }
+
+        boolean siker = true;
+        for (Ellenallas ellenallas : ellenallasok) {
+            siker = ellenallas.megkent(keno, this, mivel);
+        }
+
+        if (siker) {
+            mivel.hatas(this);
+        }
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
      * Kiveszi a felszerelést a táskából.
      * @param felszereles a kivenni kívánt felszerelés
      */
-    public void kiFelszereles(Felszereles felszereles) throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("Nincs implementálva");
+    public void kiFelszereles(Felszereles felszereles) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
+        felszereles.le(this, taska);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
      * Beteszi a felszerelést a táskába.
      * @param felszereles a betenni kívánt felszerelés
      */
-    public void beFelszereles(Felszereles felszereles) throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("Nincs implementálva");
+    public void beFelszereles(Felszereles felszereles) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
+        felszereles.fel(this, taska);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
@@ -114,8 +151,12 @@ public class Virologus {
      * ha a virológus bénult állapotban van, akkor visszaadja a virológus táskáját.
      * @return taska, ha a virológus bénult, egyébként null
      */
-    public Taska taskaElvesz() throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("Nincs implementálva");
+    public Taska taskaElvesz() {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        return jelenlegiViselkedes().taskaElvehetoE() ? taska : null;
     }
 
     /**
@@ -123,8 +164,23 @@ public class Virologus {
      * @param korok hányszor tegye be a kapott viselkedést a sorba.
      * @param uj a viselkedés, ami szerint viselkedni fog a virológus a következő körökben.
      */
-    public void addViselkedes(int korok, Viselkedes uj) throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("Nincs implementálva");
+    public void addViselkedes(int korok, Viselkedes uj) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        for (int i = 0; i < korok; i++) {
+            try {
+                Viselkedes iter = alternativViselkedesek.get(i);
+                if (iter.getPrior() > uj.getPrior()) {
+                    alternativViselkedesek.remove(i);
+                    alternativViselkedesek.add(i, uj);
+                }
+            }
+            catch (Exception e) {
+                alternativViselkedesek.add(uj);
+            }
+        }
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
@@ -135,15 +191,24 @@ public class Virologus {
      * @param id az ellenállás id-ja. Kódolhataó a Virologus osztály publikus integerjeivel.
      * @param szint a védelmi szint.
      */
-    public void setEllenallasErvenyesseg(int id, int szint) throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("Nincs implementálva");
+    public void setEllenallasErvenyesseg(int id, int szint) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        if (id != Visszadob || id != TeljesSzazalekos || id != ReszlegesSzazalekos) throw new IndexOutOfBoundsException("Használd a publikus int-eket az indexelésre!");
+        ellenallasok[id].setErvenyesseg(szint);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
      * A virológus által kiválasztott mezőre lép.
      */
-    public void mozog() throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("Nincs implementálva");
+    public void mozog() {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        jelenlegiViselkedes().mozog(this, hely);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
@@ -151,24 +216,42 @@ public class Virologus {
      * ellopható anyagokat.
      * @param kitol az a virológus akitől lopni akar
      */
-    public void anyagLop(Virologus kitol) throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("Nincs implementálva");
+    public void anyagLop(Virologus kitol) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        Anyagok lopott = jelenlegiViselkedes().anyagLop(kitol);
+        if (lopott != null) taska.anyagBerak(lopott);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
      *
      * @param kitol az a virológus akitől lopni akar
      */
-    public void felszerelesLop(Virologus kitol) throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("Nincs implementálva");
+    public void felszerelesLop(Virologus kitol) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        Felszereles lopott = jelenlegiViselkedes().felszerelesLop(kitol);
+        if (lopott != null) {
+            kitol.kiFelszereles(lopott);
+            beFelszereles(lopott);
+        }
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
      *
      * @param kitol az a virológus akitől lopni akar
      */
-    public void agensLop(Virologus kitol) throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("Nincs implementálva");
+    public void agensLop(Virologus kitol) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        Agens lopott = jelenlegiViselkedes().agensLop(kitol);
+        if (lopott != null) taska.agensBerak(lopott);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
@@ -177,15 +260,24 @@ public class Virologus {
      * @param kit a megkent virológus
      * @param mivel a virológusra kent ágens
      */
-    public void ken(Virologus ki, Virologus kit, Agens mivel) throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("Nincs implementálva");
+    public void ken(Virologus ki, Virologus kit, Agens mivel) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        jelenlegiViselkedes().ken(ki, kit, mivel);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
      * Létrehoz egy ágenst, majd visszaadja azt.
      * @param kod a kód ami alapján az ágenst létre akarja hozni
      */
-    public void agensEbbol(Kod kod) throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("Nincs implementálva");
+    public void agensEbbol(Kod kod) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        Agens keszitett = jelenlegiViselkedes().agensEbbol(kod, taska);
+        if (keszitett != null) taska.agensBerak(keszitett);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 }
