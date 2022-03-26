@@ -13,7 +13,7 @@ public class Kopeny extends Felszereles{
      * @param virologus
      * @param taska
      */
-    public  void fel(Virologus virologus, Taska taska) throws ExecutionControl.NotImplementedException {
+    public  void fel(Virologus virologus, Taska taska){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
         virologus.setEllenallasErvenyesseg(virologus.ReszlegesSzazalekos, -1);
@@ -28,7 +28,7 @@ public class Kopeny extends Felszereles{
      * @param virologus
      * @param taska
      */
-    public  void le(Virologus virologus, Taska taska) throws ExecutionControl.NotImplementedException {
+    public  void le(Virologus virologus, Taska taska){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
         virologus.setEllenallasErvenyesseg(virologus.ReszlegesSzazalekos, 0);

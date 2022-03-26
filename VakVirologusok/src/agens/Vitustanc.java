@@ -25,7 +25,7 @@ public class Vitustanc extends Kod{
      * @param taska, levonja belőle a költség anyagát.
      * @return Agens, visszaadja a létrejött ágenst.
      */
-    public Agens agensLetrehoz(Taska taska) throws ExecutionControl.NotImplementedException {
+    public Agens agensLetrehoz(Taska taska){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
         if(this.koltsegLevon(taska)){
@@ -41,7 +41,7 @@ public class Vitustanc extends Kod{
      * paraméterben kapott számú vitustancViselkedést.
      * @param virologus, rá fejti ki hatását az ágens.
      */
-    public void hatas(Virologus virologus) throws ExecutionControl.NotImplementedException {
+    public void hatas(Virologus virologus){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
         virologus.addViselkedes(elettartam, new VitustancViselkedes());

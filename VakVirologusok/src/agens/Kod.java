@@ -41,13 +41,13 @@ public abstract class Kod {
      * @param taska, kiveszi a paraméterben kapott táskából a szükséges költséget.
      * @return Agens, létrehozott ágenst visszaadja.
      */
-    public abstract Agens agensLetrehoz(Taska taska) throws ExecutionControl.NotImplementedException;
+    public abstract Agens agensLetrehoz(Taska taska);
 
     /**
      * Egy absztrakt metódus, a paraméterként kapott virológusra az adott kód kifejti hatását, akire rákenték az ágenst.
      * @param virologus, akire a hatás fejtődik
      */
-    public abstract void hatas(Virologus virologus) throws ExecutionControl.NotImplementedException;
+    public abstract void hatas(Virologus virologus);
 
     /**
      * Kiveszi a költséget a paraméterként kapott táskából.

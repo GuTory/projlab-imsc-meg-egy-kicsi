@@ -12,7 +12,7 @@ public class Kesztyu extends Felszereles{
      * @param virologus
      * @param taska
      */
-    public void fel(Virologus virologus, Taska taska) throws ExecutionControl.NotImplementedException {
+    public void fel(Virologus virologus, Taska taska){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
         virologus.setEllenallasErvenyesseg(virologus.Visszadob, -1);
@@ -27,7 +27,7 @@ public class Kesztyu extends Felszereles{
      * @param virologus
      * @param taska
      */
-    public  void le(Virologus virologus, Taska taska) throws ExecutionControl.NotImplementedException {
+    public  void le(Virologus virologus, Taska taska){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
         virologus.setEllenallasErvenyesseg(virologus.Visszadob, 0);
