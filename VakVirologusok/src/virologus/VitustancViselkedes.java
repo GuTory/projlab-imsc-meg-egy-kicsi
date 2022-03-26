@@ -15,7 +15,7 @@ public class VitustancViselkedes extends Viselkedes{
         List<Mezo> szomszedok = jelenlegi.getSzomszedok();
         Mezo uj = szomszedok.get(new Random().nextInt(szomszedok.size()));
         jelenlegi.virologusKi(ki);
-        uj.virologusbe(ki);
+        uj.virologusBe(ki);
         ki.setHely(uj);
         uj.akcio(ki);
     }

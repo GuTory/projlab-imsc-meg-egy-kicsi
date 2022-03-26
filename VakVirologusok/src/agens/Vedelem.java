@@ -39,7 +39,7 @@ public class Vedelem extends Kod{
      * A virológusnak beállítja a védelmét egy bizonyos számú körig.
      * @param virologus, rá fejti ki hatását az ágens.
      */
-    public void hatas(Virologus virologus) throws ExecutionControl.NotImplementedException {
+    public void hatas(Virologus virologus){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
         virologus.setEllenallasErvenyesseg(virologus.TeljesSzazalekos, elettartam);

@@ -52,7 +52,7 @@ public class Mezo {
     /**
      * A mezőben elvégezhető akció (a mezőben ez éppen semmi, de a leszármazottak felüldefiniálják)
      */
-    public void akcio(Virologus virologus) throws ExecutionControl.NotImplementedException {
+    public void akcio(Virologus virologus){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
         return;

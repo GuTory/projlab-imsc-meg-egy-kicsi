@@ -28,7 +28,7 @@ public class Varos {
      * akkor véget vet a játéknak, és kihirdeti a győztest.
      * @param virologus
      */
-    public static void vegeEllenoriz(Virologus virologus) throws ExecutionControl.NotImplementedException {
+    public static void vegeEllenoriz(Virologus virologus){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
         if(Skeleton.igenNem("Megtanult minden kódot a virológus?"))

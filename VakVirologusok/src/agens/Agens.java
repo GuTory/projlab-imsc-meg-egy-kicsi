@@ -35,7 +35,7 @@ public class Agens {
      * Meghívja a tartalmazó kódnak a hatás metódusát, és az alapján hat a virológusra, akit attribútumként kap.
      * @param virologus, ezen a virológuson fejti ki a hatását az ágens.
      */
-    public void hatas(Virologus virologus) throws ExecutionControl.NotImplementedException {
+    public void hatas(Virologus virologus){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
         kod.hatas(virologus);
