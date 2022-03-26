@@ -132,7 +132,7 @@ public class Viselkedes {
     public void ken(Virologus ki, Virologus kit, Agens mivel) {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
-        mivel.setTtl(2);
+        mivel.setTtl(3);
         kit.megkent(ki, mivel);
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());

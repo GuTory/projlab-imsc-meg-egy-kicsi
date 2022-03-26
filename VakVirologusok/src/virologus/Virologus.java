@@ -114,6 +114,7 @@ public class Virologus {
         boolean siker = true;
         for (Ellenallas ellenallas : ellenallasok) {
             siker = ellenallas.megkent(keno, this, mivel);
+            if (!siker) break;
         }
 
         if (siker) {
@@ -195,7 +196,7 @@ public class Virologus {
     public void setEllenallasErvenyesseg(int id, int szint) {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
-        if (id != Visszadob || id != TeljesSzazalekos || id != ReszlegesSzazalekos) throw new IndexOutOfBoundsException("Használd a publikus int-eket az indexelésre!");
+        if (id != Visszadob && id != TeljesSzazalekos && id != ReszlegesSzazalekos) throw new IndexOutOfBoundsException("Használd a publikus int-eket az indexelésre!");
         ellenallasok[id].setErvenyesseg(szint);
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
