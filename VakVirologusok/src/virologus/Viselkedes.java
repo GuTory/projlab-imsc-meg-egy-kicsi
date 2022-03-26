@@ -63,9 +63,11 @@ public class Viselkedes {
         Taska lopott_taska = kitol.taskaElvesz();
         Anyagok lopott_anyag = null;
         if (lopott_taska != null) {
-
-            lopott_anyag = new Anyagok(); //TODO mennyit vesz ki
-            lopott_taska.anyagKivesz(lopott_anyag);
+            do {
+                int n = Integer.parseInt(Skeleton.dontes("Mennyi nukleotidot veszel ki? (csak a szám)?"));
+                int a = Integer.parseInt(Skeleton.dontes("Mennyi aminosavat veszel ki? (csak a szám)?"));
+                lopott_anyag = new Anyagok(n, a);
+            } while(lopott_taska.anyagKivesz(lopott_anyag));
         }
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
@@ -88,7 +90,8 @@ public class Viselkedes {
         }
         Felszereles lopott = null;
         if (felszerelesek != null) {
-            lopott = felszerelesek.get(0); //TODO mit vesz ki
+            int ID = Integer.parseInt(Skeleton.dontes("Melyik Agens-t választod (csak a szám)? 0-" + (felszerelesek.size()-1)));
+            lopott = felszerelesek.get(ID);
         }
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
@@ -111,7 +114,8 @@ public class Viselkedes {
         }
         Agens lopott = null;
         if (agensek != null) {
-            lopott = agensek.get(0); //TODO mit vesz ki
+            int ID = Integer.parseInt(Skeleton.dontes("Melyik Agens-t választod (csak a szám)? 0-" + (agensek.size()-1)));
+            lopott = agensek.get(ID);
         }
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
