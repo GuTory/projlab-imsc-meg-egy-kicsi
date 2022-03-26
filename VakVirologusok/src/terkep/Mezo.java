@@ -10,6 +10,7 @@ import virologus.Virologus;
 import java.util.ArrayList;
 
 /**
+ * A várost alkotó elemek egy fajtája, egy egység, amin virológusok lehetnek.
  * Konstruktorhívás után fel kell tölteni mindegyiket.
  */
 public class Mezo {

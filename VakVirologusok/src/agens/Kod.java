@@ -29,6 +29,13 @@ public abstract class Kod {
      */
     protected int szavatossag;
 
+    public Kod(int id, Anyagok koltseg, int elettartam, int szavatossag){
+        this.id = id;
+        this.koltseg = koltseg;
+        this.elettartam = elettartam;
+        this.szavatossag = szavatossag;
+    }
+
     /**
      * Egy absztrakt metódus, létrehoz egy ágenst a kiválasztott kódból, és visszaadja.
      * @param taska, kiveszi a paraméterben kapott táskából a szükséges költséget.
@@ -47,7 +54,7 @@ public abstract class Kod {
      * @param taska, ahonnan kiveszi az anyagokat.
      * @return a kivétel sikerességét adja vissza. Ha nem volt elég anyag, akkor sikertelen - false-t ad vissza.
      */
-    public boolean koltsegLevon(Taska taska) throws ExecutionControl.NotImplementedException {
+    public boolean koltsegLevon(Taska taska) {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
         boolean siker = taska.anyagKivesz(koltseg);
@@ -57,7 +64,7 @@ public abstract class Kod {
         return siker;
     }
 
-    /**Getterek**/
+    /* Getterek */
     /**
      * Visszaadja a kódnak a szavatosságát.
      * @return szavatossag

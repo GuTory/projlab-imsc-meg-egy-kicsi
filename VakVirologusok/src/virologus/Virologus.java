@@ -65,7 +65,8 @@ public class Virologus {
     }
 
     /**
-     * Elkezdi a virológus körét, meghívja a Cselekmenynek az összes metódusát amivel a játékos irányíthatja a virológust (mozog, lop, ken, stb.) és amit a játékos tenni is szeretne vele.
+     * Elkezdi a virológus körét, meghívja a Cselekmenynek az összes metódusát amivel a
+     * játékos irányíthatja a virológust (mozog, lop, ken, stb.) és amit a játékos tenni is szeretne vele.
      */
     public void kor() throws ExecutionControl.NotImplementedException {
         throw new ExecutionControl.NotImplementedException("Nincs implementálva");
