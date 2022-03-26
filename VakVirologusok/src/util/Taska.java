@@ -7,6 +7,7 @@ import lombok.Getter;
 import skeleton.Skeleton;
 import virologus.Virologus;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Taska {
@@ -19,7 +20,7 @@ public class Taska {
     /**
      * Táskában levő anyagok mennyiségének maximuma
      */
-    private int maxAnyagok;
+    private int maxAnyagok = 50;
 
     /**
      * Táskában levő anyagok
@@ -37,6 +38,13 @@ public class Taska {
      */
     @Getter
     private List<Felszereles> felszerelesek;
+
+    public Taska(Virologus virologus) {
+        this.virologus = virologus;
+        anyagok = new Anyagok(0,0);
+        agensek = new ArrayList<>();
+        felszerelesek = new ArrayList<>();
+    }
 
     /**
      * Berakja a paraméterként kapott felszerelést a
