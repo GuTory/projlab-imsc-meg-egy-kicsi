@@ -46,7 +46,7 @@ public class Virologus {
         alapViselkedes = new Viselkedes();
         alternativViselkedesek = new LinkedList<>();
 
-        ellenallasok = new Ellenallas[3];   //TODO: ezeknek a kostruktorának helyes beállítása
+        ellenallasok = new Ellenallas[3];
         ellenallasok[Visszadob] = new Visszadob();
         ellenallasok[TeljesSzazalekos] = new Szazalekos(100);
         ellenallasok[ReszlegesSzazalekos] = new Szazalekos(82.3);
@@ -55,7 +55,12 @@ public class Virologus {
     }
 
     private Viselkedes jelenlegiViselkedes() {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         Viselkedes sorbol = alternativViselkedesek.pollFirst();
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         return sorbol != null ? sorbol : alapViselkedes;
     }
 
@@ -72,14 +77,22 @@ public class Virologus {
      * @param kod a megtanulni kívánt kód.
      */
     public void kodMegtanul(Kod kod) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         kodok.add(kod);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
      * Elfelejti az összes eddig megtanult kódot.
      */
     public void kodFelejt() {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         kodok = new ArrayList<>();
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
@@ -89,6 +102,8 @@ public class Virologus {
      * @param mivel a virológusra kent ágens
      */
     public void megkent(Virologus keno, Agens mivel) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         if (keno == this) {
             mivel.hatas(this);
             return;
@@ -102,6 +117,8 @@ public class Virologus {
         if (siker) {
             mivel.hatas(this);
         }
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
@@ -109,7 +126,11 @@ public class Virologus {
      * @param felszereles a kivenni kívánt felszerelés
      */
     public void kiFelszereles(Felszereles felszereles) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         felszereles.le(this, taska);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
@@ -117,7 +138,11 @@ public class Virologus {
      * @param felszereles a betenni kívánt felszerelés
      */
     public void beFelszereles(Felszereles felszereles) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         felszereles.fel(this, taska);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
@@ -126,6 +151,10 @@ public class Virologus {
      * @return taska, ha a virológus bénult, egyébként null
      */
     public Taska taskaElvesz() {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         return jelenlegiViselkedes().taskaElvehetoE() ? taska : null;
     }
 
@@ -135,7 +164,9 @@ public class Virologus {
      * @param uj a viselkedés, ami szerint viselkedni fog a virológus a következő körökben.
      */
     public void addViselkedes(int korok, Viselkedes uj) {
-/*        for (int i = 0; i < korok; i++) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        for (int i = 0; i < korok; i++) {
             try {
                 Viselkedes iter = alternativViselkedesek.get(i);
                 if (iter.getPrior() > uj.getPrior()) {
@@ -146,7 +177,9 @@ public class Virologus {
             catch (Exception e) {
                 alternativViselkedesek.add(uj);
             }
-        }*/
+        }
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
@@ -158,15 +191,23 @@ public class Virologus {
      * @param szint a védelmi szint.
      */
     public void setEllenallasErvenyesseg(int id, int szint) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         if (id != Visszadob || id != TeljesSzazalekos || id != ReszlegesSzazalekos) throw new IndexOutOfBoundsException("Használd a publikus int-eket az indexelésre!");
         ellenallasok[id].setErvenyesseg(szint);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
      * A virológus által kiválasztott mezőre lép.
      */
     public void mozog() {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         jelenlegiViselkedes().mozog(this, hely);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
@@ -175,8 +216,12 @@ public class Virologus {
      * @param kitol az a virológus akitől lopni akar
      */
     public void anyagLop(Virologus kitol) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         Anyagok lopott = jelenlegiViselkedes().anyagLop(kitol);
         if (lopott != null) taska.anyagBerak(lopott);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
@@ -184,11 +229,15 @@ public class Virologus {
      * @param kitol az a virológus akitől lopni akar
      */
     public void felszerelesLop(Virologus kitol) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         Felszereles lopott = jelenlegiViselkedes().felszerelesLop(kitol);
         if (lopott != null) {
             kitol.kiFelszereles(lopott);
             beFelszereles(lopott);
         }
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
@@ -196,8 +245,12 @@ public class Virologus {
      * @param kitol az a virológus akitől lopni akar
      */
     public void agensLop(Virologus kitol) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         Agens lopott = jelenlegiViselkedes().agensLop(kitol);
         if (lopott != null) taska.agensBerak(lopott);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
@@ -207,7 +260,11 @@ public class Virologus {
      * @param mivel a virológusra kent ágens
      */
     public void ken(Virologus ki, Virologus kit, Agens mivel) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         jelenlegiViselkedes().ken(ki, kit, mivel);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
@@ -215,7 +272,11 @@ public class Virologus {
      * @param kod a kód ami alapján az ágenst létre akarja hozni
      */
     public void agensEbbol(Kod kod) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         Agens keszitett = jelenlegiViselkedes().agensEbbol(kod, taska);
         if (keszitett != null) taska.agensBerak(keszitett);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 }

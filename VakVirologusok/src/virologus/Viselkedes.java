@@ -3,8 +3,8 @@ package virologus;
 import agens.Agens;
 import agens.Kod;
 import felszereles.Felszereles;
-import jdk.jshell.spi.ExecutionControl;
 import lombok.Getter;
+import skeleton.Skeleton;
 import terkep.Mezo;
 import util.Anyagok;
 import util.Taska;
@@ -28,6 +28,9 @@ public class Viselkedes {
      * @return elvehető-e a táska
      */
     public boolean taskaElvehetoE() {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
         return false;
     }
 
@@ -35,12 +38,17 @@ public class Viselkedes {
      * A virológus által kiválasztott mezőre lép.
      */
     public void mozog(Virologus ki, Mezo jelenlegi) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         List<Mezo> szomszedok = jelenlegi.getSzomszedok();
-        Mezo uj = szomszedok.get(0); //TODO: döntés
+        int ujID = Integer.parseInt(Skeleton.dontes("Hanyadik Mezo-t választod (csak a szám)? 0-" + (szomszedok.size()-1)));
+        Mezo uj = szomszedok.get(ujID);
         jelenlegi.virologusKi(ki);
-        uj.virologusbe(ki);
+        uj.virologusBe(ki);
         ki.setHely(uj);
         uj.akcio(ki);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
@@ -50,11 +58,18 @@ public class Viselkedes {
      * @return az ellopott anyag
      */
     public Anyagok anyagLop(Virologus kitol) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         Taska lopott_taska = kitol.taskaElvesz();
         Anyagok lopott_anyag = null;
         if (lopott_taska != null) {
-            lopott_anyag = lopott_taska.anyagKivesz(null); //TODO mennyit vesz ki
+
+            lopott_anyag = new Anyagok(); //TODO mennyit vesz ki
+            lopott_taska.anyagKivesz(lopott_anyag);
         }
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         return lopott_anyag;
     }
 
@@ -64,6 +79,8 @@ public class Viselkedes {
      * @return az ellopott felszerelés
      */
     public Felszereles felszerelesLop(Virologus kitol) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         Taska lopott_taska = kitol.taskaElvesz();
         List<Felszereles> felszerelesek = null;
         if (lopott_taska != null) {
@@ -73,6 +90,9 @@ public class Viselkedes {
         if (felszerelesek != null) {
             lopott = felszerelesek.get(0); //TODO mit vesz ki
         }
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         return lopott;
     }
 
@@ -82,6 +102,8 @@ public class Viselkedes {
      * @return az ellopott ágens
      */
     public Agens agensLop(Virologus kitol) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         Taska lopott_taska = kitol.taskaElvesz();
         List<Agens> agensek = null;
         if (lopott_taska != null) {
@@ -91,6 +113,9 @@ public class Viselkedes {
         if (agensek != null) {
             lopott = agensek.get(0); //TODO mit vesz ki
         }
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         return lopott;
     }
 
@@ -101,8 +126,12 @@ public class Viselkedes {
      * @param mivel a virológusra kent ágens
      */
     public void ken(Virologus ki, Virologus kit, Agens mivel) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         mivel.setTtl(2);
         kit.megkent(ki, mivel);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
@@ -111,11 +140,13 @@ public class Viselkedes {
      * @return a létrehozott ágens
      */
     public Agens agensEbbol(Kod kod, Taska taska) {
-        return kod.agensLetrehoz(taska);
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        Agens uj = kod.agensLetrehoz(taska);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        return uj;
     }
 
-    @Override
-    public String toString() {
-        return "Sima ";
-    }
 }

@@ -1,7 +1,11 @@
 package virologus;
 
 import agens.Agens;
+import jatek.Jatek;
 import jdk.jshell.spi.ExecutionControl;
+import skeleton.Skeleton;
+
+import java.util.Random;
 
 /**
  * A virológusnak az ágenskenés ellen százalékos védettséget biztosító osztály.
@@ -29,6 +33,17 @@ public class Szazalekos extends Ellenallas{
      */
     @Override
     public boolean megkent(Virologus ki, Virologus kit, Agens mivel) {
-        throw new ExecutionControl.NotImplementedException("Nincs implementálva");
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        if (!this.ervenyesE()) {
+            Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+            return true;
+        }
+
+        //return new Random().nextDouble()*100 <= this.vedArany;
+
+        boolean choice = Skeleton.igenNem("Megvédje a százalékos?");
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+        return choice;
     }
 }
