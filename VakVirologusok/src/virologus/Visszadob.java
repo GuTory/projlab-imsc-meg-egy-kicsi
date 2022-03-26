@@ -28,6 +28,10 @@ public class Visszadob extends Ellenallas{
             return true;
         }
 
+        if (!mivel.ttlCsokkent()) { //már nem dobható vissza
+            return true;
+        }
+
         boolean choice = Skeleton.igenNem("Visszadobod?");
         if (choice) {
             ki.megkent(kit, mivel);
