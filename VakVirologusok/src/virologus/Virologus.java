@@ -73,7 +73,7 @@ public class Virologus {
 
         /*Viselkedes sorbol = alternativViselkedesek.pollFirst();
 
-        return sorbol != null ? sorbol : alapViselkedes;*/
+        return sorbol == null ? alapViselkedes : sorbol;*/
     }
 
     /**
