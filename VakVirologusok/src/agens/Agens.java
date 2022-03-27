@@ -62,7 +62,7 @@ public class Agens {
     public boolean ttlCsokkent(){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
-        boolean megszunik = Skeleton.igenNem("Megszűnik a visszadobás lehetősége?");
+        boolean megszunik = Skeleton.igenNem("Megszűnik az ágens / a visszadobás lehetősége?");
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
 

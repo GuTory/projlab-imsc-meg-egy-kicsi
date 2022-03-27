@@ -28,10 +28,9 @@ public class Program {
                 "0: jatekIndit\n" +
                 "1: testAgensEbbol\n" +
                 "2: testKen\n" +
-                "3: testKesztyusKenes\n" +
-                "4: testMozog\n" +
-                "5: testAgensLep\n" +
-                "6: testLop"));
+                "3: testMozog\n" +
+                "4: testAgensLep\n" +
+                "5: testLop"));
         switch (teszt) {
             case 0:
                 testJatekIndit();
@@ -43,15 +42,12 @@ public class Program {
                 testKen();
                 break;
             case 3:
-                testKesztyusKenes();
-                break;
-            case 4:
                 testMozog();
                 break;
-            case 5:
+            case 4:
                 testAgensLep();
                 break;
-            case 6:
+            case 5:
                 testLop();
                 break;
             default:
@@ -95,17 +91,6 @@ public class Program {
         v1.ken(v1, v2, agens);
     }
 
-    private static void testKesztyusKenes(){
-        Virologus v1 = new Virologus();
-        Virologus v2 = new Virologus();
-        Kod k = new Benito(1, new Anyagok(1,1), 1, 1);
-        v1.setEllenallasErvenyesseg(v1.Visszadob, -1);
-        v2.setEllenallasErvenyesseg(v2.Visszadob, -1);
-        Agens agens = new Agens(k);
-        clrscr();
-        v1.ken(v1, v2, agens);
-    }
-
     private static void testMozog() {
         Virologus v1 = new Virologus();
         Mezo m1 = new Mezo();
@@ -121,8 +106,8 @@ public class Program {
         Virologus v1 = new Virologus();
         Kod k = new Benito(1, new Anyagok(1, 1), 1, 1);
         Agens agens = new Agens(k);
-        v1.getTaska().agensBerak(agens);
         clrscr();
+        v1.getTaska().agensBerak(agens);
         v1.getTaska().agensLep();
     }
 
