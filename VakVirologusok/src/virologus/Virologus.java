@@ -59,7 +59,7 @@ public class Virologus {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
         Viselkedes viselkedes;
 
-        String allapot = Skeleton.dontes("Milyen állapotban van a virológus? (a - ALAP, b - bénult, v - vitustánc)");
+        String allapot = Skeleton.dontes("Milyen állapotban van a virológus? (a: ALAP/b: bénult/v: vitustánc)");
 
         if (allapot.equals("b")) {
             viselkedes = new BenultViselkedes();
