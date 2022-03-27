@@ -23,12 +23,12 @@ public class Agens {
      * @param kod A kód, ami alapján az ágenst léterhozták
      */
     public Agens(Kod kod){
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+        Skeleton.metodusEleje("Agens konstruktor");
 
         this.kod = kod;
         ttl = kod.getSzavatossag();
 
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+        Skeleton.metodusVege("Agens konstruktor");
     }
 
     /**

@@ -70,8 +70,6 @@ public abstract class Kod {
      * @return szavatossag
      */
     public int getSzavatossag() {
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
         return szavatossag;
     }
 }
