@@ -57,12 +57,23 @@ public class Virologus {
 
     private Viselkedes jelenlegiViselkedes() {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+        Viselkedes viselkedes;
 
-        Viselkedes sorbol = alternativViselkedesek.pollFirst();
+        String allapot = Skeleton.dontes("Milyen állapotban van a virológus? (a - ALAP, b - bénult, v - vitustánc)");
 
+        if (allapot.equals("b")) {
+            viselkedes = new BenultViselkedes();
+        } else if (allapot.equals("v")) {
+            viselkedes = new VitustancViselkedes();
+        } else {
+            viselkedes = new Viselkedes();
+        }
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+        return viselkedes;
 
-        return sorbol != null ? sorbol : alapViselkedes;
+        /*Viselkedes sorbol = alternativViselkedesek.pollFirst();
+
+        return sorbol != null ? sorbol : alapViselkedes;*/
     }
 
     /**
@@ -156,9 +167,10 @@ public class Virologus {
     public Taska taskaElvesz() {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
+        Taska ret = jelenlegiViselkedes().taskaElvehetoE() ? taska : null;
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
 
-        return jelenlegiViselkedes().taskaElvehetoE() ? taska : null;
+        return ret;
     }
 
     /**
@@ -208,21 +220,7 @@ public class Virologus {
     public void mozog() {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
-        //jelenlegiViselkedes().mozog(this, hely);
-
-        Viselkedes viselkedes;
-
-        String allapot = Skeleton.dontes("Milyen állapotban van a virológus? (a - ALAP, b - bénult, v - vitustánc)");
-
-        if (allapot.equals("b")) {
-            viselkedes = new BenultViselkedes();
-        } else if (allapot.equals("v")) {
-            viselkedes = new VitustancViselkedes();
-        } else {
-            viselkedes = new Viselkedes();
-        }
-
-        viselkedes.mozog(this, hely);
+        jelenlegiViselkedes().mozog(this, hely);
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }

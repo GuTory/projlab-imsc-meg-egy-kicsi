@@ -34,7 +34,6 @@ public class Viselkedes {
      */
     public boolean taskaElvehetoE() {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
         return false;
     }

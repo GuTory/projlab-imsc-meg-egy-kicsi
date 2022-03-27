@@ -30,6 +30,7 @@ public class Program {
         //testKesztyusKenes();
         testMozog();
         //testAgensLep();
+        //testLop();
     }
 
     private static void testAgensEbbol() {
@@ -86,11 +87,13 @@ public class Program {
         v1.getTaska().agensLep();
     }
 
-    /*private static void test() {
-
+    private static void testLop() {
+        Virologus v1 = new Virologus();
+        Virologus v2 = new Virologus();
+        v1.anyagLop(v2);
     }
 
-    private static void test() {
+    /*private static void test() {
 
     }
 
