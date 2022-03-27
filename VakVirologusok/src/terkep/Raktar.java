@@ -28,6 +28,6 @@ public class Raktar extends Mezo{
         Taska taska = virologus.getTaska();
         taska.anyagBerak(anyagok);
 
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 }

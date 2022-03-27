@@ -1,5 +1,6 @@
 package virologus;
 
+import skeleton.Skeleton;
 import terkep.Mezo;
 
 import java.util.List;
@@ -12,12 +13,16 @@ public class VitustancViselkedes extends Viselkedes{
 
     @Override
     public void mozog(Virologus ki, Mezo jelenlegi) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
         List<Mezo> szomszedok = jelenlegi.getSzomszedok();
         Mezo uj = szomszedok.get(new Random().nextInt(szomszedok.size()));
         jelenlegi.virologusKi(ki);
         uj.virologusBe(ki);
         ki.setHely(uj);
         uj.akcio(ki);
+
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     @Override
