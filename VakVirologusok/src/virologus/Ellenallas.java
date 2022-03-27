@@ -66,8 +66,14 @@ public abstract class Ellenallas {
      */
     protected boolean ervenyesE() {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+        //teszt miatt innen
+        boolean dontes = Skeleton.igenNem("Ervenyes a " + this.getClass() + " ellenállás?");
+        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+        return dontes;
+        //eddig
 
-        //Érvényes volt, de csak adott ideig és már nem érvényes. Érvénytelenítjük.
+        //ez az eredeti
+        /*//Érvényes volt, de csak adott ideig és már nem érvényes. Érvénytelenítjük.
         if (this.ervenyesseg > 0 && this.idobelyeg + this.ervenyesseg < Jatek.getIdobelyeg()) {
             this.ervenyesseg = 0;
         }
@@ -75,7 +81,7 @@ public abstract class Ellenallas {
         //>0 csak ha még érvényes az adott körben
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
-        return this.ervenyesseg != 0;
+        return this.ervenyesseg != 0;*/
     }
 
 }
