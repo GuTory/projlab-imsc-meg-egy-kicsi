@@ -1,5 +1,6 @@
 import agens.*;
 import felszereles.Kesztyu;
+import felszereles.Kopeny;
 import skeleton.Skeleton;
 import terkep.Labor;
 import terkep.Mezo;
@@ -28,9 +29,9 @@ public class Program {
         //testAgensEbbol();
         //testKen();
         //testKesztyusKenes();
-        testMozog();
+        //testMozog();
         //testAgensLep();
-        //testLop();
+        testLop();
     }
 
     private static void testAgensEbbol() {
@@ -90,7 +91,25 @@ public class Program {
     private static void testLop() {
         Virologus v1 = new Virologus();
         Virologus v2 = new Virologus();
-        v1.anyagLop(v2);
+        String mit = Skeleton.dontes("Mit lopsz? g - agens, n - anyag, f - felszereles");
+        switch (mit) {
+            case "g":
+                v2.getTaska().getAgensek().add(new Agens(new Benito(1, new Anyagok(1, 1), 1, 1)));
+                clrscr();
+                v1.agensLop(v2);
+                break;
+            case "n":
+                v1.anyagLop(v2);
+                break;
+            case "f":
+                v2.getTaska().getFelszerelesek().add(new Kopeny());
+                clrscr();
+                v1.felszerelesLop(v2);
+                break;
+            default:
+                System.out.println("Hiba");
+                break;
+        }
     }
 
     /*private static void test() {
