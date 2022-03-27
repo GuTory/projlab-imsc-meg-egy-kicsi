@@ -29,8 +29,7 @@ public class Program {
                 "2: testKesztyusKenes\n" +
                 "3: testMozog\n" +
                 "4: testAgensLep\n" +
-                "5: testLop\n" +
-                "6: testFelszerelesFel"));
+                "5: testLop"));
         switch (teszt) {
             case 0:
                 testAgensEbbol();
@@ -50,9 +49,6 @@ public class Program {
             case 5:
                 testLop();
                 break;
-            case 6:
-                testFelszerelesFel();
-                break;
             default:
                 break;
         }
@@ -60,7 +56,22 @@ public class Program {
 
     private static void testAgensEbbol() {
         Virologus v1 = new Virologus();
-        Kod k = new Vitustanc(1, new Anyagok(1,1), 1, 1);
+        Kod k;
+        String mit = Skeleton.dontes("Mit készítesz fel? f - felejto, i - vitustanc, e - vedelem, b - benito");
+        switch (mit) {
+            case "f":
+                k = new Felejto(1, new Anyagok(1,1), 1, 1);
+                break;
+            case "i":
+                k = new Vitustanc(1, new Anyagok(1,1), 1, 1);
+                break;
+            case "e":
+                k = new Vedelem(1, new Anyagok(1,1), 1, 1);
+                break;
+            default:
+                k = new Benito(1, new Anyagok(1,1), 1, 1);
+                break;
+        }
         v1.agensEbbol(k);
     }
 
@@ -134,30 +145,6 @@ public class Program {
                 System.out.println("Hiba");
                 break;
         }
-    }
-
-    private static void testFelszerelesFel() {
-        Virologus v = new Virologus();
-        Felszereles f = null;
-        String mit = Skeleton.dontes("Mit veszel fel? z - zsák, o - köpeny, e - kesztyű");
-        switch (mit) {
-            case "o":
-                f = new Kopeny();
-                clrscr();
-                break;
-            case "z":
-                f = new Zsak();
-                clrscr();
-                break;
-            case "e":
-                f = new Kesztyu();
-                clrscr();
-                break;
-            default:
-                System.out.println("Hiba");
-                break;
-        }
-        v.beFelszereles(f);
     }
 
     /*private static void test() {
