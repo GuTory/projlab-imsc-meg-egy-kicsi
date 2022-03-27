@@ -44,6 +44,6 @@ public class Szazalekos extends Ellenallas{
 
         boolean choice = Skeleton.igenNem("Megvédje a százalékos?");
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
-        return choice;
+        return !choice;
     }
 }
