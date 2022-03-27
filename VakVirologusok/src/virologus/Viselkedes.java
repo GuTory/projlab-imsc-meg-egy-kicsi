@@ -95,7 +95,7 @@ public class Viselkedes {
                 int n = Integer.parseInt(Skeleton.dontes("Mennyi nukleotidot veszel ki? (csak a szám)?"));
                 int a = Integer.parseInt(Skeleton.dontes("Mennyi aminosavat veszel ki? (csak a szám)?"));
                 lopott_anyag = new Anyagok(n, a);
-            } while(lopott_taska.anyagKivesz(lopott_anyag));
+            } while(!lopott_taska.anyagKivesz(lopott_anyag));
         }
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
@@ -118,7 +118,7 @@ public class Viselkedes {
         }
         Felszereles lopott = null;
         if (felszerelesek != null) {
-            int ID = Integer.parseInt(Skeleton.dontes("Melyik Agens-t választod (csak a szám)? 0-" + (felszerelesek.size()-1)));
+            int ID = Integer.parseInt(Skeleton.dontes("Melyik Felszereles-t választod (csak a szám)? 0-" + (felszerelesek.size()-1)));
             lopott = felszerelesek.get(ID);
         }
 
