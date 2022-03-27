@@ -1,11 +1,16 @@
 package virologus;
 
 import agens.Agens;
+import agens.Benito;
 import agens.Kod;
 import felszereles.Felszereles;
+import felszereles.Kesztyu;
 import lombok.Getter;
 import skeleton.Skeleton;
+import terkep.Labor;
 import terkep.Mezo;
+import terkep.Ovohely;
+import terkep.Raktar;
 import util.Anyagok;
 import util.Taska;
 
@@ -42,7 +47,31 @@ public class Viselkedes {
 
         List<Mezo> szomszedok = jelenlegi.getSzomszedok();
         int ujID = Integer.parseInt(Skeleton.dontes("Hanyadik Mezo-t választod (csak a szám)? 0-" + (szomszedok.size()-1)));
+
         Mezo uj = szomszedok.get(ujID);
+
+        String mezoTipus = Skeleton.dontes("Milyen típusú mező ez? (m - SIMA MEZO, l - labor, o - ovohely, r - raktar)");
+        switch (mezoTipus) {
+            case "l":
+                Labor labor = new Labor();
+                labor.setKod(new Benito(1, new Anyagok(1, 1), 1, 1));
+                uj = labor;
+                break;
+            case "o":
+                Ovohely ovohely = new Ovohely();
+                ovohely.setFelszereles(new Kesztyu());
+                uj = ovohely;
+                break;
+            case "r":
+                Raktar raktar = new Raktar();
+                raktar.setAnyagok(new Anyagok(1, 1));
+                uj = raktar;
+                break;
+            default:
+                uj = new Mezo();
+                break;
+        }
+
         jelenlegi.virologusKi(ki);
         uj.virologusBe(ki);
         ki.setHely(uj);

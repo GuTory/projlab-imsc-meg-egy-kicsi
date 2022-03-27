@@ -208,7 +208,21 @@ public class Virologus {
     public void mozog() {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
-        jelenlegiViselkedes().mozog(this, hely);
+        //jelenlegiViselkedes().mozog(this, hely);
+
+        Viselkedes viselkedes;
+
+        String allapot = Skeleton.dontes("Milyen állapotban van a virológus? (a - ALAP, b - bénult, v - vitustánc)");
+
+        if (allapot.equals("b")) {
+            viselkedes = new BenultViselkedes();
+        } else if (allapot.equals("v")) {
+            viselkedes = new VitustancViselkedes();
+        } else {
+            viselkedes = new Viselkedes();
+        }
+
+        viselkedes.mozog(this, hely);
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }

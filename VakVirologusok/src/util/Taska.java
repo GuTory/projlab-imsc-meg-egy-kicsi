@@ -54,6 +54,8 @@ public class Taska {
     public void felszerelesBerak(Felszereles felszereles) {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
+        felszerelesek.add(felszereles);
+
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
@@ -117,6 +119,7 @@ public class Taska {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
         boolean siker = Skeleton.igenNem("Be tud rakni ennyi ágenst a táskába?");
+        if (siker) agensek.add(agens);
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
 

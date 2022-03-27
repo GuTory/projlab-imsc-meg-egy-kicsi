@@ -57,14 +57,15 @@ public class Agens {
 
     /**
      * Csökkenti a ttl-t 1-gyel, minden körben.
+     * @return Az ágens továbbra is életbenmarad-e.
      */
     public boolean ttlCsokkent(){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
-        ttl--;
+        boolean megszunik = Skeleton.igenNem("Megszunik az agens?");
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
 
-        return ttl != 0;
+        return !megszunik;
     }
 }
