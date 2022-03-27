@@ -15,6 +15,12 @@ public class Ovohely extends Mezo {
     @Getter
     private Felszereles felszereles;
 
+    public Ovohely() {
+        Skeleton.metodusEleje("Ovohely konstruktor");
+
+        Skeleton.metodusVege("Ovohely konstruktor");
+    }
+
     /**
      * Az óvóhelyen elvégezhető akció (felszerelés felvétel)
      */

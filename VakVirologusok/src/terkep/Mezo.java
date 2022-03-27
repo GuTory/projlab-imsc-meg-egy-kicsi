@@ -29,6 +29,12 @@ public class Mezo {
     @Getter
     protected ArrayList<Mezo> szomszedok;
 
+    public Mezo() {
+        Skeleton.metodusEleje("Mezo konstruktor");
+
+        Skeleton.metodusVege("Mezo konstruktor");
+    }
+
     /**
      * Virológus beléptetése a mezőre
      */

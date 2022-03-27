@@ -67,7 +67,7 @@ public abstract class Ellenallas {
     protected boolean ervenyesE() {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
         //teszt miatt innen
-        boolean dontes = Skeleton.igenNem("Ervenyes a " + this.getClass() + " ellenállás?");
+        boolean dontes = Skeleton.igenNem("Ervenyes a " + this.getClass().getName() + " ellenállás?");
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
         return dontes;
         //eddig

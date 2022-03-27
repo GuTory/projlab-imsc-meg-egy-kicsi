@@ -20,6 +20,11 @@ public class Labor extends Mezo {
     @Getter
     private Kod kod;
 
+    public Labor() {
+        Skeleton.metodusEleje("Labor konstruktor");
+        Skeleton.metodusVege("Labor konstruktor");
+    }
+
     /**
      * A laborban elvégezhető akció (kódtanulás)
      */

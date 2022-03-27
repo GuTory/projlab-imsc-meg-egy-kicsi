@@ -19,6 +19,12 @@ public class Raktar extends Mezo{
     @Getter
     private Anyagok anyagok;
 
+    public Raktar() {
+        Skeleton.metodusEleje("Raktar konstruktor");
+
+        Skeleton.metodusVege("Raktar konstruktor");
+    }
+
     /**
      * A raktárban megtehető extra tevékenység: anyag felvétel.
      */
