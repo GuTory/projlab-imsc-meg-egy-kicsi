@@ -38,10 +38,11 @@ public class Virologus {
     @Getter
     private Taska taska;
 
-    @Setter
     private Mezo hely;
 
     public Virologus() {
+        Skeleton.metodusEleje("Virologus konstruktor");
+
         kodok = new ArrayList<>();
 
         alapViselkedes = new Viselkedes();
@@ -53,6 +54,16 @@ public class Virologus {
         ellenallasok[ReszlegesSzazalekos] = new Szazalekos(82.3);
 
         taska = new Taska(this);
+
+        Skeleton.metodusVege("Virologus konstruktor");
+    }
+
+    public void setHely(Mezo mezo) {
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        hely = mezo;
+
+        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     private Viselkedes jelenlegiViselkedes() {

@@ -5,6 +5,12 @@ import skeleton.Skeleton;
 import virologus.Virologus;
 
 public class Jatek {
+
+    /**
+     * A játék színtere, a város.
+     */
+    private static Varos varos;
+
     /**
      * A játékban eltert köröket méri az időbélyeg.
      */
@@ -12,7 +18,7 @@ public class Jatek {
 
     /**
      * Véget vet a játéknak, és a paraméterben kapott virológust kihirdeti győztesnek.
-     * @param virologus
+     * @param virologus A győztes
      */
     public static void jatekVege(Virologus virologus){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
@@ -25,12 +31,15 @@ public class Jatek {
      */
     public static void jatekIndit(){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        varos = new Varos();
+
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
      * Visszaadja a játék időbélyegét.
-     * @return
+     * @return A játék időbélyege.
      */
     public static int getIdobelyeg(){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());

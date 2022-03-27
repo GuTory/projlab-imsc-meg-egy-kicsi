@@ -30,10 +30,14 @@ public abstract class Kod {
     protected int szavatossag;
 
     public Kod(int id, Anyagok koltseg, int elettartam, int szavatossag){
+        Skeleton.metodusEleje("Kod konstruktor");
+
         this.id = id;
         this.koltseg = koltseg;
         this.elettartam = elettartam;
         this.szavatossag = szavatossag;
+
+        Skeleton.metodusVege("Kod konstruktor");
     }
 
     /**

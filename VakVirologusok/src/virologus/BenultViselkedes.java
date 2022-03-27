@@ -3,7 +3,6 @@ package virologus;
 import agens.Agens;
 import agens.Kod;
 import felszereles.Felszereles;
-import jdk.jshell.spi.ExecutionControl;
 import skeleton.Skeleton;
 import terkep.Mezo;
 import util.Anyagok;
