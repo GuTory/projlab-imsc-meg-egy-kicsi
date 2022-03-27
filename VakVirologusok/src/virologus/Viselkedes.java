@@ -51,7 +51,7 @@ public class Viselkedes {
 
         Mezo uj = szomszedok.get(ujID);
 
-        String mezoTipus = Skeleton.dontes("Milyen típusú mező ez? (m - SIMA MEZO, l - labor, o - ovohely, r - raktar)");
+        String mezoTipus = Skeleton.dontes("Milyen típusú mező ez? (m: SIMA MEZO/l: labor/o: ovohely/r: raktar)");
         switch (mezoTipus) {
             case "l":
                 Labor labor = new Labor();
@@ -61,7 +61,7 @@ public class Viselkedes {
             case "o":
                 Ovohely ovohely = new Ovohely();
                 Felszereles f;
-                String mit = Skeleton.dontes("Mit veszel fel? z - zsák, o - köpeny, e - kesztyű");
+                String mit = Skeleton.dontes("Mit veszel fel? (z: zsák/o: köpeny/e: kesztyű");
                 switch (mit) {
                     case "o":
                         f = new Kopeny();

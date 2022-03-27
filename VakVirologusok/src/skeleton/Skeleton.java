@@ -38,7 +38,7 @@ public class Skeleton {
     }
 
     public static boolean igenNem(String kerdes){
-        System.out.println(tabs + kerdes + " (i - IGEN/n - Nem)");
+        System.out.println(tabs + kerdes + " (i: IGEN/n: nem)");
         System.out.print(tabs);
         Scanner sc = new Scanner(System.in);
         String valasz = sc.nextLine();
