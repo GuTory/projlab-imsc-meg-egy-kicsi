@@ -1,6 +1,8 @@
 import agens.*;
+import felszereles.Felszereles;
 import felszereles.Kesztyu;
 import felszereles.Kopeny;
+import felszereles.Zsak;
 import skeleton.Skeleton;
 import terkep.Labor;
 import terkep.Mezo;
@@ -31,7 +33,8 @@ public class Program {
         //testKesztyusKenes();
         //testMozog();
         //testAgensLep();
-        testLop();
+        //testLop();
+        testFelszerelesFel();
     }
 
     private static void testAgensEbbol() {
@@ -112,11 +115,31 @@ public class Program {
         }
     }
 
-    /*private static void test() {
-
+    private static void testFelszerelesFel() {
+        Virologus v = new Virologus();
+        Felszereles f = null;
+        String mit = Skeleton.dontes("Mit veszel fel? z - zsák, o - köpeny, e - kesztyű");
+        switch (mit) {
+            case "o":
+                f = new Kopeny();
+                clrscr();
+                break;
+            case "z":
+                f = new Zsak();
+                clrscr();
+                break;
+            case "e":
+                f = new Kesztyu();
+                clrscr();
+                break;
+            default:
+                System.out.println("Hiba");
+                break;
+        }
+        v.beFelszereles(f);
     }
 
-    private static void test() {
+    /*private static void test() {
 
     }
 
