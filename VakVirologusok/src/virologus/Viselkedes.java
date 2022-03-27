@@ -5,6 +5,8 @@ import agens.Benito;
 import agens.Kod;
 import felszereles.Felszereles;
 import felszereles.Kesztyu;
+import felszereles.Kopeny;
+import felszereles.Zsak;
 import lombok.Getter;
 import skeleton.Skeleton;
 import terkep.Labor;
@@ -58,7 +60,20 @@ public class Viselkedes {
                 break;
             case "o":
                 Ovohely ovohely = new Ovohely();
-                ovohely.setFelszereles(new Kesztyu());
+                Felszereles f;
+                String mit = Skeleton.dontes("Mit veszel fel? z - zsák, o - köpeny, e - kesztyű");
+                switch (mit) {
+                    case "o":
+                        f = new Kopeny();
+                        break;
+                    case "z":
+                        f = new Zsak();
+                        break;
+                    default:
+                        f = new Kesztyu();
+                        break;
+                }
+                ovohely.setFelszereles(f);
                 uj = ovohely;
                 break;
             case "r":

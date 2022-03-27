@@ -1,21 +1,18 @@
 import agens.*;
+import felszereles.Felszereles;
 import felszereles.Kesztyu;
 import felszereles.Kopeny;
+import felszereles.Zsak;
 import skeleton.Skeleton;
 import terkep.Labor;
 import terkep.Mezo;
-import terkep.Ovohely;
-import terkep.Raktar;
 import util.Anyagok;
-import util.Taska;
 import virologus.Virologus;
 import virologus.Viselkedes;
 import virologus.VitustancViselkedes;
 
-import java.rmi.MarshalledObject;
 import java.util.ArrayList;
 
-import java.io.IOException;
 
 
 
@@ -26,17 +23,55 @@ public class Program {
     }
 
     public static void main(String[] args){
-        //testAgensEbbol();
-        //testKen();
-        //testKesztyusKenes();
-        //testMozog();
-        //testAgensLep();
-        testLop();
+        int teszt = Integer.parseInt(Skeleton.dontes("Mit tesztelsz? (csak szám)\n" +
+                "0: testAgensEbbol\n" +
+                "1: testKen\n" +
+                "2: testKesztyusKenes\n" +
+                "3: testMozog\n" +
+                "4: testAgensLep\n" +
+                "5: testLop"));
+        switch (teszt) {
+            case 0:
+                testAgensEbbol();
+                break;
+            case 1:
+                testKen();
+                break;
+            case 2:
+                testKesztyusKenes();
+                break;
+            case 3:
+                testMozog();
+                break;
+            case 4:
+                testAgensLep();
+                break;
+            case 5:
+                testLop();
+                break;
+            default:
+                break;
+        }
     }
 
     private static void testAgensEbbol() {
         Virologus v1 = new Virologus();
-        Kod k = new Vitustanc(1, new Anyagok(1,1), 1, 1);
+        Kod k;
+        String mit = Skeleton.dontes("Mit készítesz fel? f - felejto, i - vitustanc, e - vedelem, b - benito");
+        switch (mit) {
+            case "f":
+                k = new Felejto(1, new Anyagok(1,1), 1, 1);
+                break;
+            case "i":
+                k = new Vitustanc(1, new Anyagok(1,1), 1, 1);
+                break;
+            case "e":
+                k = new Vedelem(1, new Anyagok(1,1), 1, 1);
+                break;
+            default:
+                k = new Benito(1, new Anyagok(1,1), 1, 1);
+                break;
+        }
         v1.agensEbbol(k);
     }
 
@@ -113,10 +148,6 @@ public class Program {
     }
 
     /*private static void test() {
-
-    }
-
-    private static void test() {
 
     }
 
