@@ -51,7 +51,7 @@ public class Taska {
      * táskába.
      * @param felszereles Flezserelés, amelyet berak a táskába
      */
-    public void felszerelesBerak(Felszereles felszereles) {
+    public void felszerelesBerak(Felszereles felszereles) { //TODO: csak három felszerelés lehet egyszerre a táskában
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
         felszerelesek.add(felszereles);

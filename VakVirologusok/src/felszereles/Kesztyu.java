@@ -6,6 +6,11 @@ import util.Taska;
 import virologus.Virologus;
 
 public class Kesztyu extends Felszereles{
+
+    public Kesztyu() {
+        elettartam = 3;
+    }
+
     /**
      * A paraméterben kapott virológusnak a visszadobó ellenállását beállítja végtelenre,
      * és a táskájába teszi a felszerelést.

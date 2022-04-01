@@ -3,10 +3,7 @@ package virologus;
 import agens.Agens;
 import agens.Benito;
 import agens.Kod;
-import felszereles.Felszereles;
-import felszereles.Kesztyu;
-import felszereles.Kopeny;
-import felszereles.Zsak;
+import felszereles.*;
 import lombok.Getter;
 import skeleton.Skeleton;
 import terkep.Labor;
@@ -29,6 +26,13 @@ public class Viselkedes {
     @Getter
     protected int prior;
 
+    protected Virologus gazda;
+
+    public Viselkedes(Virologus gazda) {
+        prior = ViselkedesPrior.sima_prior;
+        this.gazda = gazda;
+    }
+
     /**
      *  Ha a virológus ebben az állapotban van, nem lehet
      * elvenni tőle tárgyakat, ezért null-t ad vissza.
@@ -43,10 +47,10 @@ public class Viselkedes {
     /**
      * A virológus által kiválasztott mezőre lép.
      */
-    public void mozog(Virologus ki, Mezo jelenlegi) {
+    public void mozog() {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
-        List<Mezo> szomszedok = jelenlegi.getSzomszedok();
+        List<Mezo> szomszedok = gazda.getHely().getSzomszedok();
         int ujID = Integer.parseInt(Skeleton.dontes("Hanyadik Mezo-t választod (csak a szám)? 0-" + (szomszedok.size()-1)));
 
         Mezo uj = szomszedok.get(ujID);
@@ -86,10 +90,10 @@ public class Viselkedes {
                 break;
         }
 
-        jelenlegi.virologusKi(ki);
-        uj.virologusBe(ki);
-        ki.setHely(uj);
-        uj.akcio(ki);
+        gazda.getHely().virologusKi(gazda);
+        uj.virologusBe(gazda);
+        gazda.setHely(uj);
+        uj.akcio(gazda);
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
@@ -168,15 +172,14 @@ public class Viselkedes {
 
     /**
      * A virológus meg tud kenni valakit, aki egy mezőn áll vele.
-     * @param ki a kenő virológus
      * @param kit a megkent virológus
      * @param mivel a virológusra kent ágens
      */
-    public void ken(Virologus ki, Virologus kit, Agens mivel) {
+    public void ken(Virologus kit, Agens mivel) {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
         mivel.setTtl(3);
-        kit.megkent(ki, mivel);
+        kit.megkent(gazda, mivel);
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
@@ -194,6 +197,21 @@ public class Viselkedes {
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
 
         return uj;
+    }
+
+    public void tamad(Virologus kit) {
+        //megkeressük a baltát a virológus táskájában
+        Felszereles balta = null;
+        for (Felszereles f : gazda.getTaska().getFelszerelesek()) {
+            if (f.getID() == Felszereles_ID.balta_ID) {
+                balta = f;
+            }
+        }
+        if (balta == null) return;  //nem volt balta, nem lehet támadni
+        //volt balta, megöli a virológust és csorbult baltára cseréli a baltát
+        kit.meghal();
+        balta.le(gazda, gazda.getTaska());
+        new CsorbultBalta().fel(gazda, gazda.getTaska());
     }
 
 }

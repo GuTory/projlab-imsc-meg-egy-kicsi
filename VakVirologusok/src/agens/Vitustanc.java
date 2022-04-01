@@ -44,7 +44,7 @@ public class Vitustanc extends Kod{
     public void hatas(Virologus virologus){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
-        virologus.addViselkedes(elettartam, new VitustancViselkedes());
+        virologus.addViselkedes(elettartam, new VitustancViselkedes(virologus));
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }

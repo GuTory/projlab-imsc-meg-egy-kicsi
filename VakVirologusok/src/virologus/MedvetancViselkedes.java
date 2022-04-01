@@ -6,11 +6,11 @@ import terkep.Mezo;
 import java.util.List;
 import java.util.Random;
 
-public class VitustancViselkedes extends Viselkedes{
+public class MedvetancViselkedes extends Viselkedes{
 
-    public VitustancViselkedes(Virologus gazda) {
+    public MedvetancViselkedes(Virologus gazda) {
         super(gazda);
-        prior = ViselkedesPrior.vitustanc_prior;
+        prior = ViselkedesPrior.medvetanc_prior;
     }
 
     @Override
@@ -23,12 +23,8 @@ public class VitustancViselkedes extends Viselkedes{
         uj.virologusBe(gazda);
         gazda.setHely(uj);
         uj.akcio(gazda);
+        uj.tombol();
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
-    }
-
-    @Override
-    public String toString() {
-        return "Vitustanc ";
     }
 }

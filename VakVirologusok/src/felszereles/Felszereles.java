@@ -5,6 +5,7 @@ import util.Taska;
 import virologus.Virologus;
 
 public abstract class Felszereles{
+    protected int elettartam = 0;
     /**
      * Kifejti hatását az adott virológuson a tárgy, és beteszi a virológus táskájába.
      * @param virologus, akin kifejti a hatását.
@@ -24,4 +25,9 @@ public abstract class Felszereles{
      * @return Felszereles_ID
      */
     public abstract int getID();
+
+    public boolean hasznal() {
+        elettartam--;
+        return elettartam > 0;
+    }
 }

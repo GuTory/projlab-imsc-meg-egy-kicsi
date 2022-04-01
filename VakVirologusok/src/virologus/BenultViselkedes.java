@@ -9,8 +9,9 @@ import util.Anyagok;
 import util.Taska;
 
 public class BenultViselkedes extends Viselkedes {
-    public BenultViselkedes() {
-        super.prior = 0;
+    public BenultViselkedes(Virologus gazda) {
+        super(gazda);
+        prior = ViselkedesPrior.benult_prior;
     }
 
     @Override
@@ -21,9 +22,10 @@ public class BenultViselkedes extends Viselkedes {
     }
 
     @Override
-    public void mozog(Virologus ki, Mezo hely) {
+    public void mozog() {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+        ;
     }
 
     @Override
@@ -48,7 +50,7 @@ public class BenultViselkedes extends Viselkedes {
     }
 
     @Override
-    public void ken(Virologus ki, Virologus kit, Agens mivel) {
+    public void ken(Virologus kit, Agens mivel) {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
@@ -58,6 +60,11 @@ public class BenultViselkedes extends Viselkedes {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
         return null;
+    }
+
+    @Override
+    public void tamad(Virologus kit) {
+        ;
     }
 
     @Override
