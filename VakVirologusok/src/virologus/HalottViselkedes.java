@@ -4,7 +4,7 @@ public class HalottViselkedes extends BenultViselkedes{
 
     public HalottViselkedes(Virologus gazda) {
         super(gazda);
-        prior = ViselkedesPrior.halott_prior;
+        prior = Viselkedes_Prior.halott_prior;
     }
 
     @Override

@@ -10,7 +10,7 @@ public class MedvetancViselkedes extends Viselkedes{
 
     public MedvetancViselkedes(Virologus gazda) {
         super(gazda);
-        prior = ViselkedesPrior.medvetanc_prior;
+        prior = Viselkedes_Prior.medvetanc_prior;
     }
 
     @Override

@@ -4,14 +4,13 @@ import agens.Agens;
 import agens.Kod;
 import felszereles.Felszereles;
 import skeleton.Skeleton;
-import terkep.Mezo;
 import util.Anyagok;
 import util.Taska;
 
 public class BenultViselkedes extends Viselkedes {
     public BenultViselkedes(Virologus gazda) {
         super(gazda);
-        prior = ViselkedesPrior.benult_prior;
+        prior = Viselkedes_Prior.benult_prior;
     }
 
     @Override

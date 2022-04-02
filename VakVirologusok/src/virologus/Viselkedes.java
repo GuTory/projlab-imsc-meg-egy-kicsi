@@ -29,7 +29,7 @@ public class Viselkedes {
     protected Virologus gazda;
 
     public Viselkedes(Virologus gazda) {
-        prior = ViselkedesPrior.sima_prior;
+        prior = Viselkedes_Prior.sima_prior;
         this.gazda = gazda;
     }
 
