@@ -111,6 +111,9 @@ public class Taska {
      */
     public void kapacitasNovel(int ertek) {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+        //TODO: Ha a kapott érték negatív, akkor végignézi, hogy a csökkentett kapacitásba belefér-e a
+        // táskában lévő dolgok mérete (telitettseg() fv) és kidobja az esetlegesen többletet jelentő dolgokat.
+        // Ehhez megkérdezi a virológust, hogy mit és mennyit tegyen ki.
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
@@ -154,5 +157,12 @@ public class Taska {
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
-
+    /**
+     * Megmondja, hogy a táskában mennyi a jelenleg tárolt dolgok foglalt helye.
+     * Összegzi az anyagokat, és ágensek méretét.
+     * @return a táskában tárolt dolgok mérete
+     */
+    private int telitettseg() { //TODO: kitölteni
+        return 0;
+    }
 }

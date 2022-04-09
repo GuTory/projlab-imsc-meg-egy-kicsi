@@ -22,10 +22,11 @@ public class Szazalekos extends Ellenallas{
     }
 
     /**
-     * Ha az érvényesség 0, akkor hamissal visszatér. Ha az érvényesség negatív, vagy az érvényesség pozitív és
-     * ellenallas.idobelyeg + ervenyesseg < jatek.Jatek.getIdobelyeg(), akkor sorsol egy random számot 0 és 100 között.
-     * Ha ez a random szám kisebb mint a vedArany, akkor igazzal
-     * tér vissza. Minden más esetben hamissal tér vissza.
+     * Visszatér azzal, hogy ezen az ellenálláson áttört-e az ágens.
+     * Ha az ervenyesE() hamissal tér vissza, akkor igazzal visszatér.
+     * Ha az érvényesség negatív, vagy az érvényesség pozitív és
+     * ellenallas.idobelyeg + ervenyesseg < Jatek.getIdobelyeg(), akkor sorsol egy random számot 0 és 100 között.
+     * Ha ez a random szám kisebb mint a vedArany, akkor hamissal tér vissza. Minden más esetben igazzal tér vissza.
      * @param ki a kenő virológus
      * @param kit a megkent virológus
      * @param mivel a virológusra kent ágens
