@@ -45,7 +45,7 @@ public class Benito extends Kod{
     public void hatas(Virologus virologus){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
-        virologus.addViselkedes(elettartam, new BenultViselkedes());
+        virologus.addViselkedes(elettartam, new BenultViselkedes(virologus));
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }

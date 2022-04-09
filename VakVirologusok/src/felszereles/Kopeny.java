@@ -16,8 +16,10 @@ public class Kopeny extends Felszereles{
     public  void fel(Virologus virologus, Taska taska){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
-        virologus.setEllenallasErvenyesseg(virologus.ReszlegesSzazalekos, -1);
-        taska.felszerelesBerak(this);
+        if (taska.felszerelesBerak(this)) {
+            virologus.setEllenallasErvenyesseg(virologus.ReszlegesSzazalekos, -1);
+        }
+
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
@@ -31,8 +33,10 @@ public class Kopeny extends Felszereles{
     public  void le(Virologus virologus, Taska taska){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
-        virologus.setEllenallasErvenyesseg(virologus.ReszlegesSzazalekos, 0);
-        taska.felszerelesKivesz(this);
+        if (taska.felszerelesKivesz(this)) {
+            virologus.setEllenallasErvenyesseg(virologus.ReszlegesSzazalekos, 0);
+        }
+
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }

@@ -36,4 +36,9 @@ public class Raktar extends Mezo{
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
+
+    @Override
+    public void tombol() {
+        anyagok = null;
+    }
 }

@@ -50,23 +50,27 @@ public class Taska {
      * Berakja a paraméterként kapott felszerelést a
      * táskába.
      * @param felszereles Flezserelés, amelyet berak a táskába
+     * @return sikeresen berakta-e a táskába
      */
-    public void felszerelesBerak(Felszereles felszereles) {
+    public boolean felszerelesBerak(Felszereles felszereles) { //TODO: csak három felszerelés lehet egyszerre a táskában
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
         felszerelesek.add(felszereles);
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+        return true;
     }
 
     /**
      * Kiveszi a paraméterként kapott felszerelést a
      * táskából.
      * @param felszereles Felszerelés, amelyet kivesz a táskából
+     * @return sikeresen kivette-e a táskából
      */
-    public void felszerelesKivesz(Felszereles felszereles) {
+    public boolean felszerelesKivesz(Felszereles felszereles) {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+        return true;
     }
 
     /**

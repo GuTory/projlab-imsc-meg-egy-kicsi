@@ -53,4 +53,11 @@ public class Anyagok {
         return siker;
     }
 
+    /**
+     * Visszaadja, hogy mennyi az anyagok össz darabszáma.
+     * @return az anyagok össz darabszáma
+     */
+    public int meret() {
+        return 0;
+    }
 }

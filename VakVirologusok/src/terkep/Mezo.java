@@ -63,4 +63,8 @@ public class Mezo {
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
         return;
     }
+
+    public void tombol() {
+        ;
+    }
 }
