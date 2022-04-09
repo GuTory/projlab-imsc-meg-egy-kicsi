@@ -20,8 +20,10 @@ public class Kesztyu extends Felszereles{
     public void fel(Virologus virologus, Taska taska){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
-        virologus.setEllenallasErvenyesseg(virologus.Visszadob, -1);
-        taska.felszerelesBerak(this);
+        if(taska.felszerelesBerak(this)) {
+            virologus.setEllenallasErvenyesseg(virologus.Visszadob, -1);
+        }
+
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
@@ -35,8 +37,10 @@ public class Kesztyu extends Felszereles{
     public  void le(Virologus virologus, Taska taska){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
-        virologus.setEllenallasErvenyesseg(virologus.Visszadob, 0);
-        taska.felszerelesKivesz(this);
+        if (taska.felszerelesKivesz(this)) {
+            virologus.setEllenallasErvenyesseg(virologus.Visszadob, 0);
+        }
+
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }

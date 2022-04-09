@@ -19,8 +19,10 @@ public class Zsak extends Felszereles{
     public  void fel(Virologus virologus, Taska taska){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
-        taska.kapacitasNovel(novel);
-        taska.felszerelesBerak(this);
+        if (taska.felszerelesBerak(this)) {
+            taska.kapacitasNovel(novel);
+        }
+
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
@@ -34,8 +36,10 @@ public class Zsak extends Felszereles{
     public  void le(Virologus virologus, Taska taska){
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
-        taska.kapacitasNovel(-novel);
-        taska.felszerelesKivesz(this);
+        if (taska.felszerelesKivesz(this)) {
+            taska.kapacitasNovel(-novel);
+        }
+
 
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
