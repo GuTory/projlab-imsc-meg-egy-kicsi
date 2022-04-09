@@ -10,7 +10,7 @@ public class VitustancViselkedes extends Viselkedes{
 
     public VitustancViselkedes(Virologus gazda) {
         super(gazda);
-        prior = Viselkedes_Prior.vitustanc_prior;
+        prior = ViselkedesPrior.vitustanc_prior;
     }
 
     @Override
@@ -27,8 +27,4 @@ public class VitustancViselkedes extends Viselkedes{
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
-    @Override
-    public String toString() {
-        return "Vitustanc ";
-    }
 }

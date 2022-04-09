@@ -10,7 +10,7 @@ import util.Taska;
 public class BenultViselkedes extends Viselkedes {
     public BenultViselkedes(Virologus gazda) {
         super(gazda);
-        prior = Viselkedes_Prior.benult_prior;
+        prior = ViselkedesPrior.benult_prior;
     }
 
     @Override
@@ -66,8 +66,4 @@ public class BenultViselkedes extends Viselkedes {
         ;
     }
 
-    @Override
-    public String toString() {
-        return "Benult ";
-    }
 }

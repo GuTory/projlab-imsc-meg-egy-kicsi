@@ -1,6 +1,6 @@
 package virologus;
 
-public class Viselkedes_Prior {
+public class ViselkedesPrior {
     public static int vitustanc_prior = 3;
     public static int medvetanc_prior = 1;
     public static int benult_prior = 2;

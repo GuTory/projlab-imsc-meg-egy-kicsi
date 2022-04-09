@@ -29,7 +29,7 @@ public class Viselkedes {
     protected Virologus gazda;
 
     public Viselkedes(Virologus gazda) {
-        prior = Viselkedes_Prior.sima_prior;
+        prior = ViselkedesPrior.sima_prior;
         this.gazda = gazda;
     }
 
@@ -178,6 +178,7 @@ public class Viselkedes {
     public void ken(Virologus kit, Agens mivel) {
         Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
+        //TODO: vegye ki a táskából az ágenst amivel megkeni.
         mivel.setTtl(3);
         kit.megkent(gazda, mivel);
 

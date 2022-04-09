@@ -1,5 +1,7 @@
 package virologus;
 
+import agens.Agens;
+import agens.Medvetanc;
 import skeleton.Skeleton;
 import terkep.Mezo;
 
@@ -10,7 +12,7 @@ public class MedvetancViselkedes extends Viselkedes{
 
     public MedvetancViselkedes(Virologus gazda) {
         super(gazda);
-        prior = Viselkedes_Prior.medvetanc_prior;
+        prior = ViselkedesPrior.medvetanc_prior;
     }
 
     @Override
@@ -22,9 +24,18 @@ public class MedvetancViselkedes extends Viselkedes{
         gazda.getHely().virologusKi(gazda);
         uj.virologusBe(gazda);
         gazda.setHely(uj);
-        uj.akcio(gazda);
+        for (Virologus mezonAllo: uj.getVirologusok()) {
+            ken(mezonAllo, new Agens(new Medvetanc()));
+        }
         uj.tombol();
 
+        uj.akcio(gazda);
         Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+    }
+
+    @Override
+    public void ken(Virologus kit, Agens mivel) {
+        mivel.setTtl(2); //Csak 1-szer visszadobható (medve nem dob vissza)
+        kit.megkent(gazda, mivel);
     }
 }
