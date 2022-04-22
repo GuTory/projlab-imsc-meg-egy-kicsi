@@ -1,6 +1,5 @@
 package agens;
 
-import lombok.Getter;
 import util.Anyagok;
 import util.Taska;
 import virologus.Virologus;
@@ -14,8 +13,9 @@ public abstract class Kod {
     /**
      * Ágens létrehozásának a költsége, ennyi anyag szükséges ahhoz, hogy létre tudja hozni az ágenst.
      */
-    @Getter
     protected Anyagok koltseg;
+
+    public Anyagok getKoltseg(){ return koltseg; }
 
     /**
      * A kód hatásának az ideje, miután rákenték valakire, ennyi körig fogja hatását kifejteni.

@@ -3,7 +3,6 @@ package agens;
 import util.Anyagok;
 import virologus.Virologus;
 
-
 public class Agens {
     /**
      * Az ágens hátralévő élettartama, kiinduló értéke a szavatosság, ha 0 lesz akkor megszűnik.
