@@ -1,0 +1,14 @@
+sikeres
+Mezo: mezo1
+Mezo: mezo2
+Virologus: virologus1
+Virologus: virologus2
+sikeres
+sikeres
+Kesztyu: felszereles1
+sikeres mozgas
+Benito: agens1
+sikertelen
+sikertelen
+sikeres kenes
+sikeres

@@ -1,0 +1,4 @@
+jatekindit 1 1
+taskabarak virologus1 vedelem 1
+megken virologus1 virologus1 vedelem
+allapot virologus1

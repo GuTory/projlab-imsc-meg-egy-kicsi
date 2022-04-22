@@ -1,0 +1,8 @@
+sikeres
+sikeres
+Taska tartalma:
+nukleotid 50
+sikeres
+sikeres
+Taska tartalma:
+nukleotid: 65

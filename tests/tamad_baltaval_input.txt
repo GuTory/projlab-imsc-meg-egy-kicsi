@@ -1,0 +1,10 @@
+jatekindit 1 0
+virologuskeszit mezo1
+virologuskeszit mezo1
+virologuskeszit mezo1
+taskabarak virologus1 balta
+effektalkalmaz virologus2 medvevirus
+tamad virologus1 virologus2
+tamad virologus1 virologus3
+allapot virologus2
+allapot virologus3

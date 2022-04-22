@@ -1,0 +1,13 @@
+sikeres
+sikeres
+sikeres
+sikertelen kenes
+Virologus virologus2: normal
+
+VAGY
+
+sikeres
+sikeres
+sikeres
+sikeres kenes
+Virologus virologus2: benult

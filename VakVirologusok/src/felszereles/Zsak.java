@@ -7,7 +7,15 @@ public class Zsak extends Felszereles{
     /**
      * Ennyivel növeli a táska méretét a zsák.
      */
-    final int novel = 2;
+    int novel;
+
+    public Zsak(){
+        this(15);
+    }
+
+    public Zsak(int novel){
+        this.novel = novel;
+    }
 
     /**
      * A paraméterben kapott virológusnak a táska kapacitását növeli, majd belerakja

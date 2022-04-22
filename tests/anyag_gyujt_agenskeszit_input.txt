@@ -1,0 +1,9 @@
+jatekindit 0 0
+mezoletrehoz mezo
+mezoletrehoz raktar mezo1
+mezoberak mezo2 nukleotid 5
+mezoberak mezo2 aminosav 5
+virologusletrehoz mezo1
+mozog virologus1 1
+gyujt virologus1
+keszit virologus1 felejto 1

@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import virologus.Virologus;
 
+import java.util.Scanner;
+
 public class Ovohely extends Mezo {
 
     /**
@@ -19,6 +21,9 @@ public class Ovohely extends Mezo {
      * Az óvóhelyen elvégezhető akció (felszerelés felvétel)
      */
     public void akcio(Virologus virologus){
-        virologus.beFelszereles(felszereles); //TODO: esetleg kérdezni?
+        if(felszereles != null){ //TODO: esetleg kérdezni?
+            virologus.beFelszereles(felszereles);
+            felszereles = null;
+        }
     }
 }

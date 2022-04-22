@@ -1,0 +1,12 @@
+sikeres
+Ovohely: mezo1
+Kesztyu: felszereles1
+Virologus: virologus1
+Kopeny: felszereles2
+Balta: felszereles3
+Kesztyu felszereles4
+sikertelen gyujtes
+sikeres
+sikertelen gyujtes
+sikeres
+sikeres gyujtes

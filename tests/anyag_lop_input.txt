@@ -1,0 +1,10 @@
+jatekindit 1 0
+virologuskeszit mezo1
+virologuskeszit mezo1
+taskabarak virologus2 aminosav
+taskabarak virologus2 nukleotid
+effektalkalmaz virologus2 benult
+ellop virologus1 virologus2 aminosav
+ellop virologus1 virologus2 nukleotid
+taskamegnez virologus1
+taskamegnez virologus2

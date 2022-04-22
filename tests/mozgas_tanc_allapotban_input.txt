@@ -1,0 +1,7 @@
+jatekindit 10 1
+effektalkalmaz virologus1 vitustanc
+allapot virologus1
+mozog virologus1 1
+effektalkalmaz virologus1 medvetanc
+allapot virologus1
+mozog virologus1 1

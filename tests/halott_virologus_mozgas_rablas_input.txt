@@ -1,0 +1,10 @@
+jatekindit 0 0
+mezoletrehoz mezo
+mezoletrehoz mezo mezo1
+virologusletrehoz mezo1
+virologusletrehoz mezo1
+effektalkalmaz virologus1 halott
+taskabarak virologus1 kesztyu
+allapot virologus1
+mozog virlogus1 1
+ellop virologus2 virologus1 kesztyu

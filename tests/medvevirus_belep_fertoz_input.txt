@@ -1,0 +1,9 @@
+jatekindit 0 0
+mezoletrehoz mezo
+mezoletrehoz medvevirusoslabor mezo1
+virologuskeszit mezo1
+virologuskeszit mezo1
+mozog virologus1 1
+allapot virologus1
+mozog virologus1 1
+allapot virologus2

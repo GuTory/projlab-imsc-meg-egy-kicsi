@@ -1,0 +1,9 @@
+Mezok: mezo1
+Virologus: virologus1
+Virologus: virologus2
+sikeres berakas
+sikeres hatas
+sikeres lopas
+Taska tartalma: 
+kopeny 1
+Taska tartalma:

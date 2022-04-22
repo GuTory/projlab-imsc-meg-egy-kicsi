@@ -1,0 +1,9 @@
+jatekindit 0 0
+mezoletrehoz mezo
+mezoletrehoz raktar mezo1
+mezoberak mezo2 nukleotid 10
+virologuskeszit mezo1
+effektalkalmaz virologus1 medvetanc
+allapot mezo2
+mozog virologus1 1
+allapot mezo2
