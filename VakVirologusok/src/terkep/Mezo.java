@@ -10,6 +10,14 @@ import java.util.ArrayList;
  */
 public class Mezo {
 
+    public final String TestNev;
+    protected static int TestID = 0;
+
+    public Mezo() {
+        TestNev = "Mezo" + TestID;
+        TestID++;
+    }
+
     /**
      * A mezőben lévő virológusok.
      */

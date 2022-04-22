@@ -4,6 +4,7 @@ import agens.Benito;
 import agens.Kod;
 import felszereles.Balta;
 import terkep.Mezo;
+import test.TestIO;
 import util.Anyagok;
 import virologus.Virologus;
 
@@ -68,6 +69,7 @@ public class Varos {
 
     public static void kor() {
         for (Virologus v : virologusok) {
+            TestIO.output(v.TestNev);
             v.kor();
         }
     }

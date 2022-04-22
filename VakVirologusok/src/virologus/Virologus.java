@@ -15,6 +15,10 @@ import java.util.*;
  * Van a virológusnak táskája, cselekménye és védelme. Ez az osztály hajtja/hajtatja végre a játékos által indított cselekvéseket.
  */
 public class Virologus {
+
+    public final String TestNev;
+    protected static int TestID = 0;
+
     public int Visszadob = 0;
     public int TeljesSzazalekos = 1;
     public int ReszlegesSzazalekos = 2;
@@ -46,6 +50,9 @@ public class Virologus {
     public Mezo getHely() { return hely; }
 
     public Virologus() {
+        TestNev = "Virologus" + TestID;
+        TestID++;
+
         kodok = new ArrayList<>();
 
         alapViselkedes = new Viselkedes(this);
