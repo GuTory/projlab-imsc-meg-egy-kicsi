@@ -2,6 +2,7 @@ package util;
 
 import agens.Agens;
 import felszereles.Felszereles;
+import lombok.Getter;
 import virologus.Virologus;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,16 +27,14 @@ public class Taska {
     /**
      * Táskában levő elkészített ágensek
      */
+    @Getter
     private List<Agens> agensek;
-
-    public List<Agens> getAgensek() { return agensek; }
 
     /**
      * A táskában levő felszerelések, ezek értelmezés szerint rajta vannak a tulajdonos virológuson
      */
+    @Getter
     private List<Felszereles> felszerelesek;
-
-    public List<Felszereles> getFelszerelesek() { return felszerelesek; }
 
     public Taska(Virologus virologus) {
         this.virologus = virologus;

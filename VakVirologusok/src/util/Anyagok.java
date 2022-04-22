@@ -1,5 +1,6 @@
 package util;
 
+import lombok.Getter;
 import java.util.Dictionary;
 import java.util.Hashtable;
 
@@ -9,9 +10,8 @@ public class Anyagok {
      * Szótár, melyben tárolja, hogy aminosavból és nukleotidból mennyi
      * van. A szótárban a szó az anyag neve, a hozzá csatolt megjegyzés pedig a számossága.
      */
+    @Getter
     private Dictionary<String, Integer> anyagok;
-
-    public Dictionary<String, Integer> getAnyagok() { return anyagok; }
 
     public Anyagok(int nukleotid, int aminosav) {
         anyagok = new Hashtable<>();

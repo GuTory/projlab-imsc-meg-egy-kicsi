@@ -1,18 +1,21 @@
 package terkep;
 
 import felszereles.Felszereles;
+import lombok.Getter;
+import lombok.Setter;
 import virologus.Virologus;
+
+import java.util.Scanner;
 
 public class Ovohely extends Mezo {
 
     /**
      * Az óvóhelyen lévő felszerelés
      */
+    @Setter
+    @Getter
     private Felszereles felszereles;
 
-    public void setFelszereles(Felszereles f){ felszereles = f; }
-
-    public Felszereles getFelszereles(){ return felszereles; }
 
     /**
      * Az óvóhelyen elvégezhető akció (felszerelés felvétel)

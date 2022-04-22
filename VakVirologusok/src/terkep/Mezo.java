@@ -1,5 +1,7 @@
 package terkep;
 
+import lombok.Getter;
+import lombok.Setter;
 import virologus.Virologus;
 
 import java.util.ArrayList;
@@ -13,20 +15,16 @@ public class Mezo {
     /**
      * A mezőben lévő virológusok.
      */
+    @Setter
+    @Getter
     protected ArrayList<Virologus> virologusok;
-
-    public void setVirologusok(ArrayList<Virologus> v){ virologusok = v; }
-
-    public ArrayList<Virologus> getVirologusok(){ return virologusok; }
 
     /**
      * A mezővel szomszédos mezők
      */
+    @Setter
+    @Getter
     protected ArrayList<Mezo> szomszedok;
-
-    public void setSzomszedok(ArrayList<Mezo> sz){ szomszedok = sz; }
-
-    public ArrayList<Mezo> getSzomszedok(){ return szomszedok; }
 
 
     /**
