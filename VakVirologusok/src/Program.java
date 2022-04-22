@@ -14,9 +14,6 @@ import virologus.VitustancViselkedes;
 
 import java.util.ArrayList;
 
-
-
-
 public class Program {
 
     public static void clrscr(){
