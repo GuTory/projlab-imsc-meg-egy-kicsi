@@ -10,6 +10,7 @@ import terkep.Labor;
 import terkep.Mezo;
 import terkep.Ovohely;
 import terkep.Raktar;
+import test.TestIO;
 import util.Anyagok;
 import util.Taska;
 
@@ -49,9 +50,9 @@ public class Viselkedes {
  
         List<Mezo> szomszedok = gazda.getHely().getSzomszedok();
 
-        int ujID = 0; //TODO: hogyan választasz új mezőt
+        int ujID = Integer.parseInt(TestIO.input());
 
-        Mezo uj = szomszedok.get(ujID);
+        Mezo uj = szomszedok.get(ujID % szomszedok.size());
 
         atleptet(uj);
      }
@@ -86,8 +87,8 @@ public class Viselkedes {
         }
         Felszereles lopott = null;
         if (felszerelesek != null) {
-            int ID = 0; //TODO: melyiket veszi ki
-            lopott = felszerelesek.get(ID);
+            int ID = Integer.parseInt(TestIO.input());
+            lopott = felszerelesek.get(ID % felszerelesek.size());
         }
 
         return lopott;
@@ -107,8 +108,8 @@ public class Viselkedes {
         }
         Agens lopott = null;
         if (agensek != null) {
-            int ID = 0; //TODO: melyiket veszi ki
-            lopott = agensek.get(ID);
+            int ID = Integer.parseInt(TestIO.input());
+            lopott = agensek.get(ID % agensek.size());
         }
 
         return lopott;
