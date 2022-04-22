@@ -1,7 +1,5 @@
 package terkep;
 
-import lombok.Getter;
-import lombok.Setter;
 import skeleton.Skeleton;
 import util.Anyagok;
 import util.Taska;
@@ -17,9 +15,11 @@ public class Raktar extends Mezo{
     /**
      * A raktárban lévő anyagok
      */
-    @Setter
-    @Getter
     private Anyagok anyagok;
+
+    public void setAnyagok(Anyagok a){ anyagok = a; }
+
+    public Anyagok getAnyagok(){ return anyagok; }
 
     /**
      * A raktárban megtehető extra tevékenység: anyag felvétel.

@@ -2,8 +2,6 @@ package terkep;
 
 import jatek.Varos;
 import agens.Kod;
-import lombok.Getter;
-import lombok.Setter;
 import virologus.Virologus;
 
 /**
@@ -14,9 +12,11 @@ public class Labor extends Mezo {
     /**
      * A laborban lévő kód.
      */
-    @Setter
-    @Getter
     private Kod kod;
+
+    public void setKod(Kod k){ kod = k; }
+
+    public Kod getKod(){ return kod; }
 
     /**
      * A laborban elvégezhető akció (kódtanulás)

@@ -3,7 +3,6 @@ package virologus;
 import agens.Agens;
 import agens.Kod;
 import felszereles.Felszereles;
-import lombok.Getter;
 import terkep.Mezo;
 import util.Anyagok;
 import util.Taska;
@@ -19,8 +18,9 @@ public class Virologus {
     public int TeljesSzazalekos = 1;
     public int ReszlegesSzazalekos = 2;
 
-    @Getter
     private List<Kod> kodok;
+
+    public List<Kod> getKodok() { return kodok; }
 
     /**Alap viselkedés: így viselkedik a virológus, amikor üres az alternatív viselkedések sor.**/
     private Viselkedes alapViselkedes;
@@ -28,20 +28,23 @@ public class Virologus {
     PriorityQueue
      <li>add(elem) hozzáad a sor végéhez</li>
      <li>poll() visszaadja és le is veszi az első elemet a sorból</li>**/
-    @Getter
     private LinkedList<Viselkedes> alternativViselkedesek;
-    Viselkedes jelenlegiViselkedes;
+
+    public LinkedList<Viselkedes> getAlternativViselkedesek() { return alternativViselkedesek; }
+
+    private Viselkedes jelenlegiViselkedes;
 
     private Ellenallas[] ellenallasok;
 
-    @Getter
     private Taska taska;
 
-    @Getter
+    public Taska getTaska() { return taska; }
+
     private Mezo hely;
 
-    public Virologus() {
+    public Mezo getHely() { return hely; }
 
+    public Virologus() {
         kodok = new ArrayList<>();
 
         alapViselkedes = new Viselkedes(this);
