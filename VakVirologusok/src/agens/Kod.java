@@ -1,13 +1,9 @@
 package agens;
 
-import jdk.jshell.spi.ExecutionControl;
 import lombok.Getter;
-import skeleton.Skeleton;
 import util.Anyagok;
 import util.Taska;
 import virologus.Virologus;
-
-import util.Anyagok;
 
 public abstract class Kod {
     /**
@@ -32,14 +28,10 @@ public abstract class Kod {
     protected int szavatossag;
 
     public Kod(int id, Anyagok koltseg, int elettartam, int szavatossag){
-        Skeleton.metodusEleje("Kod konstruktor");
-
         this.id = id;
         this.koltseg = koltseg;
         this.elettartam = elettartam;
         this.szavatossag = szavatossag;
-
-        Skeleton.metodusVege("Kod konstruktor");
     }
 
     /**
@@ -61,13 +53,7 @@ public abstract class Kod {
      * @return a kivétel sikerességét adja vissza. Ha nem volt elég anyag, akkor sikertelen - false-t ad vissza.
      */
     public boolean koltsegLevon(Taska taska) {
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-
-        boolean siker = taska.anyagKivesz(koltseg);
-
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
-
-        return siker;
+        return taska.anyagKivesz(koltseg);
     }
 
     /* Getterek */

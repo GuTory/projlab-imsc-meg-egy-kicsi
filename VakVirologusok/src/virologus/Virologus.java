@@ -3,7 +3,6 @@ package virologus;
 import agens.Agens;
 import agens.Kod;
 import felszereles.Felszereles;
-import lombok.Setter;
 import lombok.Getter;
 import terkep.Mezo;
 import util.Anyagok;
@@ -20,6 +19,7 @@ public class Virologus {
     public int TeljesSzazalekos = 1;
     public int ReszlegesSzazalekos = 2;
 
+    @Getter
     private List<Kod> kodok;
 
     /**Alap viselkedés: így viselkedik a virológus, amikor üres az alternatív viselkedések sor.**/

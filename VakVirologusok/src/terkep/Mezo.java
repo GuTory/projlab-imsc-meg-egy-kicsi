@@ -1,10 +1,7 @@
 package terkep;
 
-import jatek.Varos;
-import jdk.jshell.spi.ExecutionControl;
 import lombok.Getter;
 import lombok.Setter;
-import skeleton.Skeleton;
 import virologus.Virologus;
 
 import java.util.ArrayList;
@@ -48,12 +45,10 @@ public class Mezo {
      * A mezőben elvégezhető akció (a mezőben ez éppen semmi, de a leszármazottak felüldefiniálják)
      */
     public void akcio(Virologus virologus){
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
         return;
     }
 
     public void tombol() {
-        ;
+        return;
     }
 }

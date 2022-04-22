@@ -1,7 +1,5 @@
 package felszereles;
 
-import jdk.jshell.spi.ExecutionControl;
-import skeleton.Skeleton;
 import util.Taska;
 import virologus.Virologus;
 
@@ -14,14 +12,9 @@ public class Kopeny extends Felszereles{
      * @param taska
      */
     public  void fel(Virologus virologus, Taska taska){
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-
         if (taska.felszerelesBerak(this)) {
             virologus.setEllenallasErvenyesseg(virologus.ReszlegesSzazalekos, -1);
         }
-
-
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
@@ -31,14 +24,9 @@ public class Kopeny extends Felszereles{
      * @param taska
      */
     public  void le(Virologus virologus, Taska taska){
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-
         if (taska.felszerelesKivesz(this)) {
             virologus.setEllenallasErvenyesseg(virologus.ReszlegesSzazalekos, 0);
         }
-
-
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
@@ -46,8 +34,6 @@ public class Kopeny extends Felszereles{
      * @return kopeny_ID - köpeny azonosítója.
      */
     public int getID(){
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
         return Felszereles_ID.kopeny_ID;
     }
 }
