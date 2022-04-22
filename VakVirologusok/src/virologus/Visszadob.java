@@ -3,7 +3,6 @@ package virologus;
 import agens.Agens;
 import felszereles.Felszereles;
 import felszereles.Felszereles_ID;
-import skeleton.Skeleton;
 
 /**
  * Ha a virológusnak van kesztyűje, akkor képes visszadobni a rákent ágenst.
@@ -21,7 +20,10 @@ public class Visszadob extends Ellenallas{
      */
     @Override
     public boolean megkent(Virologus ki, Virologus kit, Agens mivel) {
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        if (!this.ervenyesE()) {
+            return true;
+        }
 
         //megkeressük a kesztyűt a virológus táskájában, hogy csökenthessük az élettartamát
         Felszereles kesztyu = null;
@@ -39,21 +41,12 @@ public class Visszadob extends Ellenallas{
             }
         }
 
-        if (!this.ervenyesE()) {
-            Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
-            return true;
-        }
-
         if (!mivel.ttlCsokkent()) { //már nem dobható vissza
             return true;
         }
 
-        boolean choice = Skeleton.igenNem("Visszadobod?");
-        if (choice) {
-            ki.megkent(kit, mivel);
-        }
+        ki.megkent(kit, mivel);
 
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
-        return !choice;
+        return false;
     }
 }

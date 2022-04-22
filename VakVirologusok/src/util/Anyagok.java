@@ -1,8 +1,6 @@
 package util;
 
 import lombok.Getter;
-import skeleton.Skeleton;
-
 import java.util.Dictionary;
 import java.util.Hashtable;
 
@@ -28,13 +26,11 @@ public class Anyagok {
      * @return Fel tud-e venni ennyi anyagot
      */
     public boolean betesz(Anyagok anyagok) {
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
-        boolean siker = Skeleton.igenNem("Fel tud venni ennyi anyagot?");
+        //TODO: betenni az anyagot
 
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
-
-        return siker;
+ 
+        return false;
     }
 
     /**
@@ -44,13 +40,11 @@ public class Anyagok {
      * @return Ki tud-e venni ennyi anyagot
      */
     public boolean kivesz(Anyagok anyagok) {
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
 
-        boolean siker = Skeleton.igenNem("Ki tud venni ennyi anyagot?");
+        //TODO: kivenni az anyagot
 
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
-
-        return siker;
+ 
+        return false;
     }
 
     /**
@@ -58,6 +52,6 @@ public class Anyagok {
      * @return az anyagok össz darabszáma
      */
     public int meret() {
-        return 0;
+        return anyagok.get("nukleotid") + anyagok.get("aminosav");
     }
 }

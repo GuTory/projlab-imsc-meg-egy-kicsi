@@ -2,7 +2,6 @@ package virologus;
 
 import agens.Agens;
 import agens.Medvetanc;
-import skeleton.Skeleton;
 import terkep.Mezo;
 
 import java.util.List;
@@ -17,20 +16,14 @@ public class MedvetancViselkedes extends Viselkedes{
 
     @Override
     public void mozog() {
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-
         List<Mezo> szomszedok = gazda.getHely().getSzomszedok();
         Mezo uj = szomszedok.get(new Random().nextInt(szomszedok.size()));
-        gazda.getHely().virologusKi(gazda);
-        uj.virologusBe(gazda);
-        gazda.setHely(uj);
+        atleptet(uj);
         for (Virologus mezonAllo: uj.getVirologusok()) {
             ken(mezonAllo, new Agens(new Medvetanc()));
         }
         uj.tombol();
 
-        uj.akcio(gazda);
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     @Override

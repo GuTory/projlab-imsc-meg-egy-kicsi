@@ -1,10 +1,8 @@
 package agens;
 
-import jdk.jshell.spi.ExecutionControl;
-import skeleton.Skeleton;
+import util.Anyagok;
 import virologus.Virologus;
 
-import virologus.Virologus;
 
 public class Agens {
     /**
@@ -23,12 +21,8 @@ public class Agens {
      * @param kod A kód, ami alapján az ágenst léterhozták
      */
     public Agens(Kod kod){
-        Skeleton.metodusEleje("Agens konstruktor");
-
         this.kod = kod;
         ttl = kod.getSzavatossag();
-
-        Skeleton.metodusVege("Agens konstruktor");
     }
 
     /**
@@ -36,11 +30,7 @@ public class Agens {
      * @param virologus, ezen a virológuson fejti ki a hatását az ágens.
      */
     public void hatas(Virologus virologus){
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-
         kod.hatas(virologus);
-
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
@@ -48,24 +38,19 @@ public class Agens {
      * @param ttl A beállítani kívánt élettartam
      */
     public void setTtl(int ttl){
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-
         this.ttl = ttl;
-
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 
     /**
      * Csökkenti a ttl-t 1-gyel, minden körben.
      * @return Az ágens továbbra is életbenmarad-e.
      */
-    public boolean ttlCsokkent(){
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
+    public boolean ttlCsokkent() {
+        ttl--;
+        return ttl <= 0;
+    }
 
-        boolean megszunik = Skeleton.igenNem("Megszűnik az ágens / a visszadobás lehetősége?");
-
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
-
-        return !megszunik;
+    public Anyagok koltseg() {
+        return kod.getKoltseg();
     }
 }

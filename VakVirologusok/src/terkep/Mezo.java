@@ -29,30 +29,19 @@ public class Mezo {
     @Getter
     protected ArrayList<Mezo> szomszedok;
 
-    public Mezo() {
-        Skeleton.metodusEleje("Mezo konstruktor");
-
-        Skeleton.metodusVege("Mezo konstruktor");
-    }
 
     /**
      * Virológus beléptetése a mezőre
      */
     final public void virologusBe(Virologus virologus){
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-
-
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+        virologusok.add(virologus);
     }
 
     /**
      * Virológus kiléptetése a mezőről
      */
     final public void virologusKi(Virologus virologus){
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-
-
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+        virologusok.remove(virologus);
     }
 
     /**

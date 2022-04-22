@@ -1,6 +1,7 @@
 package agens;
 
 import jdk.jshell.spi.ExecutionControl;
+import lombok.Getter;
 import skeleton.Skeleton;
 import util.Anyagok;
 import util.Taska;
@@ -17,6 +18,7 @@ public abstract class Kod {
     /**
      * Ágens létrehozásának a költsége, ennyi anyag szükséges ahhoz, hogy létre tudja hozni az ágenst.
      */
+    @Getter
     protected Anyagok koltseg;
 
     /**

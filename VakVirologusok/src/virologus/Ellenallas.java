@@ -2,8 +2,6 @@ package virologus;
 
 import agens.Agens;
 import jatek.Jatek;
-import jdk.jshell.spi.ExecutionControl;
-import skeleton.Skeleton;
 
 /**
  * Virológusok ágensek elleni védettségét menedzselő segédosztály.
@@ -41,47 +39,34 @@ public abstract class Ellenallas {
      * @param szint az érvényesség szintje
      */
     public void setErvenyesseg(int szint) {
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-
+ 
         ervenyesseg = szint;
         setIdobelyeg();
 
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
-    }
+     }
 
     /**
      * Lekérdezi és beállítja az időbélyeg értékét.
      */
     public void setIdobelyeg() {
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-
+ 
         idobelyeg = Jatek.getIdobelyeg();
 
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
-    }
+     }
 
     /**
      * Megmondja érvényes-e az ellenállás.
      * @return visszaadja, hogy érvényes-e (végtelen ideig, vagy adott körig és még ezen belül van) az ágens
      */
     protected boolean ervenyesE() {
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-        //teszt miatt innen
-        boolean dontes = Skeleton.igenNem("Ervenyes a " + this.getClass().getName() + " ellenállás?");
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
-        return dontes;
-        //eddig
-
-        //ez az eredeti
-        /*//Érvényes volt, de csak adott ideig és már nem érvényes. Érvénytelenítjük.
+        //Érvényes volt, de csak adott ideig és már nem érvényes. Érvénytelenítjük.
         if (this.ervenyesseg > 0 && this.idobelyeg + this.ervenyesseg < Jatek.getIdobelyeg()) {
             this.ervenyesseg = 0;
         }
         //-1 végtelen ideig
         //>0 csak ha még érvényes az adott körben
 
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
-        return this.ervenyesseg != 0;*/
+         return this.ervenyesseg != 0;
     }
 
 }
