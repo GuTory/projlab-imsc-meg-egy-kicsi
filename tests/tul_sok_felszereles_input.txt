@@ -1,0 +1,12 @@
+jatekindit 0 0 
+mezoletrehoz ovohely
+mezoberak mezo1 ketsztyu
+virologuskeszit mezo1
+taskabarak virologus1 kopeny
+taskabarak virologus1 balta
+taskabarak virologus1 kesztyu
+gyujt virologus1
+taskabolkivesz virologus1 balta
+gyujt virologus1
+taskabolkivesz virologus1 kesztyu
+gyujt virologus1

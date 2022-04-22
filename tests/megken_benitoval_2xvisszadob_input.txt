@@ -1,0 +1,7 @@
+jatekindit 1 2
+taskabarak virologus1 kesztyu
+taskabarak virologus1 benito
+taskabarak virologus2 kesztyu
+megken virologus1 virologus2 benito
+allapot virologus1
+allapot virologus2

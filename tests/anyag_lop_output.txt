@@ -1,0 +1,12 @@
+Mezok: mezo1
+Virologus: virologus1
+Virologus: virologus2
+sikeres berakas
+sikeres berakas
+sikeres hatas
+sikeres lopas
+sikeres lopas
+Taska tartalma: 
+aminosav 1
+nukleotid 1
+Taska tartalma:

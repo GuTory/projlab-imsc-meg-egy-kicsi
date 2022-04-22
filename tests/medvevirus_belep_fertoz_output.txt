@@ -1,0 +1,9 @@
+sikeres
+Mezo: mezo1
+MedveVirusosLabor: mezo2
+Virologus: virologus1
+Virologus: Virologus2
+sikeres mozgas
+Virologus virologus1: medvevirusos
+sikeres mozgas
+Virologus virologus2: medvevirusos

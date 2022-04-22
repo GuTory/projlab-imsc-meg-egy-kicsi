@@ -1,0 +1,5 @@
+sikeres
+sikeres
+Agens agens1: Benito, ttl: 10
+sikeres mozgas
+Agens agens1: Benito, ttl: 9

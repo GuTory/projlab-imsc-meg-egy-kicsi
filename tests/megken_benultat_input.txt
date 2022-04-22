@@ -1,0 +1,5 @@
+jatekindit 1 2
+taskabarak virologus1 felejto 1
+effektalkalmaz virologus2 benito
+megken virologus1 virologus2 felejto
+allapot virologus2

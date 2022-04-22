@@ -1,0 +1,6 @@
+jatekindit 1 1
+taskabarak virologus1 nukleotid 100
+taskamegnez virologus1
+taskabarak virologus1 zsak
+taskabarak virologus nukleotid 100
+taskamegnez virologus1
