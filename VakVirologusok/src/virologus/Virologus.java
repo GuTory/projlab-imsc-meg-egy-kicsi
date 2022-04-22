@@ -77,6 +77,7 @@ public class Virologus {
         List<Virologus> tobbiek = hely.getVirologusok();
 
         //TODO: kiszervezni a kérdéseket viselkedésbe (felesleges végigkérdezni egy halottat ezekről)
+        //TODO: ID-kat kiírni mezőnél és virológusoknál
         if (TestIO.input("Akarsz anyagot lopni? [i/n]").equals("i")) {
             int kitol = Integer.parseInt(TestIO.input("Kitől szeretnél anyagot lopni? [0-" + (tobbiek.size()-1) + "] senkitől: -1"));
             while (kitol != -1) {
