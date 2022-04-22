@@ -2,11 +2,8 @@ package util;
 
 import agens.Agens;
 import felszereles.Felszereles;
-import jdk.jshell.spi.ExecutionControl;
 import lombok.Getter;
-import skeleton.Skeleton;
 import virologus.Virologus;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,9 +15,9 @@ public class Taska {
     private Virologus virologus;
 
     /**
-     * Táskában levő anyagok mennyiségének maximuma
+     * Táskában levő anyagok és ágensek mennyiségének maximuma
      */
-    private int maxAnyagok = 50;
+    private int kapacitas = 50;
 
     /**
      * Táskában levő anyagok
@@ -53,12 +50,10 @@ public class Taska {
      * @return sikeresen berakta-e a táskába
      */
     public boolean felszerelesBerak(Felszereles felszereles) { //TODO: csak három felszerelés lehet egyszerre a táskában
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-
+ 
         felszerelesek.add(felszereles);
 
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
-        return true;
+         return true;
     }
 
     /**
@@ -68,9 +63,7 @@ public class Taska {
      * @return sikeresen kivette-e a táskából
      */
     public boolean felszerelesKivesz(Felszereles felszereles) {
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
-        return true;
+        return felszerelesek.remove(felszereles);
     }
 
     /**
@@ -79,13 +72,7 @@ public class Taska {
      * @return A berakás sikeressége
      */
     public boolean anyagBerak(Anyagok anyagok) {
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-
-        boolean siker = anyagok.betesz(anyagok);
-
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
-
-        return siker;
+        return anyagok.betesz(anyagok);
     }
 
     /**
@@ -95,13 +82,7 @@ public class Taska {
      * @return A kivétel sikeressége
      */
     public boolean anyagKivesz(Anyagok anyagokKi) {
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-
-        boolean siker = anyagok.kivesz(anyagokKi);
-
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
-
-        return siker;
+        return anyagok.kivesz(anyagokKi);
     }
 
     /**
@@ -110,12 +91,10 @@ public class Taska {
      * @param ertek A növekmény értéke
      */
     public void kapacitasNovel(int ertek) {
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
         //TODO: Ha a kapott érték negatív, akkor végignézi, hogy a csökkentett kapacitásba belefér-e a
         // táskában lévő dolgok mérete (telitettseg() fv) és kidobja az esetlegesen többletet jelentő dolgokat.
         // Ehhez megkérdezi a virológust, hogy mit és mennyit tegyen ki.
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
-    }
+     }
 
     /**
      * Belerakja az ágenst a táskába, ha belerakható.
@@ -123,46 +102,40 @@ public class Taska {
      * @return A táskába rakás sikeressége
      */
     public boolean agensBerak(Agens agens) {
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-
-        boolean siker = Skeleton.igenNem("Be tud rakni ennyi ágenst a táskába?");
-        if (siker) agensek.add(agens);
-
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
-
-        return siker;
+ 
+        if (telitettseg() + agens.koltseg().meret() < kapacitas) {
+            agensek.add(agens);
+            return true;
+        }
+        return false;
     }
 
     /**
      * Kiveszi a táskából a paraméterként kapott ágenst.
      * @param agens Az ágens, amit kivesz a táskából
      */
-    public void agensKivesz(Agens agens) {
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+    public boolean agensKivesz(Agens agens) {
+        return agensek.remove(agens);
     }
 
     /**
      * A táskában lévő ágensek élettartamát csökkenti eggyel.
      */
     public void agensLep() {
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-
         for (Agens agens: agensek) {
             if (!agens.ttlCsokkent()) {
                 agensKivesz(agens);
             }
         }
 
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
-    }
+     }
 
     /**
      * Megmondja, hogy a táskában mennyi a jelenleg tárolt dolgok foglalt helye.
      * Összegzi az anyagokat, és ágensek méretét.
      * @return a táskában tárolt dolgok mérete
      */
-    private int telitettseg() { //TODO: kitölteni
-        return 0;
+    private int telitettseg() {
+        return agensek.stream().map(a -> a.koltseg().meret()).reduce(0, Integer::sum) + anyagok.meret();
     }
 }

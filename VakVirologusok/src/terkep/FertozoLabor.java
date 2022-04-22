@@ -13,6 +13,7 @@ public class FertozoLabor extends Labor{
 
     @Override
     public void akcio(Virologus virologus) {
-        medvevirus.hatas(virologus);
+        super.akcio(virologus);
+        virologus.megkent(null, medvevirus);
     }
 }

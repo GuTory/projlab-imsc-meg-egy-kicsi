@@ -2,10 +2,6 @@ package jatek;
 
 import agens.Benito;
 import agens.Kod;
-import jatek.Jatek;
-import jdk.jshell.spi.ExecutionControl;
-import skeleton.Skeleton;
-import terkep.Labor;
 import terkep.Mezo;
 import util.Anyagok;
 import virologus.Virologus;
@@ -33,8 +29,6 @@ public class Varos {
      * Konstruktor, egy tesztesettel.
      */
     public Varos() {
-        Skeleton.metodusEleje("Varos konstruktor");
-
         mezok = new ArrayList<>();
         virologusok = new ArrayList<>();
         kodok = new ArrayList<>();
@@ -45,8 +39,6 @@ public class Varos {
         virologusok.add(new Virologus());
 
         kodok.add(new Benito(0, new Anyagok(1, 1), 1, 1));
-
-        Skeleton.metodusVege("Varos konstruktor");
     }
 
     /**
@@ -55,11 +47,15 @@ public class Varos {
      * @param virologus Vége lett-e a játéknak
      */
     public static void vegeEllenoriz(Virologus virologus){
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-
-        if(Skeleton.igenNem("Megtanult minden kódot a virológus?"))
+        if (kodok.containsAll(virologus.getKodok())) {
             Jatek.jatekVege(virologus);
-
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
+        }
     }
+
+    public static void kor() {
+        for (Virologus v : virologusok) {
+            v.kor();
+        }
+    }
+
 }

@@ -26,14 +26,9 @@ public class Benito extends Kod{
      * @return Agens, visszaadja a létrejött ágenst.
      */
     public Agens agensLetrehoz(Taska taska){
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-
         if(this.koltsegLevon(taska)){
-            Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
             return new Agens(this);
         }
-
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
         return null;
     }
 
@@ -43,10 +38,6 @@ public class Benito extends Kod{
      * @param virologus, rá fejti ki hatását az ágens.
      */
     public void hatas(Virologus virologus){
-        Skeleton.metodusEleje(Thread.currentThread().getStackTrace()[1].getMethodName());
-
         virologus.addViselkedes(elettartam, new BenultViselkedes(virologus));
-
-        Skeleton.metodusVege(Thread.currentThread().getStackTrace()[1].getMethodName());
     }
 }

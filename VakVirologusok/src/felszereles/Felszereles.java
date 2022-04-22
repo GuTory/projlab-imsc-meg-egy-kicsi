@@ -1,6 +1,5 @@
 package felszereles;
 
-import jdk.jshell.spi.ExecutionControl;
 import util.Taska;
 import virologus.Virologus;
 
@@ -26,7 +25,7 @@ public abstract class Felszereles{
      */
     public abstract int getID();
 
-    public boolean hasznal() {
+    public final boolean hasznal() {
         elettartam--;
         return elettartam > 0;
     }
