@@ -13,7 +13,7 @@ public class Mezo {
     /**
      * A mezőben lévő virológusok.
      */
-    protected ArrayList<Virologus> virologusok;
+    protected ArrayList<Virologus> virologusok = new ArrayList<>();
 
     public void setVirologusok(ArrayList<Virologus> v){ virologusok = v; }
 
@@ -22,7 +22,7 @@ public class Mezo {
     /**
      * A mezővel szomszédos mezők
      */
-    protected ArrayList<Mezo> szomszedok;
+    protected ArrayList<Mezo> szomszedok = new ArrayList<>();
 
     public void setSzomszedok(ArrayList<Mezo> sz){ szomszedok = sz; }
 

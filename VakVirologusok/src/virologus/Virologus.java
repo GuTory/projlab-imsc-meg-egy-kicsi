@@ -4,6 +4,7 @@ import agens.Agens;
 import agens.Kod;
 import felszereles.Felszereles;
 import terkep.Mezo;
+import test.TestIO;
 import util.Anyagok;
 import util.Taska;
 
@@ -70,7 +71,60 @@ public class Virologus {
     public void kor() {
         Viselkedes jelenlegi = alternativViselkedesek.pollFirst();
         jelenlegiViselkedes = jelenlegi == null ? alapViselkedes : jelenlegi;
-        //TODO: miket szeretne tenni a virológus
+
+        mozog();
+
+        List<Virologus> tobbiek = hely.getVirologusok();
+
+        //TODO: kiszervezni a kérdéseket viselkedésbe (felesleges végigkérdezni egy halottat ezekről)
+        if (TestIO.input("Akarsz anyagot lopni? [i/n]").equals("i")) {
+            int kitol = Integer.parseInt(TestIO.input("Kitől szeretnél anyagot lopni? [0-" + (tobbiek.size()-1) + "] senkitől: -1"));
+            while (kitol != -1) {
+                if (tobbiek.get(kitol % tobbiek.size()) != this) anyagLop(tobbiek.get(kitol % tobbiek.size()));
+                kitol = Integer.parseInt(TestIO.input("Kitől szeretnél anyagot lopni? [0-" + (tobbiek.size()-1) + "] senkitől: -1"));
+            }
+        }
+
+        if (TestIO.input("Akarsz felszerelest lopni? [i/n]").equals("i")) {
+            int kitol = Integer.parseInt(TestIO.input("Kitől szeretnél felszerelest lopni? [0-" + (tobbiek.size()-1) + "] senkitől: -1"));
+            while (kitol != -1) {
+                if (tobbiek.get(kitol % tobbiek.size()) != this) felszerelesLop(tobbiek.get(kitol % tobbiek.size()));
+                kitol = Integer.parseInt(TestIO.input("Kitől szeretnél felszerelest lopni? [0-" + (tobbiek.size()-1) + "] senkitől: -1"));
+            }
+        }
+
+        if (TestIO.input("Akarsz agenst lopni? [i/n]").equals("i")) {
+            int kitol = Integer.parseInt(TestIO.input("Kitől szeretnél agenst lopni? [0-" + (tobbiek.size()-1) + "] senkitől: -1"));
+            while (kitol != -1) {
+                if (tobbiek.get(kitol % tobbiek.size()) != this) agensLop(tobbiek.get(kitol % tobbiek.size()));
+                kitol = Integer.parseInt(TestIO.input("Kitől szeretnél agenst lopni? [0-" + (tobbiek.size()-1) + "] senkitől: -1"));
+            }
+        }
+
+        if (TestIO.input("Akarsz megkenni valakit? [i/n]").equals("i")) {
+            int kitol = Integer.parseInt(TestIO.input("Kit szeretnél megkenni? [0-" + (tobbiek.size()-1) + "] senkit: -1"));
+            while (kitol != -1) {
+                int mivel = Integer.parseInt(TestIO.input("Mivel szeretnéd megkenni? [0-" + (taska.getAgensek().size()-1) + "]"));
+                ken(tobbiek.get(kitol % tobbiek.size()), taska.getAgensek().get(mivel % taska.getAgensek().size()));
+                kitol = Integer.parseInt(TestIO.input("Kit szeretnél megkenni? [0-" + (tobbiek.size()-1) + "] senkit: -1"));
+            }
+        }
+
+        if (TestIO.input("Akarsz ágenst létrehozni? [i/n]").equals("i")) {
+            int mibol = Integer.parseInt(TestIO.input("Miből szeretnél ágenst létrehozni? [0-" + (kodok.size()-1) + "] semelyikből: -1"));
+            while (mibol != -1) {
+                agensEbbol(kodok.get(mibol % kodok.size()));
+                mibol = Integer.parseInt(TestIO.input("Miből szeretnél ágenst létrehozni? [0-" + (kodok.size()-1) + "] semelyikből: -1"));
+            }
+        }
+
+        if (TestIO.input("Akarsz támadni? [i/n]").equals("i")) {
+            int kitol = Integer.parseInt(TestIO.input("Kit szeretnél megtámadni? [0-" + (tobbiek.size()-1) + "] senkit: -1"));
+            while (kitol != -1) {
+                if (tobbiek.get(kitol % tobbiek.size()) != this) tamad(tobbiek.get(kitol % tobbiek.size()));
+                kitol = Integer.parseInt(TestIO.input("Kit szeretnél megtámadni? [0-" + (tobbiek.size()-1) + "] senkit: -1"));
+            }
+        }
     }
 
     /**
@@ -213,11 +267,10 @@ public class Virologus {
 
     /**
      * A virológus meg tud kenni valakit, aki egy mezőn áll vele.
-     * @param ki a kenő virológus
      * @param kit a megkent virológus
      * @param mivel a virológusra kent ágens
      */
-    public void ken(Virologus ki, Virologus kit, Agens mivel) {
+    public void ken(Virologus kit, Agens mivel) {
         jelenlegiViselkedes.ken(kit, mivel);
      }
 

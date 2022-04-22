@@ -1,14 +1,9 @@
 package virologus;
 
 import agens.Agens;
-import agens.Benito;
 import agens.Kod;
 import felszereles.*;
-import skeleton.Skeleton;
-import terkep.Labor;
 import terkep.Mezo;
-import terkep.Ovohely;
-import terkep.Raktar;
 import test.TestIO;
 import util.Anyagok;
 import util.Taska;
@@ -67,8 +62,27 @@ public class Viselkedes {
  
         Taska lopott_taska = kitol.taskaElvesz();
         Anyagok lopott_anyag = null;
-        //TODO: mennyit vesz ki
 
+
+        if (lopott_taska != null) {
+            boolean lehetA = true;
+            boolean lehetN = true;
+            boolean ilyen = true;
+            int n = 0;
+            int a = 0;
+            while ((lehetA || lehetN) && n + a < gazda.getTaska().szabadHely()) {
+                if (ilyen) {
+                    lehetN = lopott_taska.anyagKivesz(new Anyagok(1,0));
+                    n++;
+                }
+                else  {
+                    lehetA = lopott_taska.anyagKivesz(new Anyagok(0,1));
+                    a++;
+                }
+                ilyen = !ilyen;
+            }
+            lopott_anyag = new Anyagok(n, a);
+        }
  
         return lopott_anyag;
     }
@@ -122,7 +136,7 @@ public class Viselkedes {
      */
     public void ken(Virologus kit, Agens mivel) {
  
-        //TODO: vegye ki a táskából az ágenst amivel megkeni.
+        kit.getTaska().agensKivesz(mivel);
         mivel.setTtl(3);
         kit.megkent(gazda, mivel);
 

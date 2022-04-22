@@ -1,5 +1,7 @@
 package virologus;
 
+import test.TestIO;
+
 public class HalottViselkedes extends BenultViselkedes{
 
     public HalottViselkedes(Virologus gazda) {
