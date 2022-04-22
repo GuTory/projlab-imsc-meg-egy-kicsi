@@ -4,7 +4,6 @@ import agens.Agens;
 import agens.Benito;
 import agens.Kod;
 import felszereles.*;
-import lombok.Getter;
 import skeleton.Skeleton;
 import terkep.Labor;
 import terkep.Mezo;
@@ -24,8 +23,9 @@ public class Viselkedes {
      * A viselkedés erőssége. A nagyobb prioritású viselkedés felülírja a kisebb
      * prioritásút.
      */
-    @Getter
     protected int prior;
+
+    public int getPrior(){ return prior; }
 
     protected Virologus gazda;
 
