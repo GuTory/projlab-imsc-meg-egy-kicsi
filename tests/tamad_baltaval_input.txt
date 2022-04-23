@@ -1,7 +1,8 @@
-jatekindit 1 0
-virologuskeszit mezo1
-virologuskeszit mezo1
-virologuskeszit mezo1
+jatekindit 0 0
+mezoletrehoz mezo
+virologusletrehoz mezo1
+virologusletrehoz mezo1
+virologusletrehoz mezo1
 taskabarak virologus1 balta
 effektalkalmaz virologus2 medvevirus
 tamad virologus1 virologus2

@@ -1,4 +1,7 @@
-jatekindit 1 2
+jatekindit 0 0
+mezoletrehoz mezo
+virologusletrehoz mezo1
+virologusletrehoz mezo1
 taskabarak virologus1 felejto 1
 megtanit virologus2 felejto
 megtanit virologus2 benito

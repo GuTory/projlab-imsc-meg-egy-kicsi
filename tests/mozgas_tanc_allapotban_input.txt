@@ -1,4 +1,10 @@
-jatekindit 10 1
+jatekindit 0 0
+mezoletrehoz mezo
+mezoletrehoz mezo mezo1
+mezoletrehoz mezo mezo2 mezo1
+mezoletrehoz mezo mezo3
+mezoletrehoz mezo mezo2 mezo4
+virologusletrehoz mezo2
 effektalkalmaz virologus1 vitustanc
 allapot virologus1
 mozog virologus1 1
