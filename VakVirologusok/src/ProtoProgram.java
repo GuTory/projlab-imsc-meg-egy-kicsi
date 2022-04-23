@@ -369,6 +369,9 @@ public class ProtoProgram {
             case "felejto":
                 k = new Felejto(new Anyagok(1,1), 3,3);
                 break;
+            case "medvevirus":
+                k = new Medvetanc();
+                break;
             default:
                 break;
         }
@@ -403,7 +406,7 @@ public class ProtoProgram {
         TestIO.output("sikeres tanulas");
     }
 
-    public static void elfelejt(){
+    public static void elfelejt() {
         Virologus ki = keresVirologus(data[1]);
         ki.getKodok().clear();
         TestIO.output("sikeres felejtes");
