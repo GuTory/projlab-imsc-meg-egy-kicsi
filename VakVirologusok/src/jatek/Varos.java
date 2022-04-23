@@ -19,21 +19,57 @@ public class Varos {
     private List<Kod> kodok;
 
     /**
+     * Getter a kodlistahoz
+     * @return Kodlista
+     */
+    public List<Kod> getKodok(){
+        return kodok;
+    }
+
+    /**
+     * Beallitja a kodlistat
+     * @param value az uj kodlista
+     */
+    public void setKodok(List<Kod> value){
+        kodok = value;
+    }
+
+    /**
      * A városban található virológusok összessége.
      */
     private List<Virologus> virologusok;
+
+    /**
+     * Beallitja a virologusok listajat
+     * @param value az uj virologus lista
+     */
+    public void setVirologusok(List<Virologus> value){
+        virologusok = value;
+    }
 
     /**
      * A városban található mezők összessége.
      */
     private List<Mezo> mezok;
 
+    /**
+     * Beallitja a mezoket
+     * @param value az uj mezo lista
+     */
+    public void setMezok(List<Mezo> value){
+        mezok = value;
+    }
+
+    /**
+     * A singleton peldanya az osztalynak
+     */
     private static Varos instance = null;
 
     /**
-     * Konstruktor, egy tesztesettel.
+     * Privat konstruktor.
+     * @param placeholder Csak hogy meg lehessen kulonboztetni a publikus konstruktortol.
      */
-     private Varos(){
+     private Varos(Object placeholder){
         mezok = new ArrayList<>();
         virologusok = new ArrayList<>();
         kodok = new ArrayList<>();
@@ -58,10 +94,18 @@ public class Varos {
         virologusok.get(1).beFelszereles(new Balta());
     }
 
+    /**
+     * Publikus konstruktor, szerializaciohoz szukseges.
+     */
+    public Varos()
+    {
+        //Maradjon uresen, ez csak az XML serializaciohoz kell
+    }
+
     public static Varos getInstance()
     {
         if(instance == null)
-            instance = new Varos();
+            instance = new Varos(null);
         return instance;
     }
 
@@ -74,6 +118,14 @@ public class Varos {
         if (kodok.containsAll(virologus.getKodok())) {
             Jatek.jatekVege(virologus);
         }
+    }
+
+    /**
+     * Lemasolja a parameterkent megadott varost
+     * @param v A Varos objektum, amit lemasol
+     */
+    public void copy(Varos v){
+        //TODO: Implementacio
     }
 
     public void kor() {

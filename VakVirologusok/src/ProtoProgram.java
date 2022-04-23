@@ -1,3 +1,5 @@
+import Serialization.XmlLoader;
+import Serialization.XmlSaver;
 import agens.Agens;
 import jatek.Varos;
 import terkep.*;
@@ -102,11 +104,23 @@ public class ProtoProgram {
     }
 
     public static void betolt(){
-
+        try{
+            XmlLoader.load(data[1]);
+            System.out.println("Sikeres");
+        }
+        catch(Exception e){
+            System.out.println("Sikertelen");
+        }
     }
 
     public static void mentes(){
-
+        try{
+            XmlSaver.save(data[1]);
+            System.out.println("Sikeres");
+        }
+        catch (Exception e){
+            System.out.println("Hibas fajlnev");
+        }
     }
 
     public static void megken(){
@@ -146,7 +160,7 @@ public class ProtoProgram {
     }
 
     public static void jatekindit(){
-        jatekindit();
+        //jatekindit(); vegtelen rekurzio bruh
         TestIO.output("sikeres jatekinditas");
     }
 
