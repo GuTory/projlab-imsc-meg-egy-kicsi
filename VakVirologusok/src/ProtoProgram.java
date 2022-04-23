@@ -1,7 +1,13 @@
-import agens.Agens;
+import Serialization.XmlLoader;
+import Serialization.XmlSaver;
+import agens.*;
+import felszereles.*;
+import jatek.Jatek;
 import jatek.Varos;
 import terkep.*;
 import test.TestIO;
+import util.Anyagok;
+import util.Taska;
 import virologus.Virologus;
 
 public class ProtoProgram {
@@ -102,11 +108,22 @@ public class ProtoProgram {
     }
 
     public static void betolt(){
-
+        try {
+            XmlLoader.load(data[1]);
+        } catch (Exception e){
+            e.printStackTrace();
+            TestIO.output("sikertelen betoltes");
+        }
+        TestIO.output("sikeres betoltes");
     }
 
-    public static void mentes(){
-
+    public static void mentes() {
+        try {
+            XmlSaver.save(data[1]);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        TestIO.output("sikertelen mentes");
     }
 
     public static void megken(){
@@ -146,7 +163,7 @@ public class ProtoProgram {
     }
 
     public static void jatekindit(){
-        jatekindit();
+        Jatek.jatekIndit();
         TestIO.output("sikeres jatekinditas");
     }
 
@@ -180,61 +197,292 @@ public class ProtoProgram {
     }
 
     public static void mezoberak(){
-
+        Mezo m = keresMezo(data[1]);
+        switch (data[2]) {
+            case "nukleotid":
+            case "aminosav": {
+                Raktar r = (Raktar) m;
+                if (data[2].equals("nukleotid")) {
+                    r.setAnyagok(new Anyagok(Integer.parseInt(data[3]), 0));
+                } else {
+                    r.setAnyagok(new Anyagok(0, Integer.parseInt(data[3])));
+                }
+                break;
+            }
+            case "kesztyu":
+            case "kopeny":
+            case "balta":
+            case "csorbultbalta":
+            case "zsak": {
+                Ovohely r = (Ovohely) m;
+                switch (data[2]) {
+                    case "kesztyu":
+                        r.setFelszereles(new Kesztyu());
+                        break;
+                    case "kopeny":
+                        r.setFelszereles(new Kopeny());
+                        break;
+                    case "balta":
+                        r.setFelszereles(new Balta());
+                        break;
+                    case "csorbultbalta":
+                        r.setFelszereles(new CsorbultBalta());
+                        break;
+                    case "zsak":
+                        r.setFelszereles(new Zsak());
+                        break;
+                }
+                break;
+            }
+            case "benito":
+            case "vedelem":
+            case "vitustanc":
+            case "felejto": {
+                Labor r = (Labor) m;
+                Anyagok anyagok = new Anyagok(1, 1);
+                switch (data[2]) {
+                    case "benito":
+                        r.setKod(new Benito(anyagok, 3, 3));
+                        break;
+                    case "vedelem":
+                        r.setKod(new Vedelem(anyagok, 3, 3));
+                        break;
+                    case "vitustanc":
+                        r.setKod(new Vitustanc(anyagok, 3, 3));
+                        break;
+                    case "felejto":
+                        r.setKod(new Felejto(anyagok, 3, 3));
+                        break;
+                }
+                break;
+            }
+        }
     }
 
     public static void ellop(){
         Virologus ki = keresVirologus(data[1]);
         Virologus kitol = keresVirologus(data[2]);
         boolean siker = false;
-        if(data[3].equals("nukleotid") || data[3].equals("aminosav")){
-            siker = ki.anyagLop(kitol);
-        } else if( data[3].equals("kesztyu") ||
-                   data[3].equals("kopeny") ||
-                   data[3].equals("balta")  ||
-                   data[3].equals("csorbultbalta") ||
-                   data[3].equals("zsak")) {
-            siker = ki.felszerelesLop(kitol);
-        } else if(data[3].equals("benito") ||
-                  data[3].equals("vedelem") ||
-                  data[3].equals("vitustanc") ||
-                  data[3].equals("felejto")){
-            siker = ki.agensLop(kitol);
+        switch (data[3]) {
+            case "nukleotid":
+            case "aminosav":
+                siker = ki.anyagLop(kitol);
+                break;
+            case "kesztyu":
+            case "kopeny":
+            case "balta":
+            case "csorbultbalta":
+            case "zsak":
+                siker = ki.felszerelesLop(kitol);
+                break;
+            case "benito":
+            case "vedelem":
+            case "vitustanc":
+            case "felejto":
+                siker = ki.agensLop(kitol);
+                break;
         }
         TestIO.output(siker ? "sikeres lopas" : "sikertelen lopas");
     }
 
     public static void keszit(){
-
+        Virologus ki = keresVirologus(data[1]);
+        String milyen = data[2];
+        for (Kod kod : ki.getKodok()){
+            if(kod.id.toLowerCase().contains(milyen)){
+                ki.agensEbbol(kod);
+                TestIO.output("sikeres keszites");
+                return;
+            }
+        }
+        TestIO.output("sikertelen keszites");
     }
 
     public static void effektalkalmaz(){
-
+        Virologus ki = keresVirologus(data[1]);
+        Kod k = null;
+        switch (data[2]){
+            case "benito":
+                k = new Benito(new Anyagok(1,1), 3,3);
+                break;
+            case "vedelem":
+                k = new Vedelem(new Anyagok(1,1), 3,3);
+                break;
+            case "vitustanc":
+                k = new Vitustanc(new Anyagok(1,1), 3,3);
+                break;
+            case "felejto":
+                k = new Felejto(new Anyagok(1,1), 3,3);
+                break;
+            default:
+                break;
+        }
+        assert k != null;
+        Agens a = new Agens(k);
+        a.hatas(ki);
+        TestIO.output("sikeres hatas");
     }
 
     public static void megtanit(){
-
+        Virologus ki = keresVirologus(data[1]);
+        Kod k = null;
+        Anyagok a = new Anyagok(1,1);
+        switch (data[2]){
+            case "benito":
+                k = new Benito(a, 3,3);
+                break;
+            case "vedelem":
+                k = new Vedelem(a, 3,3);
+                break;
+            case "vitustanc":
+                k = new Vitustanc(a, 3,3);
+                break;
+            case "felejto":
+                k = new Felejto(a, 3,3);
+                break;
+            default:
+                break;
+        }
+        assert k != null;
+        ki.kodMegtanul(k);
+        TestIO.output("sikeres tanulas");
     }
 
     public static void elfelejt(){
-
+        Virologus ki = keresVirologus(data[1]);
+        ki.getKodok().clear();
+        TestIO.output("sikeres felejtes");
     }
 
     public static void allapot(){
-
+        if(data[1].contains("virologus")){
+            Virologus ki = keresVirologus(data[1]);
+            TestIO.output(ki.toString());
+        } else if(data[1].contains("mezo")){
+            Mezo m = keresMezo(data[1]);
+            TestIO.output(m.toString());
+        }
     }
 
     public static void taskabarak(){
-
+        Taska t = keresVirologus(data[1]).getTaska();
+        Anyagok a = new Anyagok(1,1);
+        Felszereles f;
+        Agens agens;
+        switch (data[2]) {
+            case "nukleotid":
+                t.anyagBerak(new Anyagok(Integer.parseInt( data[3]),0));
+                break;
+            case "aminosav":
+                t.anyagBerak(new Anyagok(0,Integer.parseInt( data[3])));
+                break;
+            case "kesztyu":
+                f = new Kesztyu();
+                TestIO.output(f.toString());
+                t.felszerelesBerak(f);
+                break;
+            case "kopeny":
+                f=new Kopeny();
+                TestIO.output(f.toString());
+                t.felszerelesBerak(f);
+                break;
+            case "balta":
+                f=new Balta();
+                TestIO.output(f.toString());
+                t.felszerelesBerak(f);
+                break;
+            case "csorbultbalta":
+                f=new CsorbultBalta();
+                TestIO.output(f.toString());
+                t.felszerelesBerak(f);
+                break;
+            case "zsak":
+                f=new Zsak();
+                TestIO.output(f.toString());
+                t.felszerelesBerak(f);
+                break;
+            case "benito":
+                agens = new Agens(new Benito(a, 3,3));
+                TestIO.output(agens.toString());
+                t.agensBerak(agens);
+                break;
+            case "vedelem":
+                agens =new Agens(new Vedelem(a, 3,3));
+                TestIO.output(agens.toString());
+                t.agensBerak(agens);
+                break;
+            case "vitustanc":
+                agens =new Agens(new Vitustanc(a, 3,3));
+                TestIO.output(agens.toString());
+                t.agensBerak(agens);
+                break;
+            case "felejto":
+                agens =new Agens(new Felejto(a, 3,3));
+                TestIO.output(agens.toString());
+                t.agensBerak(agens);
+                break;
+            default:
+                break;
+        }
     }
 
     public static void taskabolkivesz(){
-
+        Taska t = keresVirologus(data[1]).getTaska();
+        Anyagok a = new Anyagok(1,1);
+        Felszereles f;
+        Agens agens;
+        switch (data[2]) {
+            case "nukleotid":
+                t.anyagKivesz(new Anyagok(Integer.parseInt( data[3]),0));
+                break;
+            case "aminosav":
+                t.anyagKivesz(new Anyagok(0,Integer.parseInt( data[3])));
+                break;
+            case "kesztyu":
+                f = new Kesztyu();
+                TestIO.output(f.toString());
+                t.felszerelesKivesz(f);
+                break;
+            case "kopeny":
+                f=new Kopeny();
+                t.felszerelesKivesz(f);
+                break;
+            case "balta":
+                f=new Balta();
+                t.felszerelesKivesz(f);
+                break;
+            case "csorbultbalta":
+                f=new CsorbultBalta();
+                t.felszerelesKivesz(f);
+                break;
+            case "zsak":
+                f=new Zsak();
+                t.felszerelesKivesz(f);
+                break;
+            case "benito":
+                agens = new Agens(new Benito(a, 3,3));
+                t.agensKivesz(agens);
+                break;
+            case "vedelem":
+                agens =new Agens(new Vedelem(a, 3,3));
+                t.agensKivesz(agens);
+                break;
+            case "vitustanc":
+                agens =new Agens(new Vitustanc(a, 3,3));
+                t.agensKivesz(agens);
+                break;
+            case "felejto":
+                agens =new Agens(new Felejto(a, 3,3));
+                t.agensKivesz(agens);
+                break;
+            default:
+                break;
+        }
     }
 
     public static void objektumlista(){
         for (Mezo m: Varos.getInstance().getMezok()){
-            m.toString();
+            TestIO.output( m.toString());
         }
         for(Virologus v: Varos.getInstance().getVirologusok()){
             TestIO.output(v.toString());
@@ -243,7 +491,7 @@ public class ProtoProgram {
 
     public static void terkep(){
         for (Mezo m: Varos.getInstance().getMezok()){
-            m.toString();
+            TestIO.output( m.toString());
         }
     }
 

@@ -8,7 +8,7 @@ public abstract class Kod {
     /**
      * A kódnak az azonosítója, ezzel lehet beazonosítani a különböző kódokat.
      */
-    protected String id;
+    public String id;
 
     /**
      * Ágens létrehozásának a költsége, ennyi anyag szükséges ahhoz, hogy létre tudja hozni az ágenst.
