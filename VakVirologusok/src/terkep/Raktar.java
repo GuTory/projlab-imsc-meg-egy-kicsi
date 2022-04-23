@@ -33,4 +33,9 @@ public class Raktar extends Mezo{
     public void tombol() {
         anyagok = null;
     }
+
+    @Override
+    public String toString(){
+        return "Raktar: " /*+ name*/;
+    }
 }

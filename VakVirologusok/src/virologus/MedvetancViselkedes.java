@@ -32,4 +32,9 @@ public class MedvetancViselkedes extends Viselkedes{
         mivel.setTtl(2); //Csak 1-szer visszadobható (medve nem dob vissza)
         return kit.megkent(gazda, mivel);
     }
+
+    @Override
+    public String toString(){
+        return "medvetanc";
+    }
 }

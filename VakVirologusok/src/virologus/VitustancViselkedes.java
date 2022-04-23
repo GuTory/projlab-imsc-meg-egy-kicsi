@@ -20,4 +20,8 @@ public class VitustancViselkedes extends Viselkedes{
         return true;
     }
 
+    @Override
+    public String toString(){
+        return "vitustanc";
+    }
 }

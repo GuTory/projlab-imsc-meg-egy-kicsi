@@ -4,6 +4,7 @@ import agens.Agens;
 import felszereles.Felszereles;
 import virologus.Virologus;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Taska {
@@ -148,6 +149,7 @@ public class Taska {
         return agensek.stream().map(a -> a.koltseg().meret()).reduce(0, Integer::sum) + anyagok.meret();
     }
 
+
     private void tartalomCsokkentes() {
         //Csak anyag kivétele elég
         if (telitettseg() - kapacitas < anyagok.meret()) {
@@ -173,5 +175,34 @@ public class Taska {
 
     public int szabadHely() {
         return kapacitas - telitettseg();
+    }
+  
+    @Override
+    public String toString(){
+        String s = "Taska tartalma:\n";
+
+        //Felszerelések listázása
+        List<String> list = new ArrayList<>();
+        for(Felszereles f : felszerelesek){
+            list.add(f.toString());
+        }
+        Collections.sort(list);
+        for(String f : list){
+            s += f + "\n";
+        }
+        list.clear();
+
+        //Ágensek listázása
+        for(Agens a : agensek){
+            list.add(a.toString());
+        }
+        Collections.sort(list);
+        for(String a : list){
+            s += a.toString() + "\n";
+        }
+
+        //Anyagok listázása
+        s += anyagok.toString();
+        return s;
     }
 }

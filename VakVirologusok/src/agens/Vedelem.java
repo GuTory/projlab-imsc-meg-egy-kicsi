@@ -36,4 +36,9 @@ public class Vedelem extends Kod{
     public void hatas(Virologus virologus){
         virologus.setEllenallasErvenyesseg(virologus.TeljesSzazalekos, elettartam);
     }
+
+    @Override
+    public String toString(){
+        return "vedelem";
+    }
 }

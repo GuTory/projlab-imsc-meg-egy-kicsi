@@ -18,4 +18,9 @@ public class Balta extends Felszereles{
     public int getID() {
         return Felszereles_ID.balta_ID;
     }
+
+    @Override
+    public String toString(){
+        return "balta";
+    }
 }

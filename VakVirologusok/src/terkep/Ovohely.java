@@ -25,4 +25,9 @@ public class Ovohely extends Mezo {
             felszereles = null;
         }
     }
+
+    @Override
+    public String toString(){
+        return "Ovohely: " /*+ name*/;
+    }
 }

@@ -38,4 +38,9 @@ public class Vitustanc extends Kod{
     public void hatas(Virologus virologus){
         virologus.addViselkedes(elettartam, new VitustancViselkedes(virologus));
     }
+
+    @Override
+    public String toString(){
+        return "vitustanc";
+    }
 }

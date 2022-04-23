@@ -61,4 +61,9 @@ public class Mezo {
     public void tombol() {
         return;
     }
+
+    @Override
+    public String toString(){
+        return "Mezo: " /*+ name*/;
+    }
 }

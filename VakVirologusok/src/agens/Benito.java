@@ -40,4 +40,9 @@ public class Benito extends Kod{
     public void hatas(Virologus virologus){
         virologus.addViselkedes(elettartam, new BenultViselkedes(virologus));
     }
+
+    @Override
+    public String toString(){
+        return "benito";
+    }
 }
