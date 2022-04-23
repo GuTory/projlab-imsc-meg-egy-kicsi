@@ -48,13 +48,13 @@ public class Taska {
     /**
      * Berakja a paraméterként kapott felszerelést a
      * táskába.
-     * @param felszereles Flezserelés, amelyet berak a táskába
+     * @param uj Flezserelés, amelyet berak a táskába
      * @return sikeresen berakta-e a táskába
      */
-    public boolean felszerelesBerak(Felszereles felszereles) {
-        if (felszerelesek.size() >= 3) return false;
+    public boolean felszerelesBerak(Felszereles uj) {
+        if (felszerelesek.size() >= 3 || felszerelesek.stream().anyMatch(f -> f.getID() == uj.getID())) return false;
 
-        felszerelesek.add(felszereles);
+        felszerelesek.add(uj);
 
          return true;
     }
