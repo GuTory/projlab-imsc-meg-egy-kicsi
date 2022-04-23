@@ -15,21 +15,19 @@ mezoberak mezo2 aminosav 10
 mezoberak mezo2 nukleotid 10
 mezoberak mezo5 aminosav 10
 mezoberak mezo5 nukleotid 10
-virologuskeszit mezo2
-virologuskeszit mezo5
-virologuskeszit mezo7
-gyujt virologus1
+virologusletrehoz mezo2
+virologusletrehoz mezo5
+virologusletrehoz mezo7
 mozog virologus1 1
-keszit virologus1 benito 1
+keszit virologus1 benito
 mozog virologus1 3
-gyujt virologus2
 mozog virologus2 1
 megken virologus1 virologus2 benito
 ellop virologus1 virologus2 nukleotid
 ellop virologus1 virologus2 aminosav
-keszit virologus1 vedelem 1
+keszit virologus1 vedelem
 megken virologus1 virologus1 vedelem
-taskabarak virologus3 fejelto
+taskabarak virologus3 felejto
 mozog virologus3 1
 megken virologus3 virologus1 felejto
 mozog virologus1 4

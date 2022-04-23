@@ -42,6 +42,7 @@ public class Mezo {
      */
     final public void virologusBe(Virologus virologus){
         virologusok.add(virologus);
+        akcio(virologus);
     }
 
     /**

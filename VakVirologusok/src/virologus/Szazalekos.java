@@ -35,6 +35,6 @@ public class Szazalekos extends Ellenallas{
             return true;
         }
 
-        return new Random().nextDouble()*100 <= this.vedArany;
+        return new Random().nextDouble()*100 > this.vedArany;
     }
 }

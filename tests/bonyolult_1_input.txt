@@ -11,9 +11,9 @@ mezoletrehoz raktar mezo8 mezo6
 mezoberak mezo3 nukleotid 5 
 mezoberak mezo6 aminosav 5
 mezoberak mezo8 balta
-virologuskeszit mezo2
-virologuskeszit mezo5
-virologuskeszit mezo7
+virologusletrehoz mezo2
+virologusletrehoz mezo5
+virologusletrehoz mezo7
 taskabarak virologus1 benito
 mozog virologus1 2
 gyujt virologus1

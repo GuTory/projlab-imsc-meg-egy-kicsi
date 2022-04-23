@@ -27,6 +27,7 @@ public class ProtoProgram {
         for(File f : folder.listFiles()){
             if(f.getName().contains("input")){
                 fajlok.add("tests/" + f.getName());
+                System.out.println((fajlok.size()-1) + " : " + fajlok.get(fajlok.size()-1));
             }
         }
         System.out.println("Válassz: 0-" + (fajlok.size()-1));
@@ -295,7 +296,7 @@ public class ProtoProgram {
                         r.setKod(k);
                         break;
                     case "vedelem":
-                        k = new Vedelem(anyagok, 3, 3);
+                        k = new Vedelem(anyagok, -1, 3);
                         r.setKod(k);
                         break;
                     case "vitustanc":

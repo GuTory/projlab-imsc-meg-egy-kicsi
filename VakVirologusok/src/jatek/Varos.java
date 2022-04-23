@@ -106,10 +106,13 @@ public class Varos {
      * @param virologus Vége lett-e a játéknak
      */
     public void vegeEllenoriz(Virologus virologus){
-        if (kodok.containsAll(virologus.getKodok())) {
-            Jatek.jatekVege(virologus);
-            TestIO.output("jatek vege: " + virologus.TestNev + " nyert");
+        for (Kod kod: kodok) {
+            if (!virologus.getKodok().contains(kod)) {
+                return;
+            }
         }
+        Jatek.jatekVege(virologus);
+        TestIO.output("jatek vege: " + virologus.TestNev + " nyert");
     }
 
     /**

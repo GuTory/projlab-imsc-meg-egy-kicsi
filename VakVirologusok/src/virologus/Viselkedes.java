@@ -47,7 +47,7 @@ public class Viselkedes {
 
         int ujID = Integer.parseInt(TestIO.parancs[2]);
 
-        Mezo uj = szomszedok.get(ujID % szomszedok.size());
+        Mezo uj = szomszedok.get(ujID-1);
 
         atleptet(uj);
         return true;
@@ -168,7 +168,6 @@ public class Viselkedes {
         gazda.getHely().virologusKi(gazda);
         uj.virologusBe(gazda);
         gazda.setHely(uj);
-        uj.akcio(gazda);
     }
 
     @Override

@@ -14,9 +14,9 @@ mezoberak mezo4 zsak
 mezoberak mezo5 aminosav 10
 mezoberak mezo6 aminosav 10
 mezoberak mezo7 aminosav 10
-virologuskeszit mezo1
-virologuskeszit mezo8
-virologuskeszit mezo9
+virologusletrehoz mezo1
+virologusletrehoz mezo8
+virologusletrehoz mezo9
 mozog virologus1 1
 gyujt virologus1
 mozog virologus1 1
