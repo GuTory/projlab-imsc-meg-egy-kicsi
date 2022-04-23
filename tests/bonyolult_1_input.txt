@@ -1,0 +1,33 @@
+jatekindit 0 0
+mezoletrehoz mezo
+mezoletrehoz ovohely mezo1
+mezoletrehoz raktar mezo2
+mezoletrehoz mezo mezo1
+mezoletrehoz ovohely mezo4 mezo2
+mezoletrehoz raktar mezo5 mezo3
+mezoletrehoz mezo mezo4
+mezoletrehoz ovohely mezo7 mezo5
+mezoletrehoz raktar mezo8 mezo6
+mezoberak mezo3 nukleotid 5 
+mezoberak mezo6 aminosav 5
+mezoberak mezo8 balta
+virologuskeszit mezo2
+virologuskeszit mezo5
+virologuskeszit mezo7
+taskabarak virologus1 benito
+mozog virologus1 2
+gyujt virologus1
+mozog virologus1 1
+mozog virologus2 3
+gyujt virologus2
+mozog virologus2 1
+mozog virologus1 3
+megken virologus1 virologus2 benito
+ellop virologus1 virologus2 aminosav
+mozog virologus3 2
+gyujt virologus2
+mozog virologus3 2
+tamad virologus3 virologus1
+ellop virologus3 virologus1 aminosav
+ellop virologus3 virologus1 nukleotid
+allapot virologus3
