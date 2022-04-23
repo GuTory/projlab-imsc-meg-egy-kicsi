@@ -19,4 +19,8 @@ public class VitustancViselkedes extends Viselkedes{
         atleptet(uj);
     }
 
+    @Override
+    public String toString(){
+        return "vitustanc";
+    }
 }

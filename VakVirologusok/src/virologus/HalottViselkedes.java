@@ -11,4 +11,9 @@ public class HalottViselkedes extends BenultViselkedes{
     public void mozog() {
         gazda.addViselkedes(1, this);
     }
+
+    @Override
+    public String toString(){
+        return "halott";
+    }
 }

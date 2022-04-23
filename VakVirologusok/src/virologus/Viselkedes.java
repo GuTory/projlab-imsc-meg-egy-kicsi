@@ -158,4 +158,8 @@ public class Viselkedes {
         uj.akcio(gazda);
     }
 
+    @Override
+    public String toString(){
+        return "normal";
+    }
 }

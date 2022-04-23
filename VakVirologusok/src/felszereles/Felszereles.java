@@ -29,6 +29,4 @@ public abstract class Felszereles{
         elettartam--;
         return elettartam > 0;
     }
-
-    //public abstract String toString();
 }

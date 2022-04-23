@@ -37,4 +37,9 @@ public class Felejto extends Kod{
     public void hatas(Virologus virologus){
         virologus.kodFelejt();
     }
+
+    @Override
+    public String toString(){
+        return "felejto";
+    }
 }

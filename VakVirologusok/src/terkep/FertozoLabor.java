@@ -16,4 +16,9 @@ public class FertozoLabor extends Labor{
         super.akcio(virologus);
         virologus.megkent(null, medvevirus);
     }
+
+    @Override
+    public String toString(){
+        return "FertozoLabor: " /*+ name*/;
+    }
 }

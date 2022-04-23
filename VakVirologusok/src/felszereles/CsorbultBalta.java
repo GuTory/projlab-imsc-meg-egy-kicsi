@@ -5,4 +5,9 @@ public class CsorbultBalta extends Balta{
     public int getID() {
         return Felszereles_ID.csorbultBalta_ID;
     }
+
+    @Override
+    public String toString(){
+        return "csorbultbalta";
+    }
 }

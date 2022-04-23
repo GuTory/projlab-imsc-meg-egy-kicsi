@@ -18,6 +18,8 @@ public class Virologus {
     public int TeljesSzazalekos = 1;
     public int ReszlegesSzazalekos = 2;
 
+    String name;
+
     private List<Kod> kodok;
 
     public List<Kod> getKodok() { return kodok; }
@@ -234,4 +236,8 @@ public class Virologus {
         jelenlegiViselkedes.tamad(kit);
     }
 
+    @Override
+    public String toString(){
+        return "Virologus " + name + ": " + jelenlegiViselkedes.toString() ;
+    }
 }
