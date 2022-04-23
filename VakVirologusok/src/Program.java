@@ -21,6 +21,8 @@ public class Program {
     }
 
     public static void main(String[] args){
+        Jatek.jatekIndit();
+        if (true) return;
         int teszt = Integer.parseInt(Skeleton.dontes("Mit tesztelsz? (csak szám)\n" +
                 "0: jatekIndit\n" +
                 "1: testAgensEbbol\n" +
@@ -85,7 +87,7 @@ public class Program {
         Kod k = new Benito(1, new Anyagok(1,1), 1, 1);
         Agens agens = new Agens(k);
         clrscr();
-        v1.ken(v1, v2, agens);
+        v1.ken(v2, agens);
     }
 
     private static void testMozog() {

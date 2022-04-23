@@ -4,7 +4,16 @@ import util.Taska;
 import virologus.Virologus;
 
 public abstract class Felszereles{
+    public final String TestNev;
+    protected static int TestID = 1;
+
     protected int elettartam = 0;
+
+    public Felszereles() {
+        TestNev = "Felszereles" + TestID;
+        TestID++;
+    }
+
     /**
      * Kifejti hatását az adott virológuson a tárgy, és beteszi a virológus táskájába.
      * @param virologus, akin kifejti a hatását.

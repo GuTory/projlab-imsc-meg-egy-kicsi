@@ -51,8 +51,9 @@ public class Taska {
      * @param felszereles Flezserelés, amelyet berak a táskába
      * @return sikeresen berakta-e a táskába
      */
-    public boolean felszerelesBerak(Felszereles felszereles) { //TODO: csak három felszerelés lehet egyszerre a táskában
- 
+    public boolean felszerelesBerak(Felszereles felszereles) {
+        if (felszerelesek.size() >= 3) return false;
+
         felszerelesek.add(felszereles);
 
          return true;
@@ -71,10 +72,15 @@ public class Taska {
     /**
      * Berakja a táskába a paraméterként kapott anyagot.
      * @param anyagok Az anyag, amit berak a táskába
-     * @return A berakás sikeressége
+     * @return Van-e még hely
      */
     public boolean anyagBerak(Anyagok anyagok) {
-        return anyagok.betesz(anyagok);
+        anyagok.betesz(anyagok);
+
+        if (telitettseg() > kapacitas) {
+            tartalomCsokkentes();
+        }
+        return telitettseg() < kapacitas;
     }
 
     /**
@@ -93,9 +99,11 @@ public class Taska {
      * @param ertek A növekmény értéke
      */
     public void kapacitasNovel(int ertek) {
-        //TODO: Ha a kapott érték negatív, akkor végignézi, hogy a csökkentett kapacitásba belefér-e a
-        // táskában lévő dolgok mérete (telitettseg() fv) és kidobja az esetlegesen többletet jelentő dolgokat.
-        // Ehhez megkérdezi a virológust, hogy mit és mennyit tegyen ki.
+        kapacitas += ertek;
+
+        if (telitettseg() > kapacitas) {
+            tartalomCsokkentes();
+        }
      }
 
     /**
@@ -141,6 +149,34 @@ public class Taska {
         return agensek.stream().map(a -> a.koltseg().meret()).reduce(0, Integer::sum) + anyagok.meret();
     }
 
+
+    private void tartalomCsokkentes() {
+        //Csak anyag kivétele elég
+        if (telitettseg() - kapacitas < anyagok.meret()) {
+            boolean ilyen = true;
+            do {
+                if (ilyen) {
+                    anyagok.kivesz(new Anyagok(1,0));
+                }
+                else {
+                    anyagok.kivesz(new Anyagok(0,1));
+                }
+                ilyen = !ilyen;
+            } while (telitettseg() > kapacitas);
+        }
+        //Minden anyagot ki kell venni és ágenseket is
+        else {
+            anyagok.kivesz(anyagok);
+            do {
+                agensek.remove(0);
+            } while (telitettseg() > kapacitas);
+        }
+    }
+
+    public int szabadHely() {
+        return kapacitas - telitettseg();
+    }
+  
     @Override
     public String toString(){
         String s = "Taska tartalma:\n";

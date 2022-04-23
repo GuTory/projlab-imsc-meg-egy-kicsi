@@ -4,6 +4,7 @@ import agens.Agens;
 import agens.Kod;
 import felszereles.Felszereles;
 import terkep.Mezo;
+import test.TestIO;
 import util.Anyagok;
 import util.Taska;
 
@@ -14,6 +15,10 @@ import java.util.*;
  * Van a virológusnak táskája, cselekménye és védelme. Ez az osztály hajtja/hajtatja végre a játékos által indított cselekvéseket.
  */
 public class Virologus {
+
+    public final String TestNev;
+    protected static int TestID = 1;
+
     public int Visszadob = 0;
     public int TeljesSzazalekos = 1;
     public int ReszlegesSzazalekos = 2;
@@ -47,6 +52,9 @@ public class Virologus {
     public Mezo getHely() { return hely; }
 
     public Virologus() {
+        TestNev = "Virologus" + TestID;
+        TestID++;
+
         kodok = new ArrayList<>();
 
         alapViselkedes = new Viselkedes(this);
@@ -72,7 +80,61 @@ public class Virologus {
     public void kor() {
         Viselkedes jelenlegi = alternativViselkedesek.pollFirst();
         jelenlegiViselkedes = jelenlegi == null ? alapViselkedes : jelenlegi;
-        //TODO: miket szeretne tenni a virológus
+
+        mozog();
+
+        List<Virologus> tobbiek = hely.getVirologusok();
+
+        //TODO: kiszervezni a kérdéseket viselkedésbe (felesleges végigkérdezni egy halottat ezekről)
+        //TODO: ID-kat kiírni mezőnél és virológusoknál
+        if (TestIO.input("Akarsz anyagot lopni? [i/n]").equals("i")) {
+            int kitol = Integer.parseInt(TestIO.input("Kitől szeretnél anyagot lopni? [0-" + (tobbiek.size()-1) + "] senkitől: -1"));
+            while (kitol != -1) {
+                if (tobbiek.get(kitol % tobbiek.size()) != this) anyagLop(tobbiek.get(kitol % tobbiek.size()));
+                kitol = Integer.parseInt(TestIO.input("Kitől szeretnél anyagot lopni? [0-" + (tobbiek.size()-1) + "] senkitől: -1"));
+            }
+        }
+
+        if (TestIO.input("Akarsz felszerelest lopni? [i/n]").equals("i")) {
+            int kitol = Integer.parseInt(TestIO.input("Kitől szeretnél felszerelest lopni? [0-" + (tobbiek.size()-1) + "] senkitől: -1"));
+            while (kitol != -1) {
+                if (tobbiek.get(kitol % tobbiek.size()) != this) felszerelesLop(tobbiek.get(kitol % tobbiek.size()));
+                kitol = Integer.parseInt(TestIO.input("Kitől szeretnél felszerelest lopni? [0-" + (tobbiek.size()-1) + "] senkitől: -1"));
+            }
+        }
+
+        if (TestIO.input("Akarsz agenst lopni? [i/n]").equals("i")) {
+            int kitol = Integer.parseInt(TestIO.input("Kitől szeretnél agenst lopni? [0-" + (tobbiek.size()-1) + "] senkitől: -1"));
+            while (kitol != -1) {
+                if (tobbiek.get(kitol % tobbiek.size()) != this) agensLop(tobbiek.get(kitol % tobbiek.size()));
+                kitol = Integer.parseInt(TestIO.input("Kitől szeretnél agenst lopni? [0-" + (tobbiek.size()-1) + "] senkitől: -1"));
+            }
+        }
+
+        if (TestIO.input("Akarsz megkenni valakit? [i/n]").equals("i")) {
+            int kitol = Integer.parseInt(TestIO.input("Kit szeretnél megkenni? [0-" + (tobbiek.size()-1) + "] senkit: -1"));
+            while (kitol != -1) {
+                int mivel = Integer.parseInt(TestIO.input("Mivel szeretnéd megkenni? [0-" + (taska.getAgensek().size()-1) + "]"));
+                ken(tobbiek.get(kitol % tobbiek.size()), taska.getAgensek().get(mivel % taska.getAgensek().size()));
+                kitol = Integer.parseInt(TestIO.input("Kit szeretnél megkenni? [0-" + (tobbiek.size()-1) + "] senkit: -1"));
+            }
+        }
+
+        if (TestIO.input("Akarsz ágenst létrehozni? [i/n]").equals("i")) {
+            int mibol = Integer.parseInt(TestIO.input("Miből szeretnél ágenst létrehozni? [0-" + (kodok.size()-1) + "] semelyikből: -1"));
+            while (mibol != -1) {
+                agensEbbol(kodok.get(mibol % kodok.size()));
+                mibol = Integer.parseInt(TestIO.input("Miből szeretnél ágenst létrehozni? [0-" + (kodok.size()-1) + "] semelyikből: -1"));
+            }
+        }
+
+        if (TestIO.input("Akarsz támadni? [i/n]").equals("i")) {
+            int kitol = Integer.parseInt(TestIO.input("Kit szeretnél megtámadni? [0-" + (tobbiek.size()-1) + "] senkit: -1"));
+            while (kitol != -1) {
+                if (tobbiek.get(kitol % tobbiek.size()) != this) tamad(tobbiek.get(kitol % tobbiek.size()));
+                kitol = Integer.parseInt(TestIO.input("Kit szeretnél megtámadni? [0-" + (tobbiek.size()-1) + "] senkit: -1"));
+            }
+        }
     }
 
     /**
@@ -96,10 +158,10 @@ public class Virologus {
      * @param keno a kenést végző virológus.
      * @param mivel a virológusra kent ágens
      */
-    public void megkent(Virologus keno, Agens mivel) {
+    public boolean megkent(Virologus keno, Agens mivel) {
         if (keno == this) {
             mivel.hatas(this);
-            return;
+            return true;
         }
 
         boolean siker = true;
@@ -111,6 +173,7 @@ public class Virologus {
         if (siker) {
             mivel.hatas(this);
         }
+        return siker;
      }
 
     /**
@@ -178,8 +241,8 @@ public class Virologus {
     /**
      * A virológus által kiválasztott mezőre lép.
      */
-    public void mozog() {
-        jelenlegiViselkedes.mozog();
+    public boolean mozog() {
+        return jelenlegiViselkedes.mozog();
      }
 
     /**
@@ -187,53 +250,66 @@ public class Virologus {
      * ellopható anyagokat.
      * @param kitol az a virológus akitől lopni akar
      */
-    public void anyagLop(Virologus kitol) {
+    public boolean anyagLop(Virologus kitol) {
         Anyagok lopott = jelenlegiViselkedes.anyagLop(kitol);
-        if (lopott != null) taska.anyagBerak(lopott);
+        if (lopott != null) {
+            taska.anyagBerak(lopott);
+            return true;
+        }
+        return false;
      }
 
     /**
      *
      * @param kitol az a virológus akitől lopni akar
      */
-    public void felszerelesLop(Virologus kitol) {
+    public boolean felszerelesLop(Virologus kitol) {
         Felszereles lopott = jelenlegiViselkedes.felszerelesLop(kitol);
         if (lopott != null) {
             kitol.kiFelszereles(lopott);
             beFelszereles(lopott);
+            return true;
         }
+        return false;
      }
 
     /**
      *
      * @param kitol az a virológus akitől lopni akar
      */
-    public void agensLop(Virologus kitol) {
+    public boolean agensLop(Virologus kitol) {
         Agens lopott = jelenlegiViselkedes.agensLop(kitol);
-        if (lopott != null) taska.agensBerak(lopott);
+        if (lopott != null) {
+            taska.agensBerak(lopott);
+            return true;
+        }
+        return false;
      }
 
     /**
      * A virológus meg tud kenni valakit, aki egy mezőn áll vele.
-     * @param ki a kenő virológus
      * @param kit a megkent virológus
      * @param mivel a virológusra kent ágens
      */
-    public void ken(Virologus ki, Virologus kit, Agens mivel) {
-        jelenlegiViselkedes.ken(kit, mivel);
+    public boolean ken(Virologus kit, Agens mivel) {
+        return jelenlegiViselkedes.ken(kit, mivel);
      }
 
     /**
      * Létrehoz egy ágenst, majd visszaadja azt.
      * @param kod a kód ami alapján az ágenst létre akarja hozni
      */
-    public void agensEbbol(Kod kod) {
+    public boolean agensEbbol(Kod kod) {
         Agens keszitett = jelenlegiViselkedes.agensEbbol(kod, taska);
-        if (keszitett != null) taska.agensBerak(keszitett);
+        if (keszitett != null) {
+            taska.agensBerak(keszitett);
+            return true;
+        }
+        return false;
      }
 
-    public void tamad(Virologus kit) {
-        jelenlegiViselkedes.tamad(kit);
+    public boolean tamad(Virologus kit) {
+        return jelenlegiViselkedes.tamad(kit);
     }
 
     @Override

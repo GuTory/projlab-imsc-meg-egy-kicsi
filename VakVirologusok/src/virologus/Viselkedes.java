@@ -1,14 +1,10 @@
 package virologus;
 
 import agens.Agens;
-import agens.Benito;
 import agens.Kod;
 import felszereles.*;
-import skeleton.Skeleton;
-import terkep.Labor;
 import terkep.Mezo;
-import terkep.Ovohely;
-import terkep.Raktar;
+import test.TestIO;
 import util.Anyagok;
 import util.Taska;
 
@@ -45,15 +41,16 @@ public class Viselkedes {
     /**
      * A virológus által kiválasztott mezőre lép.
      */
-    public void mozog() {
+    public boolean mozog() {
  
         List<Mezo> szomszedok = gazda.getHely().getSzomszedok();
 
-        int ujID = 0; //TODO: hogyan választasz új mezőt
+        int ujID = Integer.parseInt(TestIO.input());
 
-        Mezo uj = szomszedok.get(ujID);
+        Mezo uj = szomszedok.get(ujID % szomszedok.size());
 
         atleptet(uj);
+        return true;
      }
 
     /**
@@ -66,8 +63,27 @@ public class Viselkedes {
  
         Taska lopott_taska = kitol.taskaElvesz();
         Anyagok lopott_anyag = null;
-        //TODO: mennyit vesz ki
 
+
+        if (lopott_taska != null) {
+            boolean lehetA = true;
+            boolean lehetN = true;
+            boolean ilyen = true;
+            int n = 0;
+            int a = 0;
+            while ((lehetA || lehetN) && n + a < gazda.getTaska().szabadHely()) {
+                if (ilyen) {
+                    lehetN = lopott_taska.anyagKivesz(new Anyagok(1,0));
+                    n++;
+                }
+                else  {
+                    lehetA = lopott_taska.anyagKivesz(new Anyagok(0,1));
+                    a++;
+                }
+                ilyen = !ilyen;
+            }
+            lopott_anyag = new Anyagok(n, a);
+        }
  
         return lopott_anyag;
     }
@@ -86,8 +102,8 @@ public class Viselkedes {
         }
         Felszereles lopott = null;
         if (felszerelesek != null) {
-            int ID = 0; //TODO: melyiket veszi ki
-            lopott = felszerelesek.get(ID);
+            int ID = Integer.parseInt(TestIO.input());
+            lopott = felszerelesek.get(ID % felszerelesek.size());
         }
 
         return lopott;
@@ -107,8 +123,8 @@ public class Viselkedes {
         }
         Agens lopott = null;
         if (agensek != null) {
-            int ID = 0; //TODO: melyiket veszi ki
-            lopott = agensek.get(ID);
+            int ID = Integer.parseInt(TestIO.input());
+            lopott = agensek.get(ID % agensek.size());
         }
 
         return lopott;
@@ -119,12 +135,10 @@ public class Viselkedes {
      * @param kit a megkent virológus
      * @param mivel a virológusra kent ágens
      */
-    public void ken(Virologus kit, Agens mivel) {
- 
-        //TODO: vegye ki a táskából az ágenst amivel megkeni.
+    public boolean ken(Virologus kit, Agens mivel) {
+        gazda.getTaska().agensKivesz(mivel);
         mivel.setTtl(3);
-        kit.megkent(gazda, mivel);
-
+        return kit.megkent(gazda, mivel);
      }
 
     /**
@@ -136,7 +150,7 @@ public class Viselkedes {
         return kod.agensLetrehoz(taska);
     }
 
-    public void tamad(Virologus kit) {
+    public boolean tamad(Virologus kit) {
         //megkeressük a baltát a virológus táskájában
         Felszereles balta = null;
         for (Felszereles f : gazda.getTaska().getFelszerelesek()) {
@@ -144,11 +158,12 @@ public class Viselkedes {
                 balta = f;
             }
         }
-        if (balta == null) return;  //nem volt balta, nem lehet támadni
+        if (balta == null) return false;  //nem volt balta, nem lehet támadni
         //volt balta, megöli a virológust és csorbult baltára cseréli a baltát
         kit.meghal();
         balta.le(gazda, gazda.getTaska());
         new CsorbultBalta().fel(gazda, gazda.getTaska());
+        return true;
     }
 
     final protected void atleptet(Mezo uj) {

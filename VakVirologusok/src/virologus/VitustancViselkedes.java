@@ -13,10 +13,11 @@ public class VitustancViselkedes extends Viselkedes{
     }
 
     @Override
-    public void mozog() {
+    public boolean mozog() {
         List<Mezo> szomszedok = gazda.getHely().getSzomszedok();
         Mezo uj = szomszedok.get(new Random().nextInt(szomszedok.size()));
         atleptet(uj);
+        return true;
     }
 
     @Override

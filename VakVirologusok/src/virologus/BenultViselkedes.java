@@ -18,8 +18,8 @@ public class BenultViselkedes extends Viselkedes {
     }
 
     @Override
-    public void mozog() {
-        return;
+    public boolean mozog() {
+        return false;
     }
 
     @Override
@@ -38,7 +38,8 @@ public class BenultViselkedes extends Viselkedes {
     }
 
     @Override
-    public void ken(Virologus kit, Agens mivel) {
+    public boolean ken(Virologus kit, Agens mivel) {
+        return false;
      }
 
     @Override
@@ -47,8 +48,8 @@ public class BenultViselkedes extends Viselkedes {
     }
 
     @Override
-    public void tamad(Virologus kit) {
-        return;
+    public boolean tamad(Virologus kit) {
+        return false;
     }
 
     @Override

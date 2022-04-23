@@ -20,7 +20,7 @@ public class Ovohely extends Mezo {
      * Az óvóhelyen elvégezhető akció (felszerelés felvétel)
      */
     public void akcio(Virologus virologus){
-        if(felszereles != null){ //TODO: esetleg kérdezni?
+        if(felszereles != null){
             virologus.beFelszereles(felszereles);
             felszereles = null;
         }

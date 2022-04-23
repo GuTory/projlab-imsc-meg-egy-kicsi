@@ -1,7 +1,7 @@
 package util;
 
-import java.util.Dictionary;
 import java.util.Hashtable;
+import java.util.Map;
 
 public class Anyagok {
 
@@ -9,9 +9,9 @@ public class Anyagok {
      * Szótár, melyben tárolja, hogy aminosavból és nukleotidból mennyi
      * van. A szótárban a szó az anyag neve, a hozzá csatolt megjegyzés pedig a számossága.
      */
-    private Dictionary<String, Integer> anyagok;
+    private Map<String, Integer> anyagok;
 
-    public Dictionary<String, Integer> getAnyagok() { return anyagok; }
+    public Map<String, Integer> getAnyagok() { return anyagok; }
 
     public Anyagok(int nukleotid, int aminosav) {
         anyagok = new Hashtable<>();
@@ -22,29 +22,34 @@ public class Anyagok {
     /**
      * Hozzáad annyi anyag mennyiséget a Dictionary-hez,
      * amennyit paraméterben kap.
-     * @param anyagok Az anyagok, amelyet be akar rakni
+     * @param uj Az anyagok, amelyet be akar rakni
      * @return Fel tud-e venni ennyi anyagot
      */
-    public boolean betesz(Anyagok anyagok) {
+    public boolean betesz(Anyagok uj) {
 
-        //TODO: betenni az anyagot
-
+        anyagok.replaceAll((k, v) -> anyagok.get(k) + uj.getAnyagok().get(k));
  
-        return false;
+        return true;
     }
 
     /**
      * Kivesz annyi anyag mennyiséget a Dictionary-hez,
      * amennyit paraméterben kap.
-     * @param anyagok Az anyagok, amelyet be akar rakni
+     * @param uj Az anyagok, amelyet be akar rakni
      * @return Ki tud-e venni ennyi anyagot
      */
-    public boolean kivesz(Anyagok anyagok) {
+    public boolean kivesz(Anyagok uj) {
+        Map<String, Integer> regi = anyagok;
 
-        //TODO: kivenni az anyagot
+        anyagok.replaceAll((k, v) -> anyagok.get(k) - uj.getAnyagok().get(k));
+        for (String key : anyagok.keySet()) {
+            if (anyagok.get(key) < 0) {
+                anyagok = regi;
+                return false;
+            }
+        }
 
- 
-        return false;
+        return true;
     }
 
     /**
@@ -52,7 +57,11 @@ public class Anyagok {
      * @return az anyagok össz darabszáma
      */
     public int meret() {
-        return anyagok.get("nukleotid") + anyagok.get("aminosav");
+        int meret = 0;
+        for (String key : anyagok.keySet()) {
+            meret += anyagok.get(key);
+        }
+        return meret;
     }
 
     @Override

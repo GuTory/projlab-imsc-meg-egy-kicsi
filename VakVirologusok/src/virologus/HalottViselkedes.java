@@ -1,5 +1,7 @@
 package virologus;
 
+import test.TestIO;
+
 public class HalottViselkedes extends BenultViselkedes{
 
     public HalottViselkedes(Virologus gazda) {
@@ -8,8 +10,9 @@ public class HalottViselkedes extends BenultViselkedes{
     }
 
     @Override
-    public void mozog() {
+    public boolean mozog() {
         gazda.addViselkedes(1, this);
+        return false;
     }
 
     @Override

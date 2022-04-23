@@ -15,7 +15,7 @@ public class MedvetancViselkedes extends Viselkedes{
     }
 
     @Override
-    public void mozog() {
+    public boolean mozog() {
         List<Mezo> szomszedok = gazda.getHely().getSzomszedok();
         Mezo uj = szomszedok.get(new Random().nextInt(szomszedok.size()));
         atleptet(uj);
@@ -23,13 +23,14 @@ public class MedvetancViselkedes extends Viselkedes{
             ken(mezonAllo, new Agens(new Medvetanc()));
         }
         uj.tombol();
-
+        return true;
     }
 
     @Override
-    public void ken(Virologus kit, Agens mivel) {
+    public boolean ken(Virologus kit, Agens mivel) {
+        gazda.getTaska().agensKivesz(mivel);
         mivel.setTtl(2); //Csak 1-szer visszadobható (medve nem dob vissza)
-        kit.megkent(gazda, mivel);
+        return kit.megkent(gazda, mivel);
     }
 
     @Override
