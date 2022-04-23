@@ -81,6 +81,7 @@ public class Virologus {
         Viselkedes jelenlegi = alternativViselkedesek.pollFirst();
         jelenlegiViselkedes = jelenlegi == null ? alapViselkedes : jelenlegi;
 
+        TestIO.output("Lépj [0-" + (hely.getSzomszedok().size()-1) + "]");
         mozog();
 
         List<Virologus> tobbiek = hely.getVirologusok();
@@ -90,7 +91,10 @@ public class Virologus {
         if (TestIO.input("Akarsz anyagot lopni? [i/n]").equals("i")) {
             int kitol = Integer.parseInt(TestIO.input("Kitől szeretnél anyagot lopni? [0-" + (tobbiek.size()-1) + "] senkitől: -1"));
             while (kitol != -1) {
-                if (tobbiek.get(kitol % tobbiek.size()) != this) anyagLop(tobbiek.get(kitol % tobbiek.size()));
+                if (tobbiek.get(kitol % tobbiek.size()) != this && anyagLop(tobbiek.get(kitol % tobbiek.size())))
+                    TestIO.output("Sikeresen loptál anyagot.");
+                else
+                    TestIO.output("Nem sikerült anyagot lopni.");
                 kitol = Integer.parseInt(TestIO.input("Kitől szeretnél anyagot lopni? [0-" + (tobbiek.size()-1) + "] senkitől: -1"));
             }
         }
@@ -98,7 +102,10 @@ public class Virologus {
         if (TestIO.input("Akarsz felszerelest lopni? [i/n]").equals("i")) {
             int kitol = Integer.parseInt(TestIO.input("Kitől szeretnél felszerelest lopni? [0-" + (tobbiek.size()-1) + "] senkitől: -1"));
             while (kitol != -1) {
-                if (tobbiek.get(kitol % tobbiek.size()) != this) felszerelesLop(tobbiek.get(kitol % tobbiek.size()));
+                if (tobbiek.get(kitol % tobbiek.size()) != this && felszerelesLop(tobbiek.get(kitol % tobbiek.size())))
+                    TestIO.output("Sikeresen loptál felszerelést.");
+                else
+                    TestIO.output("Nem sikerült felszerelést lopni.");
                 kitol = Integer.parseInt(TestIO.input("Kitől szeretnél felszerelest lopni? [0-" + (tobbiek.size()-1) + "] senkitől: -1"));
             }
         }
@@ -106,7 +113,10 @@ public class Virologus {
         if (TestIO.input("Akarsz agenst lopni? [i/n]").equals("i")) {
             int kitol = Integer.parseInt(TestIO.input("Kitől szeretnél agenst lopni? [0-" + (tobbiek.size()-1) + "] senkitől: -1"));
             while (kitol != -1) {
-                if (tobbiek.get(kitol % tobbiek.size()) != this) agensLop(tobbiek.get(kitol % tobbiek.size()));
+                if (tobbiek.get(kitol % tobbiek.size()) != this && agensLop(tobbiek.get(kitol % tobbiek.size())))
+                    TestIO.output("Sikeresen loptál ágenst.");
+                else
+                    TestIO.output("Nem sikerült ágenst lopni.");
                 kitol = Integer.parseInt(TestIO.input("Kitől szeretnél agenst lopni? [0-" + (tobbiek.size()-1) + "] senkitől: -1"));
             }
         }
@@ -115,7 +125,11 @@ public class Virologus {
             int kitol = Integer.parseInt(TestIO.input("Kit szeretnél megkenni? [0-" + (tobbiek.size()-1) + "] senkit: -1"));
             while (kitol != -1) {
                 int mivel = Integer.parseInt(TestIO.input("Mivel szeretnéd megkenni? [0-" + (taska.getAgensek().size()-1) + "]"));
-                ken(tobbiek.get(kitol % tobbiek.size()), taska.getAgensek().get(mivel % taska.getAgensek().size()));
+                if (ken(tobbiek.get(kitol % tobbiek.size()), taska.getAgensek().get(mivel % taska.getAgensek().size())))
+                    TestIO.output("Sikeresen kentél.");
+                else
+                    TestIO.output("Nem sikerült kenni.");
+
                 kitol = Integer.parseInt(TestIO.input("Kit szeretnél megkenni? [0-" + (tobbiek.size()-1) + "] senkit: -1"));
             }
         }
@@ -123,7 +137,10 @@ public class Virologus {
         if (TestIO.input("Akarsz ágenst létrehozni? [i/n]").equals("i")) {
             int mibol = Integer.parseInt(TestIO.input("Miből szeretnél ágenst létrehozni? [0-" + (kodok.size()-1) + "] semelyikből: -1"));
             while (mibol != -1) {
-                agensEbbol(kodok.get(mibol % kodok.size()));
+                if (agensEbbol(kodok.get(mibol % kodok.size())))
+                    TestIO.output("Sikeresen létrehoztál ágenst.");
+                else
+                    TestIO.output("Nem sikerült ágenst létrehozni.");
                 mibol = Integer.parseInt(TestIO.input("Miből szeretnél ágenst létrehozni? [0-" + (kodok.size()-1) + "] semelyikből: -1"));
             }
         }
@@ -131,7 +148,10 @@ public class Virologus {
         if (TestIO.input("Akarsz támadni? [i/n]").equals("i")) {
             int kitol = Integer.parseInt(TestIO.input("Kit szeretnél megtámadni? [0-" + (tobbiek.size()-1) + "] senkit: -1"));
             while (kitol != -1) {
-                if (tobbiek.get(kitol % tobbiek.size()) != this) tamad(tobbiek.get(kitol % tobbiek.size()));
+                if (tobbiek.get(kitol % tobbiek.size()) != this && tamad(tobbiek.get(kitol % tobbiek.size())))
+                    TestIO.output("Sikeresen támadtál.");
+                else
+                    TestIO.output("Nem sikerült támadni.");
                 kitol = Integer.parseInt(TestIO.input("Kit szeretnél megtámadni? [0-" + (tobbiek.size()-1) + "] senkit: -1"));
             }
         }
