@@ -3,7 +3,7 @@ mezoletrehoz mezo
 mezoletrehoz raktar mezo1
 mezoberak mezo2 nukleotid 10
 virologusletrehoz mezo1
-effektalkalmaz virologus1 medvetanc
+effektalkalmaz virologus1 medvevirus
 allapot mezo2
 mozog virologus1 1
 allapot mezo2

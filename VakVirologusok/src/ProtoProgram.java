@@ -26,11 +26,10 @@ public class ProtoProgram {
         File folder = new File("tests/");
         for(File f : folder.listFiles()){
             if(f.getName().contains("input")){
-
                 fajlok.add("tests/" + f.getName());
             }
         }
-        System.out.println(fajlok.size());
+        System.out.println("Válassz: 0-" + (fajlok.size()-1));
         Scanner sc = new Scanner(System.in);
         int n = Integer.parseInt( sc.nextLine());
         String fajlnev = fajlok.get(n);
@@ -372,6 +371,10 @@ public class ProtoProgram {
             case "medvevirus":
                 k = new Medvetanc();
                 break;
+            case "halott":
+                ki.meghal();
+                TestIO.output("sikeres hatas");
+                return;
             default:
                 break;
         }

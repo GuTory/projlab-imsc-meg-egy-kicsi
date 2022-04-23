@@ -8,6 +8,6 @@ virologusletrehoz mezo2
 effektalkalmaz virologus1 vitustanc
 allapot virologus1
 mozog virologus1 1
-effektalkalmaz virologus1 medvetanc
+effektalkalmaz virologus1 medvevirus
 allapot virologus1
 mozog virologus1 1

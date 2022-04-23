@@ -2,9 +2,10 @@ jatekindit 0 0
 mezoletrehoz mezo
 virologusletrehoz mezo1
 virologusletrehoz mezo1
-taskabarak virologus1 benito 2
+taskabarak virologus1 benito
+taskabarak virologus1 benito
 taskabarak virologus2 kopeny
-megken virologus1 virologus2 benito 0
+megken virologus1 virologus2 benito
 allapot virologus2
-megken virologus1 virologus2 benito 1
+megken virologus1 virologus2 benito
 allapot virologus2

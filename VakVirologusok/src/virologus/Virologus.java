@@ -267,7 +267,6 @@ public class Virologus {
      * A virológus által kiválasztott mezőre lép.
      */
     public boolean mozog() {
-        //TestViselkedesInit();
         return jelenlegiViselkedes.mozog();
      }
 
