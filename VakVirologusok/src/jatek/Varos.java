@@ -73,6 +73,7 @@ public class Varos {
     public void vegeEllenoriz(Virologus virologus){
         if (kodok.containsAll(virologus.getKodok())) {
             Jatek.jatekVege(virologus);
+            TestIO.output("jatek vege: " + virologus.TestNev + " nyert");
         }
     }
 
