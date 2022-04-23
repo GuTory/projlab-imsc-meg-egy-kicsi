@@ -22,4 +22,9 @@ public class Medvetanc extends Kod{
     public void hatas(Virologus virologus) {
         virologus.addViselkedes(elettartam, new MedvetancViselkedes(virologus));
     }
+
+    @Override
+    public String toString(){
+        return "medvetanc";
+    }
 }

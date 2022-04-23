@@ -36,4 +36,9 @@ public class Kopeny extends Felszereles{
     public int getID(){
         return Felszereles_ID.kopeny_ID;
     }
+
+    @Override
+    public String toString(){
+        return "kopeny";
+    }
 }

@@ -53,4 +53,9 @@ public class Agens {
     public Anyagok koltseg() {
         return kod.getKoltseg();
     }
+
+    @Override
+    public String toString(){
+        return kod.toString() + "agens";
+    }
 }

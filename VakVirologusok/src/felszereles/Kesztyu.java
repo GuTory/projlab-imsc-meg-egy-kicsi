@@ -40,4 +40,9 @@ public class Kesztyu extends Felszereles{
     public int getID(){
         return Felszereles_ID.kesztyu_ID;
     }
+
+    @Override
+    public String toString(){
+        return "kesztyu";
+    }
 }

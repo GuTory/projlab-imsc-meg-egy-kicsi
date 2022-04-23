@@ -25,4 +25,9 @@ public class Labor extends Mezo {
         virologus.kodMegtanul(kod);
         Varos.vegeEllenoriz(virologus);
     }
+
+    @Override
+    public String toString(){
+        return "Labor: " /*+ name*/;
+    }
 }

@@ -51,4 +51,8 @@ public class BenultViselkedes extends Viselkedes {
         return;
     }
 
+    @Override
+    public String toString(){
+        return "benult";
+    }
 }

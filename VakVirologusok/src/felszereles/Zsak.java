@@ -48,4 +48,9 @@ public class Zsak extends Felszereles{
     public int getID(){
         return Felszereles_ID.zsak_ID;
     }
+
+    @Override
+    public String toString(){
+        return "zsak";
+    }
 }
