@@ -10,10 +10,28 @@ import util.Anyagok;
 import util.Taska;
 import virologus.Virologus;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Objects;
+import java.util.Scanner;
+
 public class ProtoProgram {
     private static String[] data;
+    private static Virologus active = null;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
+        File folder = new File("tests/");
+        for(File f : folder.listFiles()){
+            if(f.getName().contains("input")){
+                TestIO.setInputScanner(new Scanner( new File("tests/" + f.getName())));
+                ertelmez();
+                System.out.println("-------");
+            }
+        }
+    }
+
+    public static void ertelmez() {
         while (TestIO.hasNext()){
             data = TestIO.input().split(" ");
             switch (data[0]){
@@ -83,6 +101,9 @@ public class ProtoProgram {
                 case "taskamegnez":
                     taskamegnez();
                     break;
+                case "virologusletrehoz":
+                    virologusletrehoz();
+                    break;
                 default:
                     TestIO.output("Rossz parancs");
                     break;
@@ -90,21 +111,40 @@ public class ProtoProgram {
         }
     }
 
+    public static void virologusletrehoz(){
+        Virologus v = new Virologus();
+        TestIO.output("Virologus: " + v.TestNev);
+        Varos.getInstance().getVirologusok().add(v);
+        Mezo m = keresMezo(data[1]);
+        v.setHely(m);
+        m.virologusBe(v);
+    }
+
     private static Virologus keresVirologus(String nev){
-        return Varos.getInstance().getVirologusok().stream().filter(a -> a.TestNev.equals(nev)).findFirst().get();
+        Virologus v = Varos.getInstance().getVirologusok().stream().filter(a -> a.TestNev.equals(nev)).findAny().orElse(null);
+        activateVirologus(v);
+        return v;
     }
 
     private static Mezo keresMezo(String nev){
-        return Varos.getInstance().getMezok().stream().filter(a -> a.TestNev.equals(nev)).findFirst().get();
+        return Varos.getInstance().getMezok().stream().filter(a -> a.TestNev.equals(nev)).findAny().orElse(null);
     }
 
     private static Agens keresAgens(Virologus ki, String nev){
-        return ki.getTaska().getAgensek().stream().filter(a -> a.TestID.contains(nev)).findFirst().get();
+        return ki.getTaska().getAgensek().stream().filter(a -> a.TestID.contains(nev)).findAny().orElse(null);
+    }
+
+    private static void activateVirologus(Virologus v){
+        if(v != active && Objects.equals(v.TestNev, data[1])){
+            active = v;
+            v.TestViselkedesInit();
+        }
     }
 
     public static void mozog(){
         Virologus v = keresVirologus(data[1]);
-        v.mozog();
+        boolean siker =  v.mozog();
+        TestIO.output(siker ? "sikeres mozgas" : "sikertelen mozgas");
     }
 
     public static void betolt(){
@@ -188,6 +228,7 @@ public class ProtoProgram {
             default:
                 return;
         }
+        Varos.getInstance().getMezok().add(ujmezo);
         for(int i=2; i< data.length;i++){
             Mezo mezo = keresMezo(data[i]);
             mezo.getSzomszedok().add(ujmezo);
@@ -203,9 +244,9 @@ public class ProtoProgram {
             case "aminosav": {
                 Raktar r = (Raktar) m;
                 if (data[2].equals("nukleotid")) {
-                    r.setAnyagok(new Anyagok(Integer.parseInt(data[3]), 0));
+                    r.getAnyagok().betesz(new Anyagok(Integer.parseInt(data[3]), 0));
                 } else {
-                    r.setAnyagok(new Anyagok(0, Integer.parseInt(data[3])));
+                    r.getAnyagok().betesz(new Anyagok(0, Integer.parseInt(data[3])));
                 }
                 break;
             }
@@ -240,20 +281,26 @@ public class ProtoProgram {
             case "felejto": {
                 Labor r = (Labor) m;
                 Anyagok anyagok = new Anyagok(1, 1);
+                Kod k = null;
                 switch (data[2]) {
                     case "benito":
-                        r.setKod(new Benito(anyagok, 3, 3));
+                        k = new Benito(anyagok, 3, 3);
+                        r.setKod(k);
                         break;
                     case "vedelem":
-                        r.setKod(new Vedelem(anyagok, 3, 3));
+                        k = new Vedelem(anyagok, 3, 3);
+                        r.setKod(k);
                         break;
                     case "vitustanc":
-                        r.setKod(new Vitustanc(anyagok, 3, 3));
+                        k = new Vitustanc(anyagok, 3, 3);
+                        r.setKod(k);
                         break;
                     case "felejto":
-                        r.setKod(new Felejto(anyagok, 3, 3));
+                        k = new Felejto(anyagok, 3, 3);
+                        r.setKod(k);
                         break;
                 }
+                Varos.getInstance().getKodok().add(k);
                 break;
             }
         }
@@ -357,6 +404,7 @@ public class ProtoProgram {
     public static void allapot(){
         if(data[1].contains("virologus")){
             Virologus ki = keresVirologus(data[1]);
+            //ki.TestViselkedesInit();
             TestIO.output(ki.toString());
         } else if(data[1].contains("mezo")){
             Mezo m = keresMezo(data[1]);
@@ -378,27 +426,27 @@ public class ProtoProgram {
                 break;
             case "kesztyu":
                 f = new Kesztyu();
-                TestIO.output(f.toString());
+                TestIO.output("Kesztyu: " + f.TestNev);
                 t.felszerelesBerak(f);
                 break;
             case "kopeny":
                 f=new Kopeny();
-                TestIO.output(f.toString());
+                TestIO.output("Kopeny: " + f.TestNev);
                 t.felszerelesBerak(f);
                 break;
             case "balta":
                 f=new Balta();
-                TestIO.output(f.toString());
+                TestIO.output("Balta: " + f.TestNev);
                 t.felszerelesBerak(f);
                 break;
             case "csorbultbalta":
                 f=new CsorbultBalta();
-                TestIO.output(f.toString());
+                TestIO.output("Csorbultbalta: " + f.TestNev);
                 t.felszerelesBerak(f);
                 break;
             case "zsak":
                 f=new Zsak();
-                TestIO.output(f.toString());
+                TestIO.output("Zsak: " + f.TestNev);
                 t.felszerelesBerak(f);
                 break;
             case "benito":

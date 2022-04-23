@@ -15,7 +15,7 @@ public class Raktar extends Mezo{
     /**
      * A raktárban lévő anyagok
      */
-    private Anyagok anyagok;
+    private Anyagok anyagok =  new Anyagok(0,0);
 
     public void setAnyagok(Anyagok a){ anyagok = a; }
 
@@ -25,8 +25,7 @@ public class Raktar extends Mezo{
      * A raktárban megtehető extra tevékenység: anyag felvétel.
      */
     public void akcio(Virologus virologus) {
-        if(virologus.getTaska().anyagBerak(anyagok))
-            anyagok = null;
+        virologus.getTaska().anyagBerak(anyagok);
     }
 
     @Override

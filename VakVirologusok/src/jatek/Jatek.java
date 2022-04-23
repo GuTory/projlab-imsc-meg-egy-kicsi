@@ -24,10 +24,7 @@ public class Jatek {
      * Létrehozza a várost, és elindítja a játékot.
      */
     public static void jatekIndit(){
-/*        while (!vege) {
-            idoTelt();
-            Varos.kor();
-        }*/
+        Varos.getInstance();
     }
 
     /**

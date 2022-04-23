@@ -64,11 +64,15 @@ public class Virologus {
         ellenallasok[ReszlegesSzazalekos] = new Szazalekos(82.3);
 
         taska = new Taska(this);
-
     }
 
     public void setHely(Mezo mezo) {
         hely = mezo;
+     }
+
+     public void TestViselkedesInit(){
+         Viselkedes jelenlegi = alternativViselkedesek.pollFirst();
+         jelenlegiViselkedes = jelenlegi == null ? alapViselkedes : jelenlegi;
      }
 
     /**
@@ -260,6 +264,7 @@ public class Virologus {
      * A virológus által kiválasztott mezőre lép.
      */
     public boolean mozog() {
+        //TestViselkedesInit();
         return jelenlegiViselkedes.mozog();
      }
 

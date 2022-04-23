@@ -71,11 +71,11 @@ public class Taska {
 
     /**
      * Berakja a táskába a paraméterként kapott anyagot.
-     * @param anyagok Az anyag, amit berak a táskába
+     * @param uj Az anyag, amit berak a táskába
      * @return Van-e még hely
      */
-    public boolean anyagBerak(Anyagok anyagok) {
-        anyagok.betesz(anyagok);
+    public boolean anyagBerak(Anyagok uj) {
+        anyagok.betesz(uj);
 
         if (telitettseg() > kapacitas) {
             tartalomCsokkentes();

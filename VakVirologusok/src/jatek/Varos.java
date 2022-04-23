@@ -37,8 +37,7 @@ public class Varos {
         mezok = new ArrayList<>();
         virologusok = new ArrayList<>();
         kodok = new ArrayList<>();
-
-        mezok.add(new Mezo());
+        /*mezok.add(new Mezo());
         mezok.add(new Mezo());
         mezok.add(new Mezo());
 
@@ -55,7 +54,7 @@ public class Varos {
         virologusok.get(1).setHely(mezok.get(2));
         mezok.get(2).virologusBe(virologusok.get(1));
 
-        virologusok.get(1).beFelszereles(new Balta());
+        virologusok.get(1).beFelszereles(new Balta());*/
     }
 
     public static Varos getInstance()
@@ -90,5 +89,9 @@ public class Varos {
 
     public List<Virologus> getVirologusok() {
         return virologusok;
+    }
+
+    public List<Kod> getKodok() {
+        return kodok;
     }
 }
