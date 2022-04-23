@@ -235,6 +235,9 @@ public class Virologus {
                 if (iter.getPrior() > uj.getPrior()) {
                     alternativViselkedesek.remove(i);
                     alternativViselkedesek.add(i, uj);
+                    if (i == 0) {
+                        jelenlegiViselkedes = uj;
+                    }
                 }
             }
             catch (Exception e) {
