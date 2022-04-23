@@ -6,4 +6,4 @@ sikeres
 Virologus: virologus1
 sikeres mozgas
 sikeres gyujtes
-Felejto: agens1
+sikertelen keszites

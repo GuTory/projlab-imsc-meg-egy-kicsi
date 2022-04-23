@@ -1,6 +1,7 @@
-jatekindit 1 0
+jatekindit 0 0
+mezoletrehoz ovohely
 virologuskeszit mezo1
-virologuskeszit mezo
+virologuskeszit mezo1
 taskabarak virologus2 kopeny 1
 effektalkalmaz virologus2 benult
 ellop virologus1 virologus2 kopeny

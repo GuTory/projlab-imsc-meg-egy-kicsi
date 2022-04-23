@@ -1,8 +1,8 @@
 jatekindit 0 0
 mezoletrehoz mezo
 mezoletrehoz mezo mezo1
-virologuskeszit mezo1
-virologuskeszit mezo2
+virologusletrehoz mezo1
+virologusletrehoz mezo2
 taskabarak virologus1 nukleotid 5
 taskabarak virologus1 aminosav 5
 taskabarak virologus2 kesztyu

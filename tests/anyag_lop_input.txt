@@ -1,6 +1,7 @@
-jatekindit 1 0
-virologuskeszit mezo1
-virologuskeszit mezo1
+jatekindit 0 0
+mezoletrehoz mezo
+virologusletrehoz mezo1
+virologusletrehoz mezo1
 taskabarak virologus2 aminosav
 taskabarak virologus2 nukleotid
 effektalkalmaz virologus2 benult
