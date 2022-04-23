@@ -8,8 +8,9 @@ import java.io.IOException;
 
 public class XmlSaver
 {
-    public static void save(String fileName, Varos state) throws Exception
+    public static void save(String fileName) throws Exception
     {
+        Varos state = new Varos();
         XMLEncoder encoder = new XMLEncoder(new BufferedOutputStream(new FileOutputStream(fileName)));
         encoder.writeObject(state);
     }
