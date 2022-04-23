@@ -1,9 +1,12 @@
 import agens.*;
 import felszereles.Kopeny;
 import jatek.Jatek;
+import jatek.Varos;
 import skeleton.Skeleton;
 import terkep.Mezo;
 import util.Anyagok;
+import Serialization.XmlLoader;
+import Serialization.XmlSaver;
 import virologus.Virologus;
 
 import java.util.ArrayList;

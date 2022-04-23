@@ -23,7 +23,7 @@ public class Labor extends Mezo {
      */
     public void akcio(Virologus virologus) {
         virologus.kodMegtanul(kod);
-        Varos.vegeEllenoriz(virologus);
+        Varos.getInstance().vegeEllenoriz(virologus);
     }
 
     @Override

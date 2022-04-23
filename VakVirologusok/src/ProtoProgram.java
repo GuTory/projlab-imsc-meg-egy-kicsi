@@ -85,11 +85,11 @@ public class ProtoProgram {
     }
 
     private static Virologus keresVirologus(String nev){
-        return Varos.getVirologusok().stream().filter(a -> a.TestNev.equals(nev)).findFirst().get();
+        return Varos.getInstance().getVirologusok().stream().filter(a -> a.TestNev.equals(nev)).findFirst().get();
     }
 
     private static Mezo keresMezo(String nev){
-        return Varos.getMezok().stream().filter(a -> a.TestNev.equals(nev)).findFirst().get();
+        return Varos.getInstance().getMezok().stream().filter(a -> a.TestNev.equals(nev)).findFirst().get();
     }
 
     private static Agens keresAgens(Virologus ki, String nev){
@@ -233,16 +233,16 @@ public class ProtoProgram {
     }
 
     public static void objektumlista(){
-        for (Mezo m: Varos.getMezok()){
+        for (Mezo m: Varos.getInstance().getMezok()){
             m.toString();
         }
-        for(Virologus v: Varos.getVirologusok()){
+        for(Virologus v: Varos.getInstance().getVirologusok()){
             TestIO.output(v.toString());
         }
     }
 
     public static void terkep(){
-        for (Mezo m: Varos.getMezok()){
+        for (Mezo m: Varos.getInstance().getMezok()){
             m.toString();
         }
     }
@@ -254,7 +254,7 @@ public class ProtoProgram {
     }
 
     public static void virologusok(){
-        for(Virologus v: Varos.getVirologusok()){
+        for(Virologus v: Varos.getInstance().getVirologusok()){
             TestIO.output(v.toString());
         }
     }
