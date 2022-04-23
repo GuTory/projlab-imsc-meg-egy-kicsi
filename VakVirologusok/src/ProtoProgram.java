@@ -20,15 +20,23 @@ public class ProtoProgram {
     private static String[] data;
     private static Virologus active = null;
 
+    private static ArrayList<String> fajlok = new ArrayList<>();
+
     public static void main(String[] args) throws FileNotFoundException {
         File folder = new File("tests/");
         for(File f : folder.listFiles()){
             if(f.getName().contains("input")){
-                TestIO.setInputScanner(new Scanner( new File("tests/" + f.getName())));
-                ertelmez();
-                System.out.println("-------");
+
+                fajlok.add("tests/" + f.getName());
             }
         }
+        System.out.println(fajlok.size());
+        Scanner sc = new Scanner(System.in);
+        int n = Integer.parseInt( sc.nextLine());
+        String fajlnev = fajlok.get(n);
+        TestIO.setInputScanner(new Scanner( new File(fajlnev)));
+        System.out.println(fajlnev);
+        ertelmez();
     }
 
     public static void ertelmez() {
@@ -135,7 +143,7 @@ public class ProtoProgram {
     }
 
     private static void activateVirologus(Virologus v){
-        if(v != active && Objects.equals(v.TestNev, data[1])){
+        if(v != active && data.length > 1 && v.TestNev.equals(data[1])){
             active = v;
             v.TestViselkedesInit();
         }

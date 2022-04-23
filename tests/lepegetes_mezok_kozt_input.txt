@@ -3,7 +3,7 @@ mezoletrehoz mezo
 mezoletrehoz raktar mezo1
 mezoletrehoz ovohely mezo2
 mezoletrehoz labor mezo3
-virologuskeszit mezo1
+virologusletrehoz mezo1
 mezoberak mezo2 aminosav 10
 mezoberak mezo3 kopeny
 mozog virologus1 1

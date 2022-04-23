@@ -5,4 +5,4 @@ virologusletrehoz mezo1
 taskabarak virologus1 benito 1
 allapot virologus1
 mozog virologus1 1
-holvan virologus
+holvan virologus1
