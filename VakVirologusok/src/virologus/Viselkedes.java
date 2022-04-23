@@ -102,8 +102,7 @@ public class Viselkedes {
         }
         Felszereles lopott = null;
         if (felszerelesek != null) {
-            int ID = Integer.parseInt(TestIO.input());
-            lopott = felszerelesek.get(ID % felszerelesek.size());
+            lopott = felszerelesek.stream().filter(f -> f.toString().equals(TestIO.parancs[3])).findAny().orElse(null);
         }
 
         return lopott;
@@ -123,8 +122,7 @@ public class Viselkedes {
         }
         Agens lopott = null;
         if (agensek != null) {
-            int ID = Integer.parseInt(TestIO.input());
-            lopott = agensek.get(ID % agensek.size());
+            lopott = agensek.stream().filter(a -> a.getKod().toString().equals(TestIO.parancs[3])).findAny().orElse(null);
         }
 
         return lopott;

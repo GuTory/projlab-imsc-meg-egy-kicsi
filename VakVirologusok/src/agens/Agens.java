@@ -66,4 +66,8 @@ public class Agens {
     public String toString(){
         return TestID;
     }
+
+    public Kod getKod() {
+        return kod;
+    }
 }
