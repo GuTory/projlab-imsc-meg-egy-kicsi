@@ -1,16 +1,13 @@
 import agens.*;
-import felszereles.Felszereles;
-import felszereles.Kesztyu;
 import felszereles.Kopeny;
-import felszereles.Zsak;
 import jatek.Jatek;
+import jatek.Varos;
 import skeleton.Skeleton;
-import terkep.Labor;
 import terkep.Mezo;
 import util.Anyagok;
+import Serialization.XmlLoader;
+import Serialization.XmlSaver;
 import virologus.Virologus;
-import virologus.Viselkedes;
-import virologus.VitustancViselkedes;
 
 import java.util.ArrayList;
 
