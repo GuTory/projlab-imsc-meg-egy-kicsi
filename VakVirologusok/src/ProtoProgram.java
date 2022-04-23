@@ -150,20 +150,21 @@ public class ProtoProgram {
     public static void betolt(){
         try {
             XmlLoader.load(data[1]);
+            TestIO.output("sikeres betoltes");
         } catch (Exception e){
             e.printStackTrace();
             TestIO.output("sikertelen betoltes");
         }
-        TestIO.output("sikeres betoltes");
     }
 
     public static void mentes() {
-        try {
-            XmlSaver.save(data[1]);
-        } catch (Exception e){
-            e.printStackTrace();
+        try{
+            XmlLoader.load(data[1]);
+            System.out.println("Sikeres");
         }
-        TestIO.output("sikertelen mentes");
+        catch(Exception e){
+            System.out.println("Sikertelen");
+        }
     }
 
     public static void megken(){
@@ -204,7 +205,6 @@ public class ProtoProgram {
 
     public static void jatekindit(){
         Jatek.jatekIndit();
-        TestIO.output("sikeres jatekinditas");
     }
 
     public static void mezoletrehoz(){
