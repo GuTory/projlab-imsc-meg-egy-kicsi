@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Mezo {
 
     public final String TestNev;
-    protected static int TestID = 0;
+    protected static int TestID = 1;
 
     public Mezo() {
         TestNev = "Mezo" + TestID;

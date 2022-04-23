@@ -5,7 +5,7 @@ import virologus.Virologus;
 
 public abstract class Felszereles{
     public final String TestNev;
-    protected static int TestID = 0;
+    protected static int TestID = 1;
 
     protected int elettartam = 0;
 

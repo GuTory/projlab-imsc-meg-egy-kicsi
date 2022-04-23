@@ -10,7 +10,8 @@ public class HalottViselkedes extends BenultViselkedes{
     }
 
     @Override
-    public void mozog() {
+    public boolean mozog() {
         gazda.addViselkedes(1, this);
+        return false;
     }
 }

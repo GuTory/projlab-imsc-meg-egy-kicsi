@@ -17,7 +17,7 @@ import java.util.*;
 public class Virologus {
 
     public final String TestNev;
-    protected static int TestID = 0;
+    protected static int TestID = 1;
 
     public int Visszadob = 0;
     public int TeljesSzazalekos = 1;
@@ -156,10 +156,10 @@ public class Virologus {
      * @param keno a kenést végző virológus.
      * @param mivel a virológusra kent ágens
      */
-    public void megkent(Virologus keno, Agens mivel) {
+    public boolean megkent(Virologus keno, Agens mivel) {
         if (keno == this) {
             mivel.hatas(this);
-            return;
+            return true;
         }
 
         boolean siker = true;
@@ -171,6 +171,7 @@ public class Virologus {
         if (siker) {
             mivel.hatas(this);
         }
+        return siker;
      }
 
     /**
@@ -238,8 +239,8 @@ public class Virologus {
     /**
      * A virológus által kiválasztott mezőre lép.
      */
-    public void mozog() {
-        jelenlegiViselkedes.mozog();
+    public boolean mozog() {
+        return jelenlegiViselkedes.mozog();
      }
 
     /**
@@ -247,30 +248,40 @@ public class Virologus {
      * ellopható anyagokat.
      * @param kitol az a virológus akitől lopni akar
      */
-    public void anyagLop(Virologus kitol) {
+    public boolean anyagLop(Virologus kitol) {
         Anyagok lopott = jelenlegiViselkedes.anyagLop(kitol);
-        if (lopott != null) taska.anyagBerak(lopott);
+        if (lopott != null) {
+            taska.anyagBerak(lopott);
+            return true;
+        }
+        return false;
      }
 
     /**
      *
      * @param kitol az a virológus akitől lopni akar
      */
-    public void felszerelesLop(Virologus kitol) {
+    public boolean felszerelesLop(Virologus kitol) {
         Felszereles lopott = jelenlegiViselkedes.felszerelesLop(kitol);
         if (lopott != null) {
             kitol.kiFelszereles(lopott);
             beFelszereles(lopott);
+            return true;
         }
+        return false;
      }
 
     /**
      *
      * @param kitol az a virológus akitől lopni akar
      */
-    public void agensLop(Virologus kitol) {
+    public boolean agensLop(Virologus kitol) {
         Agens lopott = jelenlegiViselkedes.agensLop(kitol);
-        if (lopott != null) taska.agensBerak(lopott);
+        if (lopott != null) {
+            taska.agensBerak(lopott);
+            return true;
+        }
+        return false;
      }
 
     /**
@@ -278,21 +289,25 @@ public class Virologus {
      * @param kit a megkent virológus
      * @param mivel a virológusra kent ágens
      */
-    public void ken(Virologus kit, Agens mivel) {
-        jelenlegiViselkedes.ken(kit, mivel);
+    public boolean ken(Virologus kit, Agens mivel) {
+        return jelenlegiViselkedes.ken(kit, mivel);
      }
 
     /**
      * Létrehoz egy ágenst, majd visszaadja azt.
      * @param kod a kód ami alapján az ágenst létre akarja hozni
      */
-    public void agensEbbol(Kod kod) {
+    public boolean agensEbbol(Kod kod) {
         Agens keszitett = jelenlegiViselkedes.agensEbbol(kod, taska);
-        if (keszitett != null) taska.agensBerak(keszitett);
+        if (keszitett != null) {
+            taska.agensBerak(keszitett);
+            return true;
+        }
+        return false;
      }
 
-    public void tamad(Virologus kit) {
-        jelenlegiViselkedes.tamad(kit);
+    public boolean tamad(Virologus kit) {
+        return jelenlegiViselkedes.tamad(kit);
     }
 
 }

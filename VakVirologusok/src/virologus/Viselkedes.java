@@ -41,7 +41,7 @@ public class Viselkedes {
     /**
      * A virológus által kiválasztott mezőre lép.
      */
-    public void mozog() {
+    public boolean mozog() {
  
         List<Mezo> szomszedok = gazda.getHely().getSzomszedok();
 
@@ -50,6 +50,7 @@ public class Viselkedes {
         Mezo uj = szomszedok.get(ujID % szomszedok.size());
 
         atleptet(uj);
+        return true;
      }
 
     /**
@@ -134,12 +135,10 @@ public class Viselkedes {
      * @param kit a megkent virológus
      * @param mivel a virológusra kent ágens
      */
-    public void ken(Virologus kit, Agens mivel) {
- 
-        kit.getTaska().agensKivesz(mivel);
+    public boolean ken(Virologus kit, Agens mivel) {
+        gazda.getTaska().agensKivesz(mivel);
         mivel.setTtl(3);
-        kit.megkent(gazda, mivel);
-
+        return kit.megkent(gazda, mivel);
      }
 
     /**
@@ -151,7 +150,7 @@ public class Viselkedes {
         return kod.agensLetrehoz(taska);
     }
 
-    public void tamad(Virologus kit) {
+    public boolean tamad(Virologus kit) {
         //megkeressük a baltát a virológus táskájában
         Felszereles balta = null;
         for (Felszereles f : gazda.getTaska().getFelszerelesek()) {
@@ -159,11 +158,12 @@ public class Viselkedes {
                 balta = f;
             }
         }
-        if (balta == null) return;  //nem volt balta, nem lehet támadni
+        if (balta == null) return false;  //nem volt balta, nem lehet támadni
         //volt balta, megöli a virológust és csorbult baltára cseréli a baltát
         kit.meghal();
         balta.le(gazda, gazda.getTaska());
         new CsorbultBalta().fel(gazda, gazda.getTaska());
+        return true;
     }
 
     final protected void atleptet(Mezo uj) {
