@@ -14,7 +14,7 @@ public class Mezo {
     protected static int TestID = 1;
 
     public Mezo() {
-        TestNev = "Mezo" + TestID;
+        TestNev = "mezo" + TestID;
         TestID++;
     }
 
@@ -64,6 +64,6 @@ public class Mezo {
 
     @Override
     public String toString(){
-        return "Mezo: " /*+ name*/;
+        return "Mezo: " + TestNev;
     }
 }

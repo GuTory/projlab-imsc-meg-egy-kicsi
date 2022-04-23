@@ -28,6 +28,6 @@ public class Ovohely extends Mezo {
 
     @Override
     public String toString(){
-        return "Ovohely: " /*+ name*/;
+        return "Ovohely: " +TestNev;
     }
 }

@@ -1,10 +1,14 @@
 package agens;
 
+import test.TestIO;
 import util.Anyagok;
 import virologus.Virologus;
 
 
 public class Agens {
+
+    private static int AgensekSzama = 1;
+    public String TestID;
     /**
      * Az ágens hátralévő élettartama, kiinduló értéke a szavatosság, ha 0 lesz akkor megszűnik.
      */
@@ -21,6 +25,10 @@ public class Agens {
      * @param kod A kód, ami alapján az ágenst léterhozták
      */
     public Agens(Kod kod){
+
+        TestID = kod.id +  ": agens" + AgensekSzama;
+        AgensekSzama++;
+
         this.kod = kod;
         ttl = kod.getSzavatossag();
     }
@@ -56,6 +64,6 @@ public class Agens {
 
     @Override
     public String toString(){
-        return kod.toString() + "agens";
+        return TestID;
     }
 }

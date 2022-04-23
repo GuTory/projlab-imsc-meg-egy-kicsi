@@ -28,6 +28,6 @@ public class Labor extends Mezo {
 
     @Override
     public String toString(){
-        return "Labor: " /*+ name*/;
+        return "Labor: " + TestNev;
     }
 }

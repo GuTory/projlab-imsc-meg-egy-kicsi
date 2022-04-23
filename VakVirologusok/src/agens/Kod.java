@@ -8,7 +8,7 @@ public abstract class Kod {
     /**
      * A kódnak az azonosítója, ezzel lehet beazonosítani a különböző kódokat.
      */
-    protected int id;
+    protected String id;
 
     /**
      * Ágens létrehozásának a költsége, ennyi anyag szükséges ahhoz, hogy létre tudja hozni az ágenst.
@@ -27,7 +27,7 @@ public abstract class Kod {
      */
     protected int szavatossag;
 
-    public Kod(int id, Anyagok koltseg, int elettartam, int szavatossag){
+    public Kod(String id, Anyagok koltseg, int elettartam, int szavatossag){
         this.id = id;
         this.koltseg = koltseg;
         this.elettartam = elettartam;

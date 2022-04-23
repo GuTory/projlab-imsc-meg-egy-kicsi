@@ -45,7 +45,7 @@ public class Viselkedes {
  
         List<Mezo> szomszedok = gazda.getHely().getSzomszedok();
 
-        int ujID = Integer.parseInt(TestIO.input());
+        int ujID = Integer.parseInt(TestIO.parancs[2]);
 
         Mezo uj = szomszedok.get(ujID % szomszedok.size());
 

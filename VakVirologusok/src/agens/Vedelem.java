@@ -8,13 +8,12 @@ public class Vedelem extends Kod{
     /**
      * Létrehoz egy védelem kódot, beállítja az azonosítóját, a költségét, az élettartamát
      * és a szavatosságát.
-     * @param id
      * @param koltseg
      * @param elettartam
      * @param szavatossag
      */
-    public Vedelem(int id, Anyagok koltseg, int elettartam, int szavatossag){
-        super(id, koltseg, elettartam, szavatossag);
+    public Vedelem(Anyagok koltseg, int elettartam, int szavatossag){
+        super("Vedelem", koltseg, elettartam, szavatossag);
     }
 
     /**
