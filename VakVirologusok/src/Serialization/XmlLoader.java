@@ -11,6 +11,7 @@ public class XmlLoader
     public static void load(String fileName) throws Exception
     {
         XMLDecoder decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(fileName)));
-        Varos varos = (Varos)decoder.readObject();
+        Varos.getInstance().copy((Varos)decoder.readObject());
+        decoder.close();
     }
 }
