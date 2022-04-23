@@ -39,12 +39,11 @@ public class Anyagok {
      * @return Ki tud-e venni ennyi anyagot
      */
     public boolean kivesz(Anyagok uj) {
-        Map<String, Integer> regi = anyagok;
 
-        anyagok.replaceAll((k, v) -> anyagok.get(k) - uj.getAnyagok().get(k));
+        anyagok.replaceAll((k, v) -> v - uj.getAnyagok().get(k));
         for (String key : anyagok.keySet()) {
             if (anyagok.get(key) < 0) {
-                anyagok = regi;
+                anyagok.replaceAll((k, v) -> v + uj.getAnyagok().get(k));
                 return false;
             }
         }
