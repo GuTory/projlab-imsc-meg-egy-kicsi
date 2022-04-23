@@ -421,61 +421,62 @@ public class ProtoProgram {
     }
 
     public static void taskabarak(){
-        Taska t = keresVirologus(data[1]).getTaska();
+        Virologus t = keresVirologus(data[1]);
         Anyagok a = new Anyagok(1,1);
+        Taska taska = t.getTaska();
         Felszereles f;
         Agens agens;
         switch (data[2]) {
             case "nukleotid":
-                t.anyagBerak(new Anyagok(Integer.parseInt( data[3]),0));
+                taska.anyagBerak(new Anyagok(Integer.parseInt( data[3]),0));
                 break;
             case "aminosav":
-                t.anyagBerak(new Anyagok(0,Integer.parseInt( data[3])));
+                taska.anyagBerak(new Anyagok(0,Integer.parseInt( data[3])));
                 break;
             case "kesztyu":
                 f = new Kesztyu();
                 TestIO.output("Kesztyu: " + f.TestNev);
-                t.felszerelesBerak(f);
+                t.beFelszereles(f);
                 break;
             case "kopeny":
                 f=new Kopeny();
                 TestIO.output("Kopeny: " + f.TestNev);
-                t.felszerelesBerak(f);
+                t.beFelszereles(f);
                 break;
             case "balta":
                 f=new Balta();
                 TestIO.output("Balta: " + f.TestNev);
-                t.felszerelesBerak(f);
+                t.beFelszereles(f);
                 break;
             case "csorbultbalta":
                 f=new CsorbultBalta();
                 TestIO.output("Csorbultbalta: " + f.TestNev);
-                t.felszerelesBerak(f);
+                t.beFelszereles(f);
                 break;
             case "zsak":
                 f=new Zsak();
                 TestIO.output("Zsak: " + f.TestNev);
-                t.felszerelesBerak(f);
+                t.beFelszereles(f);
                 break;
             case "benito":
                 agens = new Agens(new Benito(a, 3,3));
                 TestIO.output(agens.toString());
-                t.agensBerak(agens);
+                taska.agensBerak(agens);
                 break;
             case "vedelem":
                 agens =new Agens(new Vedelem(a, 3,3));
                 TestIO.output(agens.toString());
-                t.agensBerak(agens);
+                taska.agensBerak(agens);
                 break;
             case "vitustanc":
                 agens =new Agens(new Vitustanc(a, 3,3));
                 TestIO.output(agens.toString());
-                t.agensBerak(agens);
+                taska.agensBerak(agens);
                 break;
             case "felejto":
                 agens =new Agens(new Felejto(a, 3,3));
                 TestIO.output(agens.toString());
-                t.agensBerak(agens);
+                taska.agensBerak(agens);
                 break;
             default:
                 break;
