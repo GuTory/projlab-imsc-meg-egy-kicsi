@@ -1,20 +1,14 @@
 import agens.*;
-import felszereles.Felszereles;
-import felszereles.Kesztyu;
 import felszereles.Kopeny;
-import felszereles.Zsak;
 import jatek.Jatek;
 import skeleton.Skeleton;
-import terkep.Labor;
 import terkep.Mezo;
 import util.Anyagok;
 import virologus.Virologus;
-import virologus.Viselkedes;
-import virologus.VitustancViselkedes;
 
 import java.util.ArrayList;
 
-public class Program {
+public class SkeletonProgram {
 
     public static void clrscr(){
         for (int i = 0; i < 50; ++i) System.out.println();
@@ -65,16 +59,16 @@ public class Program {
         String mit = Skeleton.dontes("Mit készítesz el? (b: BENITO/f: felejto/i: vitustanc/e: vedelem");
         switch (mit) {
             case "f":
-                k = new Felejto(1, new Anyagok(1,1), 1, 1);
+                k = new Felejto( new Anyagok(1,1), 1, 1);
                 break;
             case "i":
-                k = new Vitustanc(1, new Anyagok(1,1), 1, 1);
+                k = new Vitustanc( new Anyagok(1,1), 1, 1);
                 break;
             case "e":
-                k = new Vedelem(1, new Anyagok(1,1), 1, 1);
+                k = new Vedelem( new Anyagok(1,1), 1, 1);
                 break;
             default:
-                k = new Benito(1, new Anyagok(1,1), 1, 1);
+                k = new Benito( new Anyagok(1,1), 1, 1);
                 break;
         }
         clrscr();
@@ -84,7 +78,7 @@ public class Program {
     private static void testKen() {
         Virologus v1 = new Virologus();
         Virologus v2 = new Virologus();
-        Kod k = new Benito(1, new Anyagok(1,1), 1, 1);
+        Kod k = new Benito( new Anyagok(1,1), 1, 1);
         Agens agens = new Agens(k);
         clrscr();
         v1.ken(v2, agens);
@@ -103,7 +97,7 @@ public class Program {
 
     private static void testAgensLep() {
         Virologus v1 = new Virologus();
-        Kod k = new Benito(1, new Anyagok(1, 1), 1, 1);
+        Kod k = new Benito( new Anyagok(1, 1), 1, 1);
         Agens agens = new Agens(k);
         clrscr();
         v1.getTaska().agensBerak(agens);
@@ -125,7 +119,7 @@ public class Program {
                 v1.felszerelesLop(v2);
                 break;
             default:
-                v2.getTaska().getAgensek().add(new Agens(new Benito(1, new Anyagok(1, 1), 1, 1)));
+                v2.getTaska().getAgensek().add(new Agens(new Benito( new Anyagok(1, 1), 1, 1)));
                 clrscr();
                 v1.agensLop(v2);
                 break;

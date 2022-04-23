@@ -10,7 +10,7 @@ public abstract class Felszereles{
     protected int elettartam = 0;
 
     public Felszereles() {
-        TestNev = "Felszereles" + TestID;
+        TestNev = "felszereles" + TestID;
         TestID++;
     }
 

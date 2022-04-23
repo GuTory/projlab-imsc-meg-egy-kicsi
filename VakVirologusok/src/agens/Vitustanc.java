@@ -9,13 +9,12 @@ public class Vitustanc extends Kod{
     /**
      * Létrehoz egy vítustánc kódot, beállítja az azonosítóját, a költségét, az élettartamát
      * és a szavatosságát.
-     * @param id
      * @param koltseg
      * @param elettartam
      * @param szavatossag
      */
-    public Vitustanc(int id, Anyagok koltseg, int elettartam, int szavatossag){
-        super(id, koltseg, elettartam, szavatossag);
+    public Vitustanc( Anyagok koltseg, int elettartam, int szavatossag){
+        super("Vitustanc", koltseg, elettartam, szavatossag);
     }
 
     /**

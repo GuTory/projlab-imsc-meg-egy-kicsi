@@ -68,10 +68,17 @@ public class Varos {
     }
 
     public static void kor() {
-        for (Virologus v : virologusok) {
+/*        for (Virologus v : virologusok) {
             TestIO.output(v.TestNev);
             v.kor();
-        }
+        }*/
     }
 
+    public static List<Mezo> getMezok() {
+        return mezok;
+    }
+
+    public static List<Virologus> getVirologusok() {
+        return virologusok;
+    }
 }

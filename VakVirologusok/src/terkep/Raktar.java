@@ -36,6 +36,6 @@ public class Raktar extends Mezo{
 
     @Override
     public String toString(){
-        return "Raktar: " /*+ name*/;
+        return "Raktar: " + TestNev;
     }
 }

@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class TestIO {
     private static Scanner inputScanner;
     private static PrintStream outputStream;
+    public static String parancs[];
 
     static {
         try {
@@ -33,7 +34,9 @@ public class TestIO {
     }
 
     public static String input() {
-        return inputScanner.nextLine();
+        String bemenet = inputScanner.nextLine();
+        parancs = bemenet.split(" ");
+        return bemenet;
     }
 
     public static String input(String szoveg) {

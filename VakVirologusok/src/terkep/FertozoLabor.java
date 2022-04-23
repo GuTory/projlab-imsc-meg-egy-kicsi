@@ -19,6 +19,6 @@ public class FertozoLabor extends Labor{
 
     @Override
     public String toString(){
-        return "FertozoLabor: " /*+ name*/;
+        return "FertozoLabor: " + TestNev;
     }
 }

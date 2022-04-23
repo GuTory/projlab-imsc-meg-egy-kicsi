@@ -7,7 +7,7 @@ import virologus.Virologus;
 public class Medvetanc extends Kod{
 
     public Medvetanc() {
-        super(-1, null, 1, -1);
+        super("Medvetanc", null, 1, -1);
     }
 
     @Override

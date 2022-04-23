@@ -8,13 +8,12 @@ public class Felejto extends Kod{
     /**
      * Létrehoz egy felejtő kódot, beállítja az azonosítóját, a költségét, az élettartamát
      * és a szavatosságát.
-     * @param id
      * @param koltseg
      * @param elettartam
      * @param szavatossag
      */
-    public Felejto(int id, Anyagok koltseg, int elettartam, int szavatossag){
-        super(id, koltseg, elettartam, szavatossag);
+    public Felejto(Anyagok koltseg, int elettartam, int szavatossag){
+        super("Felejto", koltseg, elettartam, szavatossag);
     }
 
     /**
