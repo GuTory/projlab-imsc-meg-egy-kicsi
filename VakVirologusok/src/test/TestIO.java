@@ -11,8 +11,8 @@ public class TestIO {
 
     static {
         try {
-            inputScanner = new Scanner(new File("tests/asd.txt"));
-            //inputScanner = new Scanner(System.in);
+            //inputScanner = new Scanner(new File("tests/asd.txt"));
+            inputScanner = new Scanner(System.in);
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
