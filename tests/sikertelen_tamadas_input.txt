@@ -1,0 +1,9 @@
+jatekindit 0 0
+mezoletrehoz mezo
+virologusletrehoz mezo1
+virologusletrehoz mezo1
+taskabarak virologus1 benito
+taskabarak virologus2 vedelem
+taskabarak virologus2 balta
+megken virologus1 virologus2 benito
+tamad virologus2 virologus1

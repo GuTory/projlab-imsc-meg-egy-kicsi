@@ -4,6 +4,6 @@ Virologus: virologus2
 Kesztyu: felszereles1
 Benito: agens1
 Kesztyu: felszereles2
-sikeres megkenes
+sikertelen megkenes
 Virologus virologus1: normal
 Virologus virologus2: benult

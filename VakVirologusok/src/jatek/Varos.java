@@ -106,6 +106,7 @@ public class Varos {
      * @param virologus Vége lett-e a játéknak
      */
     public void vegeEllenoriz(Virologus virologus){
+        if(kodok.size() == 0) return;
         for (Kod kod: kodok) {
             if (!virologus.getKodok().contains(kod)) {
                 return;

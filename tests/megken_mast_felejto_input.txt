@@ -5,5 +5,7 @@ virologusletrehoz mezo1
 taskabarak virologus1 felejto 1
 megtanit virologus2 felejto
 megtanit virologus2 benito
+megtanit virologus2 vedelem
+allapot virologus2
 megken virologus1 virologus2 felejto
 allapot virologus2

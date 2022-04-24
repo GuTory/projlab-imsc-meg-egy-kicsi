@@ -55,7 +55,7 @@ public class Agens {
      */
     public boolean ttlCsokkent() {
         ttl--;
-        return ttl <= 0;
+        return ttl > 0;
     }
 
     public Anyagok koltseg() {

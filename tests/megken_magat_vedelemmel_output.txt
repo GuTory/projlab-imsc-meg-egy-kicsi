@@ -1,4 +1,5 @@
-sikeres
-sikeres
-sikeres kenes
-Virologus virologus1: vedelem
+Mezo: mezo1
+Virologus: virologus1
+Vedelem: agens1
+sikeres megkenes
+Virologus virologus1: normal vedett
