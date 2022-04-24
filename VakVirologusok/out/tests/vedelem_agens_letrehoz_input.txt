@@ -1,0 +1,7 @@
+jatekindit 0 0
+mezoletrehoz mezo
+virologusletrehoz mezo1
+megtanit virologus1 vedelem
+taskabarak virologus1 nukleotid 1
+taskabarak virologus1 aminosav 1
+keszit virologus1 vedelem 1

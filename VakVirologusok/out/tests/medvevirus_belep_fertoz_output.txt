@@ -1,0 +1,8 @@
+Mezo: mezo1
+FertozoLabor: mezo2
+Virologus: virologus1
+Virologus: virologus2
+sikeres mozgas
+Virologus virologus1: medvetanc
+sikeres mozgas
+Virologus virologus2: medvetanc

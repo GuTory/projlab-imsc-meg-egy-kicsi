@@ -1,0 +1,8 @@
+Mezo: mezo1
+Virologus: virologus1
+Virologus: virologus2
+Benito: agens1
+Vedelem: agens2
+Balta: felszereles1
+sikeres megkenes
+sikertelen tamadas

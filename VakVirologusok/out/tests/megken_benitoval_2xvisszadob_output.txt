@@ -1,0 +1,9 @@
+Mezo: mezo1
+Virologus: virologus1
+Virologus: virologus2
+Kesztyu: felszereles1
+Benito: agens1
+Kesztyu: felszereles2
+sikertelen megkenes
+Virologus virologus1: normal
+Virologus virologus2: benult

@@ -1,0 +1,9 @@
+jatekindit 0 0
+mezoletrehoz mezo
+virologusletrehoz mezo1
+virologusletrehoz mezo1
+taskabarak virologus2 benito
+effektalkalmaz virologus2 benito
+ellop virologus1 virologus2 benito
+taskamegnez virologus1
+taskamegnez virologus2

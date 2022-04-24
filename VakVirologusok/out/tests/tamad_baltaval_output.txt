@@ -1,0 +1,10 @@
+Mezo: mezo1
+Virologus: virologus1
+Virologus: virologus2
+Virologus: virologus3
+Balta: felszereles1
+sikeres hatas
+sikeres tamadas
+sikertelen tamadas
+Virologus virologus2: halott
+Virologus virologus3: normal

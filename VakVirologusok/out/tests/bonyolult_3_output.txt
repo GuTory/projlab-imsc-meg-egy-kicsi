@@ -1,0 +1,26 @@
+Mezo: mezo1
+Raktar: mezo2
+Labor: mezo3
+Labor: mezo4
+Raktar: mezo5
+Mezo: mezo6
+Labor: mezo7
+Mezo: mezo8
+Raktar: mezo9
+Virologus: virologus1
+Virologus: virologus2
+Virologus: virologus3
+sikeres mozgas
+sikeres keszites
+sikeres mozgas
+sikeres mozgas
+sikeres megkenes
+sikeres lopas
+sikeres lopas
+sikeres keszites
+sikeres megkenes
+Felejto: agens3
+sikeres mozgas
+sikertelen megkenes
+jatek vege: virologus1 nyert
+sikeres mozgas

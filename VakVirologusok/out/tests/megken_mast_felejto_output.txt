@@ -1,0 +1,11 @@
+Mezo: mezo1
+Virologus: virologus1
+Virologus: virologus2
+Felejto: agens1
+sikeres tanulas
+sikeres tanulas
+sikeres tanulas
+Virologus virologus2: normal
+	Tanult kódok: felejto, benito, vedelem, 
+sikeres megkenes
+Virologus virologus2: normal

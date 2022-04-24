@@ -1,0 +1,10 @@
+Ovohely: mezo1
+Virologus: virologus1
+Virologus: virologus2
+Kopeny: felszereles1
+sikeres hatas
+sikeres lopas
+Taska tartalma:
+kopeny
+
+Taska tartalma:

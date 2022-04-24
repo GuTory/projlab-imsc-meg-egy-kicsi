@@ -1,6 +1,5 @@
 package terkep;
 
-import skeleton.Skeleton;
 import util.Anyagok;
 import util.Taska;
 import virologus.Virologus;

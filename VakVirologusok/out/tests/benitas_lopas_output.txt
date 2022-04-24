@@ -1,0 +1,14 @@
+Mezo: mezo1
+Mezo: mezo2
+Virologus: virologus1
+Virologus: virologus2
+Kesztyu: felszereles1
+sikeres mozgas
+sikeres tanulas
+sikeres keszites
+sikertelen lopas
+sikertelen lopas
+sikeres megkenes
+sikeres lopas
+
+Process finished with exit code 0

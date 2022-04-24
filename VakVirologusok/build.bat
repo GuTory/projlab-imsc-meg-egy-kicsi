@@ -5,3 +5,5 @@ javac src/*.java src/felszereles/*.java src/agens/*.java src/jatek/*.java src/Se
 cd out
 
 java ProtoProgram
+
+cd..

@@ -1,0 +1,15 @@
+Mezo: mezo1
+Virologus: virologus1
+Virologus: virologus2
+Vitustanc: agens1
+Vitustanc: agens2
+Vitustanc: agens3
+Vitustanc: agens4
+Kesztyu: felszereles1
+sikertelen megkenes
+sikertelen megkenes
+sikertelen megkenes
+sikeres megkenes
+Virologus virologus1: vitustanc
+Virologus virologus2: vitustanc
+Taska tartalma:

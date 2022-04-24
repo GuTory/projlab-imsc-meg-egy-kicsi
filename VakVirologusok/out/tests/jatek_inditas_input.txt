@@ -1,0 +1,7 @@
+jatekindit 0 0
+mezoletrehoz labor 
+mezoletrehoz medvevirusoslabor mezo1
+mezoletrehoz mezo
+mezoletrehoz ovohely mezo3 mezo2 mezo1
+virologusletrehoz mezo1
+terkep

@@ -1,0 +1,16 @@
+jatekindit 0 0
+mezoletrehoz mezo
+virologusletrehoz mezo1
+virologusletrehoz mezo1
+taskabarak virologus1 vitustanc 1
+taskabarak virologus1 vitustanc 1
+taskabarak virologus1 vitustanc 1
+taskabarak virologus1 vitustanc 1
+taskabarak virologus2 kesztyu
+megken virologus1 virologus2 vitustanc
+megken virologus1 virologus2 vitustanc
+megken virologus1 virologus2 vitustanc
+megken virologus1 virologus2 vitustanc
+allapot virologus1
+allapot virologus2
+taskamegnez virologus2

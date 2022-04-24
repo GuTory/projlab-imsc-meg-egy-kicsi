@@ -1,0 +1,9 @@
+Mezo: mezo1
+Mezo: mezo2
+Virologus: virologus1
+Virologus: virologus2
+sikeres hatas
+Kesztyu: felszereles1
+Virologus virologus1: halott
+sikertelen mozgas
+sikeres lopas

@@ -1,0 +1,8 @@
+Mezo: mezo1
+Raktar: mezo2
+Virologus: virologus1
+sikeres hatas
+Raktar: mezo2
+nukleotid 10
+sikeres mozgas
+Raktar: mezo2

@@ -1,0 +1,8 @@
+Mezo: mezo1
+Virologus: virologus1
+Taska tartalma:
+nukleotid 50
+Zsak: felszereles1
+Taska tartalma:
+zsak
+nukleotid 65
