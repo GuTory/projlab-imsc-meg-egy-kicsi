@@ -1,8 +1,0 @@
-jatekindit 0 0
-mezoletrehoz mezo
-mezoletrehoz mezo mezo1
-virologusletrehoz mezo1
-taskabarak virologus1 benito 1
-allapot virologus1
-mozog virologus1 1
-holvan virologus1

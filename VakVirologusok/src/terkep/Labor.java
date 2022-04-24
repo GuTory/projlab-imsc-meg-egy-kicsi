@@ -22,8 +22,8 @@ public class Labor extends Mezo {
      * A laborban elvégezhető akció (kódtanulás)
      */
     public void akcio(Virologus virologus) {
-        virologus.kodMegtanul(kod);
-        Varos.getInstance().vegeEllenoriz(virologus);
+        if(kod != null)
+            virologus.kodMegtanul(kod);
     }
 
     @Override

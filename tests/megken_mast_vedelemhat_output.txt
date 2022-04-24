@@ -1,5 +1,7 @@
-sikeres
-sikeres
-sikeres
-sikertelen kenes
+Mezo: mezo1
+Virologus: virologus1
+Virologus: virologus2
+Benito: agens1
+sikeres hatas
+sikertelen megkenes
 Virologus virologus2: normal

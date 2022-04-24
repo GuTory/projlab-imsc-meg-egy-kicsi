@@ -1,5 +1,12 @@
-sikeres
+Mezo: mezo1
+Mezo: mezo2
+Mezo: mezo3
+Mezo: mezo4
+Mezo: mezo5
+Virologus: virologus1
+sikeres hatas
 Virologus virologus1: vitustanc
-sikertelen mozgas
+sikeres mozgas
+sikeres hatas
 Virologus virologus1: medvetanc
-sikertelen mozgás
+sikeres mozgas

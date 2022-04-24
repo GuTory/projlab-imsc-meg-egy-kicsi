@@ -1,8 +1,8 @@
-Mezok: mezo1
+Mezo: mezo1
 Virologus: virologus1
 Virologus: virologus2
 Virologus: virologus3
-sikeres berakas
+Balta: felszereles1
 sikeres hatas
 sikeres tamadas
 sikertelen tamadas

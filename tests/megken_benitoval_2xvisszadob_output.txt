@@ -1,7 +1,9 @@
-sikeres
-sikeres
-sikeres
-sikeres
-sikeres kenes
+Mezo: mezo1
+Virologus: virologus1
+Virologus: virologus2
+Kesztyu: felszereles1
+Benito: agens1
+Kesztyu: felszereles2
+sikeres megkenes
 Virologus virologus1: normal
 Virologus virologus2: benult

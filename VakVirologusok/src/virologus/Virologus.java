@@ -3,6 +3,7 @@ package virologus;
 import agens.Agens;
 import agens.Kod;
 import felszereles.Felszereles;
+import jatek.Varos;
 import terkep.Mezo;
 import test.TestIO;
 import util.Anyagok;
@@ -189,6 +190,7 @@ public class Virologus {
      */
     public void kodMegtanul(Kod kod) {
         kodok.add(kod);
+        Varos.getInstance().vegeEllenoriz(this);
      }
 
     /**

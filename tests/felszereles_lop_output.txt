@@ -1,9 +1,10 @@
-Mezok: mezo1
+Ovohely: mezo1
 Virologus: virologus1
 Virologus: virologus2
-sikeres berakas
+Kopeny: felszereles1
 sikeres hatas
 sikeres lopas
-Taska tartalma: 
-kopeny 1
+Taska tartalma:
+kopeny
+
 Taska tartalma:
