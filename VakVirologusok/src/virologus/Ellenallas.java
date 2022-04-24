@@ -55,7 +55,7 @@ public abstract class Ellenallas {
      }
 
     /**
-     * Megmondja érvényes-e az ellenállás.
+     * Megmondja érvényes-e az ellenállás.25
      * @return visszaadja, hogy érvényes-e (végtelen ideig, vagy adott körig és még ezen belül van) az ágens
      */
     protected boolean ervenyesE() {

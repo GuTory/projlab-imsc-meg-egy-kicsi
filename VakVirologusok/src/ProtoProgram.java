@@ -31,11 +31,17 @@ public class ProtoProgram {
             }
         }
         System.out.println("Válassz: 0-" + (fajlok.size()-1));
+        System.out.println("Kézi: " + fajlok.size());
         Scanner sc = new Scanner(System.in);
         int n = Integer.parseInt( sc.nextLine());
-        String fajlnev = fajlok.get(n);
-        TestIO.setInputScanner(new Scanner( new File(fajlnev)));
-        System.out.println(fajlnev);
+        if(n == fajlok.size()){
+            TestIO.setInputScanner(new Scanner(System.in));
+        }
+        else{
+            String fajlnev = fajlok.get(n);
+            TestIO.setInputScanner(new Scanner( new File(fajlnev)));
+            System.out.println(fajlnev);
+        }
         ertelmez();
     }
 

@@ -27,7 +27,7 @@ public class Visszadob extends Ellenallas{
 
         //megkeressük a kesztyűt a virológus táskájában, hogy csökenthessük az élettartamát
         Felszereles kesztyu = null;
-        for (Felszereles f : ki.getTaska().getFelszerelesek()) {
+        for (Felszereles f : kit.getTaska().getFelszerelesek()) {
             if (f.getID() == Felszereles_ID.kesztyu_ID) {
                 kesztyu = f;
             }
@@ -37,7 +37,7 @@ public class Visszadob extends Ellenallas{
             //csökkentjük az élettartamát
             if (!kesztyu.hasznal()) {
                 //a kesztyű elkopott, kivesszük a táskából
-                kesztyu.le(ki, ki.getTaska());
+                kesztyu.le(kit, kit.getTaska());
             }
         }
 
