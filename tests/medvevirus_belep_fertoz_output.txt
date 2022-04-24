@@ -1,9 +1,8 @@
-sikeres
 Mezo: mezo1
-MedveVirusosLabor: mezo2
+FertozoLabor: mezo2
 Virologus: virologus1
-Virologus: Virologus2
+Virologus: virologus2
 sikeres mozgas
-Virologus virologus1: medvevirusos
+Virologus virologus1: medvetanc
 sikeres mozgas
-Virologus virologus2: medvevirusos
+Virologus virologus2: medvetanc

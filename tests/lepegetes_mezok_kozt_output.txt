@@ -1,4 +1,3 @@
-sikeres
 Mezo: mezo1
 Raktar: mezo2
 Ovohely: mezo3
@@ -6,9 +5,9 @@ Labor: mezo4
 Virologus: virologus1
 sikeres mozgas
 sikeres mozgas
-sikeres mozgas
-kopeny 1
-aminosav 10
-nukleotid 0
-sikeres mozgas
 jatek vege: virologus1 nyert
+sikeres mozgas
+Taska tartalma:
+kopeny
+aminosav 10
+sikeres mozgas

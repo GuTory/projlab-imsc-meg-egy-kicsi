@@ -90,11 +90,11 @@ public class Viselkedes {
             while ((lehetA || lehetN) && n + a < gazda.getTaska().szabadHely()) {
                 if (ilyen) {
                     lehetN = lopott_taska.anyagKivesz(new Anyagok(1,0));
-                    n++;
+                    if(lehetN) n++;
                 }
                 else  {
                     lehetA = lopott_taska.anyagKivesz(new Anyagok(0,1));
-                    a++;
+                    if(lehetA) a++;
                 }
                 ilyen = !ilyen;
             }
@@ -139,6 +139,7 @@ public class Viselkedes {
         Agens lopott = null;
         if (agensek != null) {
             lopott = agensek.stream().filter(a -> a.getKod().toString().equals(TestIO.parancs[3])).findAny().orElse(null);
+            if(lopott != null) lopott_taska.agensKivesz(lopott);
         }
 
         return lopott;

@@ -1,13 +1,10 @@
-sikeres
-sikeres
-sikeres
-sikertelen kenes
+Mezo: mezo1
+Virologus: virologus1
+Virologus: virologus2
+Benito: agens1
+Benito: agens2
+Kopeny: felszereles1
+sikertelen megkenes - vagy sikeres
 Virologus virologus2: normal
-
-VAGY
-
-sikeres
-sikeres
-sikeres
-sikeres kenes
-Virologus virologus2: benult
+sikertelen megkenes - vagy sikeres
+Virologus virologus2: normal

@@ -67,8 +67,9 @@ public class Anyagok {
     public String toString(){
         String s = "";
         if(anyagok.get("aminosav") > 0){
-            s += "aminosav " + anyagok.get("aminosav") + "\n";
+            s += "aminosav " + anyagok.get("aminosav");
         }
+        if(anyagok.get("aminosav") > 0 && anyagok.get("nukleotid") > 0)  s += "\n";
         if(anyagok.get("nukleotid") > 0){
             s += "nukleotid " + anyagok.get("nukleotid");
         }

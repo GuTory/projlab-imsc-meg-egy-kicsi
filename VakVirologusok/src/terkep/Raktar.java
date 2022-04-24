@@ -35,6 +35,8 @@ public class Raktar extends Mezo{
 
     @Override
     public String toString(){
-        return "Raktar: " + TestNev;
+        String s ="Raktar: " + TestNev;
+        if(anyagok != null && anyagok.meret() > 0) s +=  "\n" + anyagok.toString();
+        return s;
     }
 }

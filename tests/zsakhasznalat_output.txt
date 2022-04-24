@@ -1,8 +1,8 @@
-sikeres
-sikeres
+Mezo: mezo1
+Virologus: virologus1
 Taska tartalma:
 nukleotid 50
-sikeres
-sikeres
+Zsak: felszereles1
 Taska tartalma:
-nukleotid: 65
+zsak
+nukleotid 65

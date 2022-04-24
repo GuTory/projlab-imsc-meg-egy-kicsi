@@ -1,0 +1,8 @@
+Labor: mezo1
+Mezo: mezo2
+Ovohely: mezo3
+Virologus: virologus1
+jatek vege: virologus1 nyert
+Labor: mezo1
+Mezo: mezo2
+Ovohely: mezo3
