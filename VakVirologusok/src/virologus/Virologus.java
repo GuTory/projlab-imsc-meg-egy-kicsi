@@ -16,7 +16,7 @@ import java.util.*;
  */
 public class Virologus {
 
-    public final String TestNev;
+    public String TestNev;
     protected static int TestID = 1;
 
     public int Visszadob = 0;
@@ -37,13 +37,37 @@ public class Virologus {
 
     public LinkedList<Viselkedes> getAlternativViselkedesek() { return alternativViselkedesek; }
 
+    public void setAlternativViselkedesek(LinkedList<Viselkedes> a) {
+        alternativViselkedesek = a;
+    }
+
     private Viselkedes jelenlegiViselkedes;
 
+    public void setJelenlegiViselkedes(Viselkedes v){
+        jelenlegiViselkedes = v;
+    }
+
+    public Viselkedes getJelenlegiViselkedes(){
+        return jelenlegiViselkedes;
+    }
+
     private Ellenallas[] ellenallasok;
+
+    public Ellenallas[] getEllenallasok(){
+        return ellenallasok;
+    }
+
+    public void setEllenallasok(Ellenallas[] e) {
+        ellenallasok = e;
+    }
 
     private Taska taska;
 
     public Taska getTaska() { return taska; }
+
+    public void setTaska(Taska taska) {
+        this.taska = taska;
+    }
 
     private Mezo hely;
 
@@ -339,6 +363,6 @@ public class Virologus {
 
     @Override
     public String toString(){
-        return "Virologus " + TestNev + ": " + jelenlegiViselkedes.toString() ;
+        return "Virologus " + TestNev + ": " + (jelenlegiViselkedes == null ? alapViselkedes.toString() : jelenlegiViselkedes.toString());
     }
 }

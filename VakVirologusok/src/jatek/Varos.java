@@ -120,7 +120,9 @@ public class Varos {
      * @param v A Varos objektum, amit lemasol
      */
     public void copy(Varos v){
-        //TODO: Implementacio
+        setKodok(v.getKodok());
+        setMezok(v.getMezok());
+        setVirologusok(v.getVirologusok());
     }
 
     public void kor() {

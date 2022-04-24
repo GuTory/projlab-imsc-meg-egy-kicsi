@@ -113,7 +113,8 @@ public class ProtoProgram {
                     virologusletrehoz();
                     break;
                 default:
-                    TestIO.output("Rossz parancs");
+                    if(data.length > 0 && data[0].compareTo("") != 0)
+                        TestIO.output("Rossz parancs");
                     break;
             }
         }
@@ -167,11 +168,11 @@ public class ProtoProgram {
 
     public static void mentes() {
         try{
-            XmlLoader.load(data[1]);
-            System.out.println("Sikeres");
+            XmlSaver.save(data[1]);
+            System.out.println("sikeres mentes");
         }
         catch(Exception e){
-            System.out.println("Sikertelen");
+            System.out.println("sikertelen mentes");
         }
     }
 
