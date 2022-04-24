@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class Mezo {
 
-    public final String TestNev;
+    public String TestNev;
     protected static int TestID = 1;
 
     public Mezo() {

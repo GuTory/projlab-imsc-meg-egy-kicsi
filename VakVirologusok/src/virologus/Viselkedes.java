@@ -22,11 +22,27 @@ public class Viselkedes {
 
     public int getPrior(){ return prior; }
 
+    public void setPrior(int prior) {
+        this.prior = prior;
+    }
+
     protected Virologus gazda;
+
+    public Virologus getGazda() {
+        return gazda;
+    }
+
+    public void setGazda(Virologus gazda) {
+        this.gazda = gazda;
+    }
 
     public Viselkedes(Virologus gazda) {
         prior = ViselkedesPrior.sima_prior;
         this.gazda = gazda;
+    }
+
+    public Viselkedes() {
+        prior = ViselkedesPrior.sima_prior;
     }
 
     /**
