@@ -15,34 +15,62 @@ import java.util.List;
  */
 public class Viselkedes {
     /**
-     * A viselkedés erőssége. A nagyobb prioritású viselkedés felülírja a kisebb
+     * A viselkedés erőssége. A kisebb prioritású viselkedés felülírja a nagyobb
      * prioritásút.
      */
     protected int prior;
 
-    public int getPrior(){ return prior; }
-
-    public void setPrior(int prior) {
-        this.prior = prior;
-    }
-
+    /**
+     * Virológus, akinek a viselkedése.
+     */
     protected Virologus gazda;
 
-    public Virologus getGazda() {
-        return gazda;
-    }
-
-    public void setGazda(Virologus gazda) {
-        this.gazda = gazda;
-    }
-
+    /**
+     * Konstruktor.
+     * Beállítja a gazdát és a viselkedés prioritását.
+     * @param gazda Gazda virológus
+     */
     public Viselkedes(Virologus gazda) {
         prior = ViselkedesPrior.sima_prior;
         this.gazda = gazda;
     }
 
+    /**
+     * Konstruktor.
+     * Beállítja a viselkedés prioritsását.
+     */
     public Viselkedes() {
         prior = ViselkedesPrior.sima_prior;
+    }
+
+    /**
+     * Visszaadja a viselkedés prioritását
+     * @return A viselkedés prioritása.
+     */
+    public int getPrior(){ return prior; }
+
+    /**
+     * Beállítja a viselkedés prioritását.
+     * @param prior A viselkedés prioritása.
+     */
+    public void setPrior(int prior) {
+        this.prior = prior;
+    }
+
+    /**
+     * Visszaadja a viselkedés gazdáját.
+     * @return A viselkedés gazdája.
+     */
+    public Virologus getGazda() {
+        return gazda;
+    }
+
+    /**
+     * Beállítja a viselkedés gazdáját.
+     * @param gazda A viselkedés gazdája.
+     */
+    public void setGazda(Virologus gazda) {
+        this.gazda = gazda;
     }
 
     /**
@@ -181,12 +209,20 @@ public class Viselkedes {
         return true;
     }
 
+    /**
+     * Átlépteti a gazda virológust egy másik mezőre.
+     * @param uj Mező, ahova átlépteti a virológust.
+     */
     final protected void atleptet(Mezo uj) {
         gazda.getHely().virologusKi(gazda);
         uj.virologusBe(gazda);
         gazda.setHely(uj);
     }
 
+    /**
+     * Kiírja a virológus viselkedését.
+     * @return Normál viselkedés
+     */
     @Override
     public String toString(){
         return "normal";

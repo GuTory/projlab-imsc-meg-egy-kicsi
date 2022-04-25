@@ -17,63 +17,70 @@ import java.util.*;
  */
 public class Virologus {
 
+    /**
+     * A virológus teszteléshez használt neve.
+     */
     public String TestNev;
+
+    /**
+     * A következőnek létrejövő virológus sorszáma.
+     */
     protected static int TestID = 1;
 
+    /**
+     * A virológus visszadob ellenállásának helye az ellenallasok tömbben.
+     */
     public int Visszadob = 0;
+
+    /**
+     * A virológus 100%-os ellenállásának helye az ellenallasok tömbben.
+     */
     public int TeljesSzazalekos = 1;
+
+    /**
+     * A virológus 82.3%-os ellenállásának helye az ellenallasok tömbben.
+     */
     public int ReszlegesSzazalekos = 2;
 
+    /**
+     * A virológus által megtanult kódok halmaza.
+     */
     private List<Kod> kodok;
-
-    public List<Kod> getKodok() { return kodok; }
 
     /**Alap viselkedés: így viselkedik a virológus, amikor üres az alternatív viselkedések sor.**/
     private Viselkedes alapViselkedes;
+
     /**Alternativ viselkedések, amikor a lista nem üres, a virológus az elejéről levesz egy viselkedést és a szerint cselekszik a körben.<br>
-    PriorityQueue
+     PriorityQueue
      <li>add(elem) hozzáad a sor végéhez</li>
      <li>poll() visszaadja és le is veszi az első elemet a sorból</li>**/
     private LinkedList<Viselkedes> alternativViselkedesek;
 
-    public LinkedList<Viselkedes> getAlternativViselkedesek() { return alternativViselkedesek; }
-
-    public void setAlternativViselkedesek(LinkedList<Viselkedes> a) {
-        alternativViselkedesek = a;
-    }
-
+    /**
+     * A virológus jelenlegi viselkedése.
+     */
     private Viselkedes jelenlegiViselkedes;
 
-    public void setJelenlegiViselkedes(Viselkedes v){
-        jelenlegiViselkedes = v;
-    }
-
-    public Viselkedes getJelenlegiViselkedes(){
-        return jelenlegiViselkedes;
-    }
-
+    /**
+     * 3 elemű tömb, ahol a virológus ellenállásai vannak.
+     */
     private Ellenallas[] ellenallasok;
 
-    public Ellenallas[] getEllenallasok(){
-        return ellenallasok;
-    }
-
-    public void setEllenallasok(Ellenallas[] e) {
-        ellenallasok = e;
-    }
-
+    /**
+     * A virológus táskája.
+     */
     private Taska taska;
 
-    public Taska getTaska() { return taska; }
-
-    public void setTaska(Taska taska) {
-        this.taska = taska;
-    }
-
+    /**
+     * Mező, ahol a virológus áll.
+     */
     private Mezo hely;
 
-    public Mezo getHely() { return hely; }
 
+    /**
+     * Konstruktor.
+     * Beállítja a virológus nevét, ellenállásait, viselkedését, táskáját.
+     */
     public Virologus() {
         TestNev = "virologus" + TestID;
         TestID++;
@@ -91,14 +98,94 @@ public class Virologus {
         taska = new Taska(this);
     }
 
+    /**
+     * Visszaadja a virológus által megtanult kódokat.
+     * @return A megtanult kódok.
+     */
+    public List<Kod> getKodok() { return kodok; }
+
+    /**
+     * Visszaadja a virológus alternatív viselkedéseit.
+     * @return A virológus alternatív viselkedei.
+     */
+    public LinkedList<Viselkedes> getAlternativViselkedesek() { return alternativViselkedesek; }
+
+    /**
+     * Beállítja a virológus alternatív viselkedéseit.
+     * @param aViselkedesek a virológus alternatív viselkedései.
+     */
+    public void setAlternativViselkedesek(LinkedList<Viselkedes> aViselkedesek) {
+        alternativViselkedesek = aViselkedesek;
+    }
+
+    /**
+     * Beállítja a virológus jelenlegi viselkedését.
+     * @param v A beállítandó viselkedés.
+     */
+    public void setJelenlegiViselkedes(Viselkedes v){
+        jelenlegiViselkedes = v;
+    }
+
+    /**
+     * Visszaadja a virológus jelenlegi viselkedését.
+     * @return A virológus jelenlegi viselkedése.
+     */
+    public Viselkedes getJelenlegiViselkedes(){
+        return jelenlegiViselkedes;
+    }
+
+    /**
+     * Visszaadja a virológus ellenállásait.
+     * @return A virolgus ellenállásai.
+     */
+    public Ellenallas[] getEllenallasok(){
+        return ellenallasok;
+    }
+
+    /**
+     * Beállítja a virológus ellenállásait.
+     * @param e A beállítandó ellenállások.
+     */
+    public void setEllenallasok(Ellenallas[] e) {
+        ellenallasok = e;
+    }
+
+    /**
+     * Visszaadja a virológus táskáját.
+     * @return A virológus táskája.
+     */
+    public Taska getTaska() { return taska; }
+
+    /**
+     * Beállítja a virológus táskáját.
+     * @param taska A beállítandó táska.
+     */
+    public void setTaska(Taska taska) {
+        this.taska = taska;
+    }
+
+    /**
+     * Visszaadja a mezőt, ahol virológus áll.
+     * @return A mező, ahol a virológus áll.
+     */
+    public Mezo getHely() { return hely; }
+
+    /**
+     * Beállítja a virológus helyét.
+     * @param mezo Az új helyként beállítandó mező.
+     */
     public void setHely(Mezo mezo) {
         hely = mezo;
-     }
+    }
 
-     public void TestViselkedesInit(){
+    /**
+     * Frissíti a virológus viselkedését.
+     * A teszteléshez kell.
+     */
+    public void TestViselkedesInit(){
          Viselkedes jelenlegi = alternativViselkedesek.pollFirst();
          jelenlegiViselkedes = jelenlegi == null ? alapViselkedes : jelenlegi;
-     }
+    }
 
     /**
      * Elkezdi a virológus körét, meghívja a Cselekmenynek az összes metódusát amivel a
@@ -285,6 +372,9 @@ public class Virologus {
         ellenallasok[id].setErvenyesseg(szint);
      }
 
+    /**
+     * Megöli a virológust, beállítja a viselkedését halottra.
+     */
     public void meghal() {
         addViselkedes(1, new HalottViselkedes(this));
     }
@@ -359,10 +449,19 @@ public class Virologus {
         return false;
      }
 
+    /**
+     * Megtámadja a paraméterként kapott virológust.
+     * @param kit A megtámadott virológus
+     * @return A támadás sikeressége
+     */
     public boolean tamad(Virologus kit) {
         return jelenlegiViselkedes.tamad(kit);
     }
 
+    /**
+     * Kiírja a Virológus nevét és állapotát.
+     * @return A virológus neve és állapota.
+     */
     @Override
     public String toString(){
         return "Virologus " + TestNev + ": " + (jelenlegiViselkedes == null ? alapViselkedes.toString() : jelenlegiViselkedes.toString()) +

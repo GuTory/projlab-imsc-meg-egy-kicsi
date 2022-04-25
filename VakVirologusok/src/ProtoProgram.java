@@ -16,12 +16,24 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
+/**
+ * Prototípus konzolos vezérlő program
+ */
 public class ProtoProgram {
+
+    /** Aktuálisan beolvasott sor szóközönként tagolva egy tömbben */
     private static String[] data;
+
+    /** Az előző hívásban lévő aktív virollógus */
     private static Virologus active = null;
 
+    /** Tesztfájlok elérési útvonalának listája */
     private static ArrayList<String> fajlok = new ArrayList<>();
 
+    /**
+     * Program indítási pontja, lefuttatja a kiválasztott tesztesetet.
+     * @throws FileNotFoundException Nem találja a fájlt.
+     */
     public static void main(String[] args) throws FileNotFoundException {
         File folder = new File("tests/");
         for(File f : folder.listFiles()){
@@ -45,6 +57,9 @@ public class ProtoProgram {
         ertelmez();
     }
 
+    /**
+     * Parancs értelmező és vezérlő
+     */
     public static void ertelmez() {
         while (TestIO.hasNext()){
             data = TestIO.input().split(" ");
@@ -126,6 +141,9 @@ public class ProtoProgram {
         }
     }
 
+    /**
+     * Létrehoz egy új virológust, kiírja a nevét.
+     */
     public static void virologusletrehoz(){
         Virologus v = new Virologus();
         TestIO.output("Virologus: " + v.TestNev);
@@ -135,20 +153,39 @@ public class ProtoProgram {
         m.virologusBe(v);
     }
 
+    /**
+     * Név alapján kikeres egy virológust.
+     * @param nev A keresett virológus neve
+     * @return A megtalált virológus - null, ha nincs találat
+     */
     private static Virologus keresVirologus(String nev){
         Virologus v = Varos.getInstance().getVirologusok().stream().filter(a -> a.TestNev.equals(nev)).findAny().orElse(null);
         activateVirologus(v);
         return v;
     }
 
+    /**
+     * Név alapján kikeres egy mezőt.
+     * @param nev A keresett mező neve
+     * @return A megtalált mező - null, ha nincs találat
+     */
     private static Mezo keresMezo(String nev){
         return Varos.getInstance().getMezok().stream().filter(a -> a.TestNev.equals(nev)).findAny().orElse(null);
     }
 
+    /**
+     * Név alapján kikeres egy ágenst.
+     * @param nev A keresett ágens neve
+     * @return A megtalált ágens - null, ha nincs találat
+     */
     private static Agens keresAgens(Virologus ki, String nev){
         return ki.getTaska().getAgensek().stream().filter(a -> a.TestID.contains(nev)).findAny().orElse(null);
     }
 
+    /**
+     * Beállítja az aktív virológust, és frissíti az állapotát.
+     * @param v Az aktiválni kíbánt virológus
+     */
     private static void activateVirologus(Virologus v){
         if(v != active && data.length > 1 && v.TestNev.equals(data[1])){
             active = v;
@@ -156,12 +193,18 @@ public class ProtoProgram {
         }
     }
 
+    /**
+     * Mozgatja a parancs paramétereként megadott virológust.
+     */
     public static void mozog(){
         Virologus v = keresVirologus(data[1]);
         boolean siker =  v.mozog();
         TestIO.output(siker ? "sikeres mozgas" : "sikertelen mozgas");
     }
 
+    /**
+     * Betölti a parancs paramétereként megadott mentést.
+     */
     public static void betolt(){
         try {
             XmlLoader.load(data[1]);
@@ -172,6 +215,9 @@ public class ProtoProgram {
         }
     }
 
+    /**
+     * Elmenti a játék állapotát a parancs paramétereként megadott néven.
+     */
     public static void mentes() {
         try{
             XmlSaver.save(data[1]);
@@ -182,6 +228,11 @@ public class ProtoProgram {
         }
     }
 
+    /**
+     * Megkeni a parancs első paramétereként kapott virológust a másodikként kapottat
+     * a harmadik paraméter által jelzett ágenssel.
+     * Kiírja a kenés sikerességét
+     */
     public static void megken(){
         Virologus ki = keresVirologus(data[1]);
         Virologus kit = keresVirologus(data[2]);
@@ -206,11 +257,17 @@ public class ProtoProgram {
         TestIO.output(siker ? "sikeres megkenes" : "sikertelen megkenes");
     }
 
+    /**
+     * Anyagot gyűjt a virológus.
+     */
     public static void gyujt(){
-        //semmi értelme mert automatikus
+        // Ez automatikusan működik
         TestIO.output("sikeres gyujtes");
     }
 
+    /**
+     * Megtámadja a parancs első paramétereként kapott virológus a másodikként kapottat
+     */
     public static void tamad(){
         Virologus ki = keresVirologus(data[1]);
         Virologus kit = keresVirologus(data[2]);
@@ -218,10 +275,16 @@ public class ProtoProgram {
         TestIO.output(sikerestamadas ? "sikeres tamadas" : "sikertelen tamadas");
     }
 
+    /**
+     * Elindítja a játékot.
+     */
     public static void jatekindit(){
         Jatek.jatekIndit();
     }
 
+    /**
+     * Létrehoz egy a parancs paramétereként megadott típusú mezőt.
+     */
     public static void mezoletrehoz(){
         Mezo ujmezo;
         switch (data[1]){
@@ -252,6 +315,9 @@ public class ProtoProgram {
         TestIO.output(ujmezo.toString());
     }
 
+    /**
+     * A parancs első paramétereként megadott mezőre berak egy a második paraméterben megadott típsú tárgyat/ágenst.
+     */
     public static void mezoberak(){
         Mezo m = keresMezo(data[1]);
         switch (data[2]) {
@@ -321,6 +387,9 @@ public class ProtoProgram {
         }
     }
 
+    /**
+     * A parancs paramétereiben magadott egyik virológus ellop a másik virológustól egy megadott típusú tárgyat/ágenst.
+     */
     public static void ellop(){
         Virologus ki = keresVirologus(data[1]);
         Virologus kitol = keresVirologus(data[2]);
@@ -347,6 +416,10 @@ public class ProtoProgram {
         TestIO.output(siker ? "sikeres lopas" : "sikertelen lopas");
     }
 
+    /**
+     * A parancs paramétereként megadott virológus készít egy megadott tipusú ágenst.
+     * Kiírja a készítés sikerességét.
+     */
     public static void keszit(){
         Virologus ki = keresVirologus(data[1]);
         String milyen = data[2];
@@ -360,6 +433,9 @@ public class ProtoProgram {
         TestIO.output("sikertelen keszites");
     }
 
+    /**
+     * A parancs első paramétereként megadott virológuson alkalmazza a megadott effektet.
+     */
     public static void effektalkalmaz(){
         Virologus ki = keresVirologus(data[1]);
         Kod k = null;
@@ -392,6 +468,9 @@ public class ProtoProgram {
         TestIO.output("sikeres hatas");
     }
 
+    /**
+     * A parancs első paramétereként megadott virológus megtanulja a megadott kódot.
+     */
     public static void megtanit(){
         Virologus ki = keresVirologus(data[1]);
         Kod k = null;
@@ -417,12 +496,18 @@ public class ProtoProgram {
         TestIO.output("sikeres tanulas");
     }
 
+    /**
+     * A paraméterként megadott virológus elfelejti a megtanult kódokat.
+     */
     public static void elfelejt() {
         Virologus ki = keresVirologus(data[1]);
         ki.getKodok().clear();
         TestIO.output("sikeres felejtes");
     }
 
+    /**
+     * Kiírja a parancs paramétereként megadott virológus vagy mező állapotát.
+     */
     public static void allapot(){
         if(data[1].contains("virologus")){
             Virologus ki = keresVirologus(data[1]);
@@ -434,6 +519,9 @@ public class ProtoProgram {
         }
     }
 
+    /**
+     * A parancs első paramétereként kapott virológusnak berak a táskájába egy megadott típusú tárgyat/ágenst.
+     */
     public static void taskabarak(){
         Virologus t = keresVirologus(data[1]);
         Anyagok a = new Anyagok(1,1);
@@ -497,6 +585,9 @@ public class ProtoProgram {
         }
     }
 
+    /**
+     * Kivesz a parancs paramétereként megadott virológus táskájából egy megadott típusú tárgyat/ágenst.
+     */
     public static void taskabolkivesz(){
         Taska t = keresVirologus(data[1]).getTaska();
         Anyagok a = new Anyagok(1,1);
@@ -551,6 +642,9 @@ public class ProtoProgram {
         }
     }
 
+    /**
+     * Kilistázza a mezőket és virológusokat.
+     */
     public static void objektumlista(){
         for (Mezo m: Varos.getInstance().getMezok()){
             TestIO.output( m.toString());
@@ -560,24 +654,36 @@ public class ProtoProgram {
         }
     }
 
+    /**
+     * Kilistáza a mezőket.
+     */
     public static void terkep(){
         for (Mezo m: Varos.getInstance().getMezok()){
             TestIO.output( m.toString());
         }
     }
 
+    /**
+     * Megadja, hogy hol helyezkedik el a parancs paramétereként megadott virológus.
+     */
     public static void holvan(){
         Virologus ki = keresVirologus(data[1]);
         Mezo m = ki.getHely();
         TestIO.output(m.toString());
     }
 
+    /**
+     * Kilistázza a virológusokat.
+     */
     public static void virologusok(){
         for(Virologus v: Varos.getInstance().getVirologusok()){
             TestIO.output(v.toString());
         }
     }
 
+    /**
+     * Kilistázza a parancs paramétereként megadott virológus táskájának tartalmát.
+     */
     public static void taskamegnez(){
         Virologus ki = keresVirologus(data[1]);
         TestIO.output( ki.getTaska().toString());
