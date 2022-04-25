@@ -7,8 +7,16 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+/**
+ * A tesztelésben a mentes parancsot végrehajtó osztály
+ */
 public class XmlSaver
 {
+    /**
+     * mentes parancs fájlba
+     * @param fileName fájl neve
+     * @throws Exception hiba esetén ezt dobja
+     */
     public static void save(String fileName) throws Exception
     {
         Varos state = Varos.getInstance();

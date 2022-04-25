@@ -149,7 +149,9 @@ public class Taska {
         return agensek.stream().map(a -> a.koltseg().meret()).reduce(0, Integer::sum) + anyagok.meret();
     }
 
-
+    /**
+     * táskában lévő dolgok csökkentése
+     */
     private void tartalomCsokkentes() {
         //Csak anyag kivétele elég
         if (telitettseg() - kapacitas < anyagok.meret()) {
@@ -173,10 +175,18 @@ public class Taska {
         }
     }
 
+    /**
+     * szabad helyek száma
+     * @return szabad helyek száma
+     */
     public int szabadHely() {
         return kapacitas - telitettseg();
     }
-  
+
+    /**
+     * szöveggé alakított táska teszteléshez
+     * @return az összefűzött string
+     */
     @Override
     public String toString(){
         String s = "Taska tartalma:\n";

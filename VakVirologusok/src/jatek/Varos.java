@@ -127,20 +127,33 @@ public class Varos {
     }
 
     public void kor() {
-/*        for (Virologus v : virologusok) {
+        /*
+        for (Virologus v : virologusok) {
             TestIO.output(v.TestNev);
             v.kor();
         }*/
     }
 
+    /**
+     * mezők gettere
+     * @return mezők lista
+     */
     public List<Mezo> getMezok() {
         return mezok;
     }
 
+    /**
+     * virológusok gettere
+     * @return virológusok listája
+     */
     public List<Virologus> getVirologusok() {
         return virologusok;
     }
 
+    /**
+     * kódok gettere
+     * @return kódok lista
+     */
     public List<Kod> getKodok() {
         return kodok;
     }

@@ -19,16 +19,29 @@ public class Skeleton {
 
     private static String tabs = "";
 
+    /**
+     * metódus eleje, nem használjuk ezt az osztályt
+     * @param metodusNev metódus neve
+     */
     public static void metodusEleje(String metodusNev) {
         System.out.println(tabs + metodusNev + " metodus eleje");
         tabs += "   ";
     }
 
+    /**
+     * metódus vége, nem használjuk ezt az osztályt
+     * @param metodusNev metódus neve
+     */
     public static void metodusVege(String metodusNev) {
         tabs = tabs.substring(0, tabs.length()-3);
         System.out.println(tabs + metodusNev + " metodus vege");
     }
 
+    /**
+     * Döntés, nem használjuk
+     * @param kerdes
+     * @return
+     */
     public static String dontes(String kerdes) {
         System.out.println(tabs + kerdes);
         System.out.print(tabs);
@@ -37,6 +50,11 @@ public class Skeleton {
         return valasz;
     }
 
+    /**
+     * igen-nem döntés
+     * @param kerdes kérdés
+     * @return igen?
+     */
     public static boolean igenNem(String kerdes){
         System.out.println(tabs + kerdes + " (i: IGEN/n: nem)");
         System.out.print(tabs);
@@ -45,5 +63,4 @@ public class Skeleton {
         if (valasz.equals("i") || valasz.equals("")) return true;
         return false;
     }
-
 }

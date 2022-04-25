@@ -10,9 +10,19 @@ import java.util.ArrayList;
  */
 public class Mezo {
 
+    /**
+     * teszteléshez készített ID
+     */
     public String TestNev;
+
+    /**
+     * létrejött mező objektumok száma
+     */
     protected static int TestID = 1;
 
+    /**
+     * mező konstruktora, kialakítja a testNevet
+     */
     public Mezo() {
         TestNev = "mezo" + TestID;
         TestID++;
@@ -23,8 +33,16 @@ public class Mezo {
      */
     protected ArrayList<Virologus> virologusok = new ArrayList<>();
 
+    /**
+     * virológusok settere
+     * @param v virológus lista
+     */
     public void setVirologusok(ArrayList<Virologus> v){ virologusok = v; }
 
+    /**
+     * virológusok gettere
+     * @return
+     */
     public ArrayList<Virologus> getVirologusok(){ return virologusok; }
 
     /**
@@ -32,8 +50,16 @@ public class Mezo {
      */
     protected ArrayList<Mezo> szomszedok = new ArrayList<>();
 
+    /**
+     * szomszédok settere
+     * @param sz szomszédlista
+     */
     public void setSzomszedok(ArrayList<Mezo> sz){ szomszedok = sz; }
 
+    /**
+     * szomszédok gettere
+     * @return szomszédok lista
+     */
     public ArrayList<Mezo> getSzomszedok(){ return szomszedok; }
 
 
@@ -59,10 +85,17 @@ public class Mezo {
         return;
     }
 
+    /**
+     * medvevírusos tombol az adott mezőn. a sima mezőn ez semmilyen tevékenységet nem von maga után
+     */
     public void tombol() {
         return;
     }
 
+    /**
+     * szöveggé alakított mező a teszteléshez
+     * @return Mezo: ID
+     */
     @Override
     public String toString(){
         return "Mezo: " + TestNev;

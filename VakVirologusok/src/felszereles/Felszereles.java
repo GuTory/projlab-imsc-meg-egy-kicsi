@@ -34,6 +34,10 @@ public abstract class Felszereles{
      */
     public abstract int getID();
 
+    /**
+     * használat
+     * @return érvényes-e még a felszerelés?
+     */
     public final boolean hasznal() {
         elettartam--;
         return elettartam > 0;

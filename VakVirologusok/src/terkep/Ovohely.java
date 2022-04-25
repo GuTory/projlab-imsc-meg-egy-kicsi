@@ -26,6 +26,10 @@ public class Ovohely extends Mezo {
         }
     }
 
+    /**
+     * szöveggé alakított oóvhely a teszteléshez
+     * @return Ovohely: ID
+     */
     @Override
     public String toString(){
         return "Ovohely: " +TestNev;

@@ -41,6 +41,10 @@ public class Kesztyu extends Felszereles{
         return Felszereles_ID.kesztyu_ID;
     }
 
+    /**
+     * szöveggé alakított kesztyű
+     * @return kesztyu
+     */
     @Override
     public String toString(){
         return "kesztyu";

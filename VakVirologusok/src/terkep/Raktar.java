@@ -1,10 +1,7 @@
 package terkep;
 
 import util.Anyagok;
-import util.Taska;
 import virologus.Virologus;
-
-import java.util.Scanner;
 
 /**
  * Raktár mező amiben anyagok vannak
@@ -16,8 +13,16 @@ public class Raktar extends Mezo{
      */
     private Anyagok anyagok =  new Anyagok(0,0);
 
+    /**
+     * anyagok settere
+     * @param a anyag
+     */
     public void setAnyagok(Anyagok a){ anyagok = a; }
 
+    /**
+     * anyagok gettere
+     * @return anyagok
+     */
     public Anyagok getAnyagok(){ return anyagok; }
 
     /**
@@ -27,11 +32,19 @@ public class Raktar extends Mezo{
         virologus.getTaska().anyagBerak(anyagok);
     }
 
+    /**
+     * medvevírusos tombol az adott mezőn, azaz elpusztítja az összes anyagot ami a raktárban volt
+     */
     @Override
     public void tombol() {
         anyagok = null;
     }
 
+    /**
+     * szöveggé alakított raktár a teszteléshez
+     * @return Mezo: ID
+     * benne lévő anyagok
+     */
     @Override
     public String toString(){
         String s ="Raktar: " + TestNev;

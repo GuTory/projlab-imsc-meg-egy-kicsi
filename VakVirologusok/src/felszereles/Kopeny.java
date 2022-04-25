@@ -37,6 +37,10 @@ public class Kopeny extends Felszereles{
         return Felszereles_ID.kopeny_ID;
     }
 
+    /**
+     * szöveggé alakított köpeny teszteléshez
+     * @return kopeny
+     */
     @Override
     public String toString(){
         return "kopeny";

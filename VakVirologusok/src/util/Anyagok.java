@@ -11,8 +11,17 @@ public class Anyagok {
      */
     private Map<String, Integer> anyagok;
 
+    /**
+     * anyagok gettere
+     * @return anyagok
+     */
     public Map<String, Integer> getAnyagok() { return anyagok; }
 
+    /**
+     * anyagok konstruktora
+     * @param nukleotid nukleotid mennyisége
+     * @param aminosav aminosav mennyisége
+     */
     public Anyagok(int nukleotid, int aminosav) {
         anyagok = new Hashtable<>();
         anyagok.put("nukleotid", nukleotid);
@@ -63,6 +72,10 @@ public class Anyagok {
         return meret;
     }
 
+    /**
+     * szöveggé alakított anyagok, az aminosav és nukleotid mennyiséggel
+     * @return az összefűzött szöveg
+     */
     @Override
     public String toString(){
         String s = "";

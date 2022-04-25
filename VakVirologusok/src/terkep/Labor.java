@@ -14,8 +14,16 @@ public class Labor extends Mezo {
      */
     private Kod kod;
 
+    /**
+     * jód beállítása
+     * @param k kód
+     */
     public void setKod(Kod k){ kod = k; }
 
+    /**
+     * kód gettere
+     * @return kód
+     */
     public Kod getKod(){ return kod; }
 
     /**
@@ -26,6 +34,10 @@ public class Labor extends Mezo {
             virologus.kodMegtanul(kod);
     }
 
+    /**
+     * szöveggé alakított labor
+     * @return Labor: ID
+     */
     @Override
     public String toString(){
         return "Labor: " + TestNev;

@@ -49,6 +49,10 @@ public class Zsak extends Felszereles{
         return Felszereles_ID.zsak_ID;
     }
 
+    /**
+     * szöveggé alakított zsák teszteléshez
+     * @return zsak
+     */
     @Override
     public String toString(){
         return "zsak";
