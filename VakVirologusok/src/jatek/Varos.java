@@ -31,6 +31,8 @@ public class Varos {
      */
     private List<Virologus> virologusok;
 
+    private Virologus aktivVirologus;
+
     /**
      * Beallitja a virologusok listajat
      * @param value az uj virologus lista
@@ -82,7 +84,8 @@ public class Varos {
         virologusok.get(1).setHely(mezok.get(2));
         mezok.get(2).virologusBe(virologusok.get(1));
 
-        virologusok.get(1).beFelszereles(new Balta());*/
+        virologusok.get(1).beFelszereles(new Balta());
+        aktivVirologus = virologusok.get(0);*/
     }
 
     /**
@@ -143,5 +146,17 @@ public class Varos {
 
     public List<Kod> getKodok() {
         return kodok;
+    }
+
+    public Virologus getActivVirologus(){ return aktivVirologus; }
+
+    public void kovetkezoVirologus(){
+        int x = virologusok.indexOf(aktivVirologus);
+        if(x + 1 >= virologusok.size()){
+            x = 0;
+            Jatek.idoTelt();
+        }
+        aktivVirologus = virologusok.get(x+1);
+
     }
 }
