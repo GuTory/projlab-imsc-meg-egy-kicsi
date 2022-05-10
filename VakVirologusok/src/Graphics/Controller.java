@@ -1,18 +1,23 @@
 package Graphics;
 
+import Graphics.ActionFrames.*;
 import agens.Agens;
 import agens.Kod;
 import felszereles.Felszereles;
+import jatek.Jatek;
 import jatek.Varos;
 import terkep.Mezo;
 import virologus.Virologus;
 
+import javax.swing.*;
+
 public class Controller {
+    private JatekFrame MainFrame;
 
     private static Controller instance = null;
 
     private Controller(){
-
+        MainFrame = new JatekFrame();
     }
 
     public static Controller GetInstance(){
@@ -22,31 +27,38 @@ public class Controller {
     }
 
     public void JatekIndit(){
-
+        Jatek.jatekIndit();
+        MainFrame = new JatekFrame();
     }
 
     public void MozogEvent(){
-
+        JFrame frame = new MozogFrame(MainFrame);
+        frame.setVisible(true);
     }
 
     public void KeszitEvent(){
-
+        JFrame frame = new AgensKeszitFrame(MainFrame);
+        frame.setVisible(true);
     }
 
     public void LopasEvent(){
-
+        JFrame frame = new LopasFrame(MainFrame);
+        frame.setVisible(true);
     }
 
     public void MegkenEvent(){
-
+        JFrame frame = new KenesFrame(MainFrame);
+        frame.setVisible(true);
     }
 
     public void NyerEvent(){
-
+        JFrame frame = new NyertFrame(MainFrame);
+        frame.setVisible(true);
     }
 
     public void EldobEvent(){
-
+        JFrame frame = new EldobFrame(MainFrame);
+        frame.setVisible(true);
     }
 
     public boolean MozogCallback(Mezo m){
