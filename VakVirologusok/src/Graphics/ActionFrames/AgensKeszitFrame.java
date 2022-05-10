@@ -8,8 +8,9 @@ import java.awt.event.ActionEvent;
 public class AgensKeszitFrame extends ActionFrame {
 
     public AgensKeszitFrame(JatekFrame f){
-        super(f);
+        super(f, "Ágens készítés");
         OKButton.addActionListener(this);
+        setVisible(true);
     }
 
     @Override

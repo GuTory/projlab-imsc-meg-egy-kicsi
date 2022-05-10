@@ -9,8 +9,9 @@ import java.awt.event.ActionEvent;
 public class KenesFrame extends ActionFrame{
 
     public KenesFrame(JatekFrame f){
-        super(f);
+        super(f, "Kenés");
         OKButton.addActionListener(this);
+        setVisible(true);
     }
 
     @Override

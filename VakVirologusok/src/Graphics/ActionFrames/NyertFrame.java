@@ -8,8 +8,9 @@ import java.awt.event.ActionEvent;
 public class NyertFrame extends ActionFrame{
 
     public NyertFrame(JatekFrame f){
-        super(f);
+        super(f, "Győzelem");
         OKButton.addActionListener(this);
+        setVisible(true);
     }
 
     @Override

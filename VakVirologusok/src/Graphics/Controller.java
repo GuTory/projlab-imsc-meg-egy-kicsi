@@ -29,10 +29,16 @@ public class Controller {
     public void JatekIndit(){
         Jatek.jatekIndit();
         MainFrame = new JatekFrame();
+        MainFrame.setVisible(true);
     }
 
     public void MozogEvent(){
         JFrame frame = new MozogFrame(MainFrame);
+        frame.setVisible(true);
+    }
+
+    public void TamadEvent(){
+        JFrame frame = new TamadFrame(MainFrame);
         frame.setVisible(true);
     }
 

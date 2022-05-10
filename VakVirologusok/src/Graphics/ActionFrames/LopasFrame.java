@@ -9,8 +9,9 @@ import java.awt.event.ActionEvent;
 public class LopasFrame extends ActionFrame{
 
     public LopasFrame(JatekFrame f){
-        super(f);
+        super(f, "Lopás");
         OKButton.addActionListener(this);
+        setVisible(true);
     }
 
     @Override

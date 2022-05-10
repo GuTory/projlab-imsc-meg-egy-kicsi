@@ -9,8 +9,9 @@ import java.awt.event.ActionEvent;
 public class TamadFrame extends ActionFrame{
 
     public TamadFrame(JatekFrame f){
-        super(f);
+        super(f, "Támadás");
         OKButton.addActionListener(this);
+        setVisible(true);
     }
 
     @Override

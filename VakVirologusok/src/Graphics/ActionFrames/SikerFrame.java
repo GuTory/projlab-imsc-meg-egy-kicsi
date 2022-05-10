@@ -9,9 +9,10 @@ public class SikerFrame extends ActionFrame{
     private String message;
 
     public SikerFrame(JatekFrame f, String s){
-        super(f);
+        super(f, "Siker");
         OKButton.addActionListener(this);
         message = s;
+        setVisible(true);
     }
 
     @Override
