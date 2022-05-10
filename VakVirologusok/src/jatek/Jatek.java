@@ -1,6 +1,9 @@
 package jatek;
 
 
+import Graphics.Controller;
+import Graphics.JatekFrame;
+import Graphics.Publisher;
 import virologus.Virologus;
 
 public class Jatek {
@@ -9,15 +12,22 @@ public class Jatek {
      */
     private static int idobelyeg = 0;
 
-    private static boolean vege = false;
+    private static Jatek instance = null;
+
+    private Jatek(){}
+
+    public static Jatek GetInstance(){
+        if(instance == null)
+            instance = new Jatek();
+        return instance;
+    }
 
     /**
      * Véget vet a játéknak, és a paraméterben kapott virológust kihirdeti győztesnek.
      * @param virologus A győztes
      */
     public static void jatekVege(Virologus virologus){
-        vege = true;
-        //TODO: virologus értesít
+        Publisher.getInstance().updateNyer();
     }
 
     /**

@@ -1,4 +1,6 @@
-package Graphics;
+package Graphics.ActionFrames;
+
+import Graphics.JatekFrame;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;

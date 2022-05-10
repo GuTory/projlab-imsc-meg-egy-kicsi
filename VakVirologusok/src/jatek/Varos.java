@@ -57,7 +57,7 @@ public class Varos {
     /**
      * A singleton peldanya az osztalynak
      */
-    public static Varos instance = null;
+    private static Varos instance = null;
 
     /**
      * Privat konstruktor.
