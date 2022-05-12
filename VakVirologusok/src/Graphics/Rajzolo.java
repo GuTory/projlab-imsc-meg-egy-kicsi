@@ -39,12 +39,10 @@ public class Rajzolo extends Canvas {
             g.drawString(v.Nev, TopPoints.get(drawn).x-g.getFontMetrics().stringWidth(v.Nev) / 2 , TopPoints.get(drawn).y+130);
             drawn++;
         }
-
-        //TODO: ide kell a rajzolás
     }
 
     public void frissit(Virologus virologus){
         Aktiv = virologus;
-        invalidate(); //meghívja a paint-et
+        repaint(); //meghívja a paint-et
     }
 }
