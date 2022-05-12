@@ -20,7 +20,7 @@ public class Virologus {
     /**
      * A virológus teszteléshez használt neve.
      */
-    public String TestNev;
+    public String Nev;
 
     /**
      * A következőnek létrejövő virológus sorszáma.
@@ -82,7 +82,7 @@ public class Virologus {
      * Beállítja a virológus nevét, ellenállásait, viselkedését, táskáját.
      */
     public Virologus() {
-        TestNev = "virologus" + TestID;
+        Nev = "virologus" + TestID;
         TestID++;
 
         kodok = new ArrayList<>();
@@ -464,7 +464,7 @@ public class Virologus {
      */
     @Override
     public String toString(){
-        return "Virologus " + TestNev + ": " + (jelenlegiViselkedes == null ? alapViselkedes.toString() : jelenlegiViselkedes.toString()) +
+        return "Virologus " + Nev + ": " + (jelenlegiViselkedes == null ? alapViselkedes.toString() : jelenlegiViselkedes.toString()) +
                 (ellenallasok[TeljesSzazalekos].ervenyesE() ? " vedett" : "") + (kodok.size() > 0 ?
                 kodok.stream().map(k -> k.toString() + ", ").reduce("\n\tTanult kódok: ", String::concat) : "");
     }

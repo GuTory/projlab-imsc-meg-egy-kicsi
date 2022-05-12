@@ -22,7 +22,7 @@ public class JatekFrame extends JFrame implements Observer {
     private Rajzolo rajzolo;
 
     public JatekFrame(){
-        super();
+        super("Vak virologusok");
         this.setLayout(new BorderLayout());
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(new Dimension(800,600));
@@ -54,6 +54,7 @@ public class JatekFrame extends JFrame implements Observer {
         Publisher.getInstance().sub(this);
         rajzolo = new Rajzolo();
         rajzolo.frissit();
+        setDefaultCloseOperation(this.EXIT_ON_CLOSE);
     }
 
     public void subNyer(){
@@ -125,4 +126,6 @@ public class JatekFrame extends JFrame implements Observer {
             Controller.GetInstance().EldobEvent();
         }
     }
+
+    public Virologus getAktivVirologus(){ return aktiv; }
 }
