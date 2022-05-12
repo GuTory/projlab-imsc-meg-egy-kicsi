@@ -170,8 +170,8 @@ public class JatekFrame extends JFrame implements Observer {
     }
 
     public void subKovetkezo(){
-        Controller.GetInstance().KovetkezoVirologusCallback();
         aktiv = Varos.getInstance().getActivVirologus();
+        Publisher.getInstance().updateAction();
     }
 
     /**
@@ -192,8 +192,7 @@ public class JatekFrame extends JFrame implements Observer {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            //TODO: kéne MaradEvent?
-            //Controller.GetInstance()...;
+            Controller.GetInstance().KovetkezoVirologusCallback();
         }
     }
 

@@ -1,8 +1,9 @@
 package jatek;
 
+import Graphics.Publisher;
 import agens.Felejto;
 import agens.Kod;
-import felszereles.Balta;
+import felszereles.*;
 import terkep.Mezo;
 import test.TestIO;
 import util.Anyagok;
@@ -89,6 +90,7 @@ public class Varos {
         mezok.get(0).virologusBe(virologusok.get(3));
          virologusok.get(3).setHely(mezok.get(0));
 
+        virologusok.get(1).beFelszereles(new Kopeny());
         virologusok.get(0).beFelszereles(new Balta());
         aktivVirologus = virologusok.get(0);
     }
@@ -173,8 +175,7 @@ public class Varos {
         if(x + 1 >= virologusok.size()){
             x = 0;
             Jatek.idoTelt();
-        }
-        aktivVirologus = virologusok.get(x+1);
-
+        }else x += 1;
+        aktivVirologus = virologusok.get(x);
     }
 }

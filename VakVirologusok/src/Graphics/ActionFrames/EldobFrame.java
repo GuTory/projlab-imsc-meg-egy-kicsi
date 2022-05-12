@@ -44,6 +44,10 @@ public class EldobFrame extends ActionFrame {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(felszerelesek.getSelectedItem() == null) {
+            dispose();
+            return;
+        }
         Controller.GetInstance().EldobCallback((Felszereles)felszerelesek.getSelectedItem());
         dispose();
     }
