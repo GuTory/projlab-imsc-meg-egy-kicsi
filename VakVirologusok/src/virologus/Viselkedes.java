@@ -8,6 +8,7 @@ import test.TestIO;
 import util.Anyagok;
 import util.Taska;
 
+import java.awt.*;
 import java.util.List;
 
 /**
@@ -219,5 +220,9 @@ public class Viselkedes {
     @Override
     public String toString(){
         return "normal";
+    }
+
+    public Color color(){
+        return new Color(0,0,255);
     }
 }

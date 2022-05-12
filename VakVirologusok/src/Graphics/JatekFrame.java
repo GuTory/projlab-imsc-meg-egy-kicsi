@@ -6,6 +6,7 @@ import terkep.Mezo;
 import virologus.Virologus;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -39,12 +40,16 @@ public class JatekFrame extends JFrame implements Observer {
 
     public JatekFrame(){
         super("Vak virologusok");
+        JPanel SouthPanel = new JPanel(new FlowLayout());
+        EmptyBorder b = new EmptyBorder(10,10,10,10);
+        JPanel WestPanel = new JPanel(); WestPanel.setBorder(b);
+        JPanel EastPanel = new JPanel(); EastPanel.setBorder(b);
 
         /// Gombok és alap panel állítása
+
         aktiv = Varos.getInstance().getActivVirologus();
         this.setLayout(new BorderLayout());
         this.setSize(new Dimension(800,600));
-        JPanel SouthPanel = new JPanel(new FlowLayout());
         setDefaultCloseOperation(this.EXIT_ON_CLOSE);
         mozogButton = new JButton("Mozog");
         mozogButton.addActionListener(new MozogActionListener());
@@ -76,7 +81,6 @@ public class JatekFrame extends JFrame implements Observer {
         LabelObjektumok= new JLabel();
         LabelSzomszedosMezok= new JLabel();
         adatAllitasNyugat();
-        JPanel WestPanel = new JPanel();
         WestPanel.setLayout(new BoxLayout(WestPanel, BoxLayout.Y_AXIS));
         WestPanel.add(LabelVirologus);
         WestPanel.add(LabelVirologusok);
@@ -85,11 +89,11 @@ public class JatekFrame extends JFrame implements Observer {
         this.add(WestPanel, BorderLayout.WEST);
 
         /// Keleti panel állítása
+
         LabelmegtanultKodok = new JLabel();
         LabelTaskaTartalma = new JLabel();
         LabelAllapot = new JLabel();
         adatallitasKelet();
-        JPanel EastPanel = new JPanel();
         EastPanel.setLayout(new BoxLayout(EastPanel, BoxLayout.Y_AXIS));
         EastPanel.add(LabelAllapot);
         EastPanel.add(LabelTaskaTartalma);
@@ -100,7 +104,8 @@ public class JatekFrame extends JFrame implements Observer {
 
         Publisher.getInstance().sub(this);
         rajzolo = new Rajzolo();
-        rajzolo.frissit();
+        add(rajzolo);
+        rajzolo.frissit(aktiv);
     }
 
     /**
@@ -113,6 +118,7 @@ public class JatekFrame extends JFrame implements Observer {
 
         s = new StringBuilder("<html><h2>Virológusok a mezőn:</h2><br/>");
         for(Virologus v : aktiv.getHely().getVirologusok()){
+            if(aktiv == v) continue;
             s.append(v.toString()).append("<br/>");
         }
         s.append("<html/>");
@@ -157,7 +163,7 @@ public class JatekFrame extends JFrame implements Observer {
     }
 
     public void subAction(){
-        rajzolo.frissit();
+        rajzolo.frissit(aktiv);
     }
 
     public void subKovetkezo(){

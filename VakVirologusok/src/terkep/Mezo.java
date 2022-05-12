@@ -2,6 +2,7 @@ package terkep;
 
 import virologus.Virologus;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 /**
@@ -103,5 +104,9 @@ public class Mezo {
 
     public String objektumok(){
         return "";
+    }
+
+    public Color color(){
+        return new Color(128, 128, 128);
     }
 }

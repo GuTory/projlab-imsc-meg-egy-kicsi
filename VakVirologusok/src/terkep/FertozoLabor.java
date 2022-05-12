@@ -4,6 +4,8 @@ import agens.Agens;
 import agens.Medvetanc;
 import virologus.Virologus;
 
+import java.awt.*;
+
 /**
  * A várost alkotó elemek egy fajtája, egy egység, amin virológusok lehetnek.
  * A labor leszármazottja, annyival tud többet nála,
@@ -41,5 +43,10 @@ public class FertozoLabor extends Labor{
     @Override
     public String toString(){
         return "FertozoLabor: " + TestNev;
+    }
+
+    @Override
+    public Color color(){
+        return new Color(150,50,50);
     }
 }

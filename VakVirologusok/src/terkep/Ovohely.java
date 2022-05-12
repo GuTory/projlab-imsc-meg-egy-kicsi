@@ -3,6 +3,7 @@ package terkep;
 import felszereles.Felszereles;
 import virologus.Virologus;
 
+import java.awt.*;
 import java.util.Scanner;
 
 public class Ovohely extends Mezo {
@@ -37,5 +38,10 @@ public class Ovohely extends Mezo {
 
     public String objektumok(){
         return felszereles!=null ? felszereles.TestNev : "";
+    }
+
+    @Override
+    public Color color(){
+        return new Color(71, 86, 71);
     }
 }

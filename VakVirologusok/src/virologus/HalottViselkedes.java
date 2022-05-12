@@ -2,6 +2,8 @@ package virologus;
 
 import terkep.Mezo;
 
+import java.awt.*;
+
 /**
  * A virológus cselekményeit korlátozó osztály.
  * Ebben az állapotban halott a virológus, vagyis  semmilyen cselekvést nem tud végrehajtani.
@@ -34,5 +36,10 @@ public class HalottViselkedes extends BenultViselkedes{
     @Override
     public String toString(){
         return "halott";
+    }
+
+    @Override
+    public Color color(){
+        return new Color(0,0,0);
     }
 }

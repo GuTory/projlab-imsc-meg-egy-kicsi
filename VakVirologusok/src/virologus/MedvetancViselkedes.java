@@ -4,6 +4,7 @@ import agens.Agens;
 import agens.Medvetanc;
 import terkep.Mezo;
 
+import java.awt.*;
 import java.util.List;
 import java.util.Random;
 
@@ -61,5 +62,10 @@ public class MedvetancViselkedes extends Viselkedes{
     @Override
     public String toString(){
         return "medvetanc";
+    }
+
+    @Override
+    public Color color(){
+        return new Color(66, 48, 48);
     }
 }

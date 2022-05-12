@@ -3,6 +3,8 @@ package terkep;
 import agens.Kod;
 import virologus.Virologus;
 
+import java.awt.*;
+
 /**
  * Labor mező amiben kód van.
  */
@@ -45,5 +47,10 @@ public class Labor extends Mezo {
     @Override
     public String objektumok(){
         return kod.toString();
+    }
+
+    @Override
+    public Color color(){
+        return new Color(128, 128, 255);
     }
 }

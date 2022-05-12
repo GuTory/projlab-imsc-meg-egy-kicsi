@@ -7,6 +7,8 @@ import terkep.Mezo;
 import util.Anyagok;
 import util.Taska;
 
+import java.awt.*;
+
 /**
  * A virológus cselekményeit korlátozó osztály.
  * Ebben az állapotban semmilyen cselekvést nem tud a virológus végrehajtani, kimarad egy körből.
@@ -108,5 +110,10 @@ public class BenultViselkedes extends Viselkedes {
     @Override
     public String toString(){
         return "benult";
+    }
+
+    @Override
+    public Color color(){
+        return new Color(0,255,0);
     }
 }

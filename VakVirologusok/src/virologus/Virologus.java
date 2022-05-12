@@ -9,7 +9,9 @@ import test.TestIO;
 import util.Anyagok;
 import util.Taska;
 
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 /**
  * A játékos által irányított osztály, melynek meg kell tanulnia az összes kódot, hogy véget érjen a játék.
@@ -468,5 +470,9 @@ public class Virologus {
         return "Virologus " + Nev + ": " + (jelenlegiViselkedes == null ? alapViselkedes.toString() : jelenlegiViselkedes.toString()) +
                 (ellenallasok[TeljesSzazalekos].ervenyesE() ? " vedett" : "") + (kodok.size() > 0 ?
                 kodok.stream().map(k -> k.toString() + ", ").reduce("\n\tTanult kódok: ", String::concat) : "");
+    }
+
+    public Color viselkedesColor(){
+        return jelenlegiViselkedes.color();
     }
 }

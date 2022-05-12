@@ -2,6 +2,7 @@ package virologus;
 
 import terkep.Mezo;
 
+import java.awt.*;
 import java.util.List;
 import java.util.Random;
 
@@ -39,5 +40,10 @@ public class VitustancViselkedes extends Viselkedes{
     @Override
     public String toString(){
         return "vitustanc";
+    }
+
+    @Override
+    public Color color(){
+        return new Color(255,165,0);
     }
 }
