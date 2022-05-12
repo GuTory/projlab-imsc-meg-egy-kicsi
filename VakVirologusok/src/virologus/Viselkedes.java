@@ -139,10 +139,9 @@ public class Viselkedes {
             felszerelesek = lopott_taska.getFelszerelesek();
         }
         Felszereles lopott = null;
-        if (felszerelesek != null) {
-            lopott = felszerelesek.stream().filter(f -> f.toString().equals(TestIO.parancs[3])).findAny().orElse(null);
+        if (felszerelesek != null && felszerelesek.size() != 0) {
+            lopott = felszerelesek.get(0);
         }
-
         return lopott;
     }
 

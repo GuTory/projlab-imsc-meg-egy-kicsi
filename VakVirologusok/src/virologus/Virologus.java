@@ -467,9 +467,7 @@ public class Virologus {
      */
     @Override
     public String toString(){
-        return "Virologus " + Nev + ": " + (jelenlegiViselkedes == null ? alapViselkedes.toString() : jelenlegiViselkedes.toString()) +
-                (ellenallasok[TeljesSzazalekos].ervenyesE() ? " vedett" : "") + (kodok.size() > 0 ?
-                kodok.stream().map(k -> k.toString() + ", ").reduce("\n\tTanult kódok: ", String::concat) : "");
+        return "Virologus " + Nev + ": " + (jelenlegiViselkedes == null ? alapViselkedes.toString() : jelenlegiViselkedes.toString());
     }
 
     public Color viselkedesColor(){

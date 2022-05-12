@@ -68,31 +68,49 @@ public class Controller {
     }
 
     public boolean MozogCallback(Mezo m){
-        return Varos.getInstance().getActivVirologus().mozog(m);
+        boolean siker =  Varos.getInstance().getActivVirologus().mozog(m);
+        if(siker){
+            Varos.getInstance().kovetkezoVirologus();
+            Publisher.getInstance().updateKovetkezo();
+        }
+
+        return siker;
     }
 
     public boolean KeszitCallback(Kod k){
-        return Varos.getInstance().getActivVirologus().agensEbbol(k);
+        boolean siker =  Varos.getInstance().getActivVirologus().agensEbbol(k);
+        Publisher.getInstance().updateAction();
+        return siker;
     }
 
     public boolean LopFelszerelesCallback(Virologus kitol){
-        return Varos.getInstance().getActivVirologus().felszerelesLop(kitol);
+        boolean siker =  Varos.getInstance().getActivVirologus().felszerelesLop(kitol);
+        Publisher.getInstance().updateAction();
+        return siker;
     }
 
     public boolean LopAnyagotCallback(Virologus kitol){
-        return Varos.getInstance().getActivVirologus().anyagLop(kitol);
+        boolean siker =  Varos.getInstance().getActivVirologus().anyagLop(kitol);
+        Publisher.getInstance().updateAction();
+        return siker;
     }
 
     public boolean LopAgenstCallback(Virologus kitol){
-        return Varos.getInstance().getActivVirologus().agensLop(kitol);
+        boolean siker = Varos.getInstance().getActivVirologus().agensLop(kitol);
+        Publisher.getInstance().updateAction();
+        return siker;
     }
 
     public boolean MegkenCallback(Virologus kit, Agens mivel){
-        return Varos.getInstance().getActivVirologus().ken(kit, mivel);
+        boolean siker =  Varos.getInstance().getActivVirologus().ken(kit, mivel);
+        Publisher.getInstance().updateAction();
+        return siker;
     }
 
     public boolean TamadCallback(Virologus kit){
-        return Varos.getInstance().getActivVirologus().tamad(kit);
+        boolean siker = Varos.getInstance().getActivVirologus().tamad(kit);
+        Publisher.getInstance().updateAction();
+        return siker;
     }
 
     public boolean EldobCallback(Felszereles f){
@@ -103,5 +121,6 @@ public class Controller {
 
     public void KovetkezoVirologusCallback(){
         Varos.getInstance().kovetkezoVirologus();
+        Publisher.getInstance().updateKovetkezo();
     }
 }

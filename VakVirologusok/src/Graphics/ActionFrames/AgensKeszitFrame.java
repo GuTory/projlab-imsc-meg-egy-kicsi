@@ -45,6 +45,10 @@ public class AgensKeszitFrame extends ActionFrame {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(tanultKodok.getSelectedItem() == null) {
+            dispose();
+            return;
+        }
         boolean siker = Controller.GetInstance().KeszitCallback((Kod)tanultKodok.getSelectedItem());
         if(siker){
             ActionFrame message = new SikerFrame(szulo, "Sikeres ágens készítés.");

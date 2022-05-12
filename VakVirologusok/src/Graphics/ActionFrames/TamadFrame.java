@@ -21,15 +21,14 @@ public class TamadFrame extends ActionFrame{
         ArrayList<Virologus> v = aktiv.getHely().getVirologusok();
         Vector<Virologus> vir = new Vector<>();
         for(Virologus virologus : v){
-            vir.add(virologus);
+            if(virologus != aktiv)
+                vir.add(virologus);
         }
 
         JLabel label = new JLabel("Kit támadsz meg?");
         virologusok = new JComboBox<>(vir);
         contentPane.add(label);
         contentPane.add(virologusok);
-
-        //virologusok.setEditable(true);
 
         layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, label,0,SpringLayout.HORIZONTAL_CENTER, contentPane);
         layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, virologusok,0,SpringLayout.HORIZONTAL_CENTER, contentPane);
@@ -48,6 +47,10 @@ public class TamadFrame extends ActionFrame{
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(virologusok.getSelectedItem() == null) {
+            dispose();
+            return;
+        }
         boolean siker = Controller.GetInstance().TamadCallback((Virologus)virologusok.getSelectedItem());
         if(siker){
             ActionFrame message = new SikerFrame(szulo, "Sikeres támadás.");
