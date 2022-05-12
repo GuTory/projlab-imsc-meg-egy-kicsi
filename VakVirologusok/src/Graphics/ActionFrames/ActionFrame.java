@@ -1,23 +1,33 @@
 package Graphics.ActionFrames;
 
 import Graphics.JatekFrame;
+import virologus.Virologus;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
 public abstract class ActionFrame extends JFrame implements ActionListener {
-
+    protected Container contentPane;
+    protected SpringLayout layout;
     protected JButton OKButton;
 
     protected JatekFrame szulo;
+    protected Virologus aktiv;
 
     public ActionFrame(JatekFrame f, String text){
         szulo = f;
         setTitle(text);
         OKButton = new JButton("OK");
-        //setLayout(new BorderLayout());
-        //add(OKButton, BorderLayout.SOUTH);
-        //setMinimumSize(new Dimension(300,400));
+        aktiv = f.getAktivVirologus();
+
+        contentPane = this.getContentPane();
+        layout = new SpringLayout();
+        contentPane.setLayout(layout);
+        contentPane.add(OKButton);
+
+        setMinimumSize(new Dimension(250,75));
+        setResizable(false);
+        setVisible(true);
     }
 }

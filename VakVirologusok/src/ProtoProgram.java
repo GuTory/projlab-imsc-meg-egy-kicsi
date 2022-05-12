@@ -195,10 +195,10 @@ public class ProtoProgram {
     /**
      * Mozgatja a parancs paramétereként megadott virológust.
      */
-    public static void mozog(){
+    public static void mozog(){/*
         Virologus v = keresVirologus(data[1]);
         boolean siker =  v.mozog();
-        TestIO.output(siker ? "sikeres mozgas" : "sikertelen mozgas");
+        TestIO.output(siker ? "sikeres mozgas" : "sikertelen mozgas");*/
     }
 
     /**

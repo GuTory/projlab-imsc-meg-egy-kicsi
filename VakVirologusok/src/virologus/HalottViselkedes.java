@@ -1,5 +1,7 @@
 package virologus;
 
+import terkep.Mezo;
+
 /**
  * A virológus cselekményeit korlátozó osztály.
  * Ebben az állapotban halott a virológus, vagyis  semmilyen cselekvést nem tud végrehajtani.
@@ -20,7 +22,7 @@ public class HalottViselkedes extends BenultViselkedes{
      * @return false
      */
     @Override
-    public boolean mozog() {
+    public boolean mozog(Mezo mezo) {
         gazda.addViselkedes(1, this);
         return false;
     }

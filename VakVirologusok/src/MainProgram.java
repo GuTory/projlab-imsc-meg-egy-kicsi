@@ -1,6 +1,4 @@
-import Graphics.ActionFrames.ActionFrame;
-import Graphics.ActionFrames.NyertFrame;
-import Graphics.ActionFrames.SikerFrame;
+import Graphics.ActionFrames.*;
 import Graphics.Controller;
 import Graphics.JatekFrame;
 import Graphics.Publisher;
@@ -12,6 +10,6 @@ public class MainProgram {
         Publisher.getInstance();
         Controller.GetInstance().JatekIndit();
 
-        ActionFrame teszt = new NyertFrame(new JatekFrame());
+        ActionFrame teszt = new MozogFrame(new JatekFrame());
     }
 }
