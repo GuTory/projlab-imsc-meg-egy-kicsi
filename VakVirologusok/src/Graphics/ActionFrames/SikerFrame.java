@@ -3,7 +3,6 @@ package Graphics.ActionFrames;
 import Graphics.JatekFrame;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class SikerFrame extends ActionFrame{
@@ -28,7 +27,7 @@ public class SikerFrame extends ActionFrame{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        setVisible(false);
+        dispose();
     }
 
 }

@@ -31,7 +31,7 @@ public class LopasFrame extends ActionFrame{
         Publisher.getInstance().updateAction();
 
 
-        setVisible(false);
+        dispose();
     }
 
 }

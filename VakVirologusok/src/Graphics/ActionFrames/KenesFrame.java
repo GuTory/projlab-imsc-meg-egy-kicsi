@@ -18,7 +18,7 @@ public class KenesFrame extends ActionFrame{
     public void actionPerformed(ActionEvent e) {
         //Controller.GetInstance().MegkenCallback(VIROLOGUS, MIVEL);
         Publisher.getInstance().updateAction();
-        setVisible(false);
+        dispose();
     }
 
 }
