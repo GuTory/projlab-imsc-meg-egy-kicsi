@@ -51,4 +51,11 @@ public class Raktar extends Mezo{
         if(anyagok != null && anyagok.meret() > 0) s +=  "\n" + anyagok.toString();
         return s;
     }
+
+    @Override
+    public String objektumok(){
+        String s = "";
+        if(anyagok != null && anyagok.meret() > 0) s +=  "\n" + anyagok.toString();
+        return s;
+    }
 }

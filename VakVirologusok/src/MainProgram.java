@@ -11,6 +11,6 @@ public class MainProgram {
     public static void main(String[] args){
         Publisher.getInstance();
         Controller.GetInstance().JatekIndit();
-        ActionFrame teszt = new AgensKeszitFrame(new JatekFrame());
+        //ActionFrame teszt = new AgensKeszitFrame(new JatekFrame());
     }
 }

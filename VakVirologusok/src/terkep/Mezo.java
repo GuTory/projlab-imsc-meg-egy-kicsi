@@ -100,4 +100,8 @@ public class Mezo {
     public String toString(){
         return "Mezo: " + TestNev;
     }
+
+    public String objektumok(){
+        return "";
+    }
 }

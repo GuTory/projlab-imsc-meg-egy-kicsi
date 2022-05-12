@@ -34,4 +34,8 @@ public class Ovohely extends Mezo {
     public String toString(){
         return "Ovohely: " +TestNev;
     }
+
+    public String objektumok(){
+        return felszereles!=null ? felszereles.TestNev : "";
+    }
 }

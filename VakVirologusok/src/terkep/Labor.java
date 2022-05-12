@@ -1,6 +1,5 @@
 package terkep;
 
-import jatek.Varos;
 import agens.Kod;
 import virologus.Virologus;
 
@@ -41,5 +40,10 @@ public class Labor extends Mezo {
     @Override
     public String toString(){
         return "Labor: " + TestNev;
+    }
+
+    @Override
+    public String objektumok(){
+        return kod.toString();
     }
 }
