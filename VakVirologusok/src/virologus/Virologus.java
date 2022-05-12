@@ -88,6 +88,7 @@ public class Virologus {
         kodok = new ArrayList<>();
 
         alapViselkedes = new Viselkedes(this);
+        setJelenlegiViselkedes(alapViselkedes);
         alternativViselkedesek = new LinkedList<>();
 
         ellenallasok = new Ellenallas[3];
@@ -196,7 +197,7 @@ public class Virologus {
         jelenlegiViselkedes = jelenlegi == null ? alapViselkedes : jelenlegi;
 
         TestIO.output("Lépj [0-" + (hely.getSzomszedok().size()-1) + "]");
-        mozog();
+        //mozog(Mezo mezo);
 
         List<Virologus> tobbiek = hely.getVirologusok();
 
@@ -382,8 +383,8 @@ public class Virologus {
     /**
      * A virológus által kiválasztott mezőre lép.
      */
-    public boolean mozog() {
-        return jelenlegiViselkedes.mozog();
+    public boolean mozog(Mezo mezo) {
+        return jelenlegiViselkedes.mozog(mezo);
      }
 
     /**

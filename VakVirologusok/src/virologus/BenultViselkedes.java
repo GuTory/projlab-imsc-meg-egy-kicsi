@@ -3,6 +3,7 @@ package virologus;
 import agens.Agens;
 import agens.Kod;
 import felszereles.Felszereles;
+import terkep.Mezo;
 import util.Anyagok;
 import util.Taska;
 
@@ -35,7 +36,7 @@ public class BenultViselkedes extends Viselkedes {
      * @return
      */
     @Override
-    public boolean mozog() {
+    public boolean mozog(Mezo mezo) {
         return false;
     }
 

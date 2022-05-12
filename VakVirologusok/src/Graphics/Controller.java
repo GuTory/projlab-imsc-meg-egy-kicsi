@@ -68,7 +68,7 @@ public class Controller {
     }
 
     public boolean MozogCallback(Mezo m){
-        return Varos.getInstance().getActivVirologus().mozog();
+        return Varos.getInstance().getActivVirologus().mozog(m);
     }
 
     public boolean KeszitCallback(Kod k){

@@ -85,15 +85,8 @@ public class Viselkedes {
     /**
      * A virológus által kiválasztott mezőre lép.
      */
-    public boolean mozog() {
- 
-        List<Mezo> szomszedok = gazda.getHely().getSzomszedok();
-
-        int ujID = Integer.parseInt(TestIO.parancs[2]);
-
-        Mezo uj = szomszedok.get(ujID-1);
-
-        atleptet(uj);
+    public boolean mozog(Mezo mezo) {
+        atleptet(mezo);
         return true;
      }
 

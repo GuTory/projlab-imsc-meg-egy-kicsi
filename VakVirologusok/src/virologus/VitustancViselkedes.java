@@ -25,7 +25,7 @@ public class VitustancViselkedes extends Viselkedes{
      * @return Sikeres mozgás
      */
     @Override
-    public boolean mozog() {
+    public boolean mozog(Mezo mezo) {
         List<Mezo> szomszedok = gazda.getHely().getSzomszedok();
         Mezo uj = szomszedok.get(new Random().nextInt(szomszedok.size()));
         atleptet(uj);
