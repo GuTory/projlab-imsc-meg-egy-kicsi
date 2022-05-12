@@ -96,7 +96,9 @@ public class Controller {
     }
 
     public boolean EldobCallback(Felszereles f){
-        return Varos.getInstance().getActivVirologus().getTaska().felszerelesKivesz(f);
+        boolean siker = Varos.getInstance().getActivVirologus().getTaska().felszerelesKivesz(f);
+        Publisher.getInstance().updateAction();
+        return siker;
     }
 
     public void KovetkezoVirologusCallback(){

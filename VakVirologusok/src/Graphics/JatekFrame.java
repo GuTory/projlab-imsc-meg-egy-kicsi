@@ -164,6 +164,9 @@ public class JatekFrame extends JFrame implements Observer {
 
     public void subAction(){
         rajzolo.frissit(aktiv);
+        adatallitasKelet();
+        adatAllitasNyugat();
+
     }
 
     public void subKovetkezo(){
