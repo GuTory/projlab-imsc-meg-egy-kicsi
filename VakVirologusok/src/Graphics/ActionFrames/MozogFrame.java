@@ -23,13 +23,16 @@ public class MozogFrame extends ActionFrame {
             mezok.add(mezo);
         }
 
+        JLabel label = new JLabel("Melyik mezőre lépsz?");
         szomszedok = new JComboBox<>(mezok);
+        contentPane.add(label);
         contentPane.add(szomszedok);
 
-        szomszedok.setEditable(true);
-
+        layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, label,0,SpringLayout.HORIZONTAL_CENTER, contentPane);
         layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, szomszedok,0,SpringLayout.HORIZONTAL_CENTER, contentPane);
-        layout.putConstraint(SpringLayout.NORTH, szomszedok,15,SpringLayout.NORTH, contentPane);
+
+        layout.putConstraint(SpringLayout.NORTH, label,15,SpringLayout.NORTH, contentPane);
+        layout.putConstraint(SpringLayout.NORTH, szomszedok,10,SpringLayout.SOUTH, label);
 
         layout.putConstraint(SpringLayout.NORTH, OKButton,15,SpringLayout.SOUTH, szomszedok);
         layout.putConstraint(SpringLayout.EAST, OKButton,-15,SpringLayout.EAST, contentPane);
@@ -42,8 +45,13 @@ public class MozogFrame extends ActionFrame {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Controller.GetInstance().MozogCallback((Mezo)szomszedok.getSelectedItem());
+        boolean siker = Controller.GetInstance().MozogCallback((Mezo)szomszedok.getSelectedItem());
+        if(siker){
+            ActionFrame message = new SikerFrame(szulo, "Sikeres lépés.");
+        }else{
+            ActionFrame message = new SikerFrame(szulo, "Sikertelen lépés.");
+        }
         Publisher.getInstance().updateKovetkezo();
-        setVisible(false);
+        dispose();
     }
 }

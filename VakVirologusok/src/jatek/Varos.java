@@ -1,9 +1,11 @@
 package jatek;
 
+import agens.Felejto;
 import agens.Kod;
 import felszereles.Balta;
 import terkep.Mezo;
 import test.TestIO;
+import util.Anyagok;
 import virologus.Virologus;
 
 import java.util.ArrayList;
@@ -70,6 +72,7 @@ public class Varos {
 
         virologusok.add(new Virologus());
         virologusok.add(new Virologus());
+        virologusok.add(new Virologus());
 
         mezok.get(0).setSzomszedok(new ArrayList<>(List.of(mezok.get(1))));
         mezok.get(1).setSzomszedok(new ArrayList<>(List.of(mezok.get(0))));
@@ -80,8 +83,10 @@ public class Varos {
         mezok.get(0).virologusBe(virologusok.get(0));
         virologusok.get(1).setHely(mezok.get(2));
         mezok.get(2).virologusBe(virologusok.get(1));
+        virologusok.get(2).setHely(mezok.get(0));
+        mezok.get(0).virologusBe(virologusok.get(2));
 
-        virologusok.get(1).beFelszereles(new Balta());
+        virologusok.get(0).beFelszereles(new Balta());
         aktivVirologus = virologusok.get(0);
     }
 
