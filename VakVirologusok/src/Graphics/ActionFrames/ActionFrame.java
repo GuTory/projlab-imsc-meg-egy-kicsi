@@ -16,8 +16,8 @@ public abstract class ActionFrame extends JFrame implements ActionListener {
         szulo = f;
         setTitle(text);
         OKButton = new JButton("OK");
-        setLayout(new BorderLayout());
-        add(OKButton, BorderLayout.SOUTH);
-        setMinimumSize(new Dimension(300,400));
+        //setLayout(new BorderLayout());
+        //add(OKButton, BorderLayout.SOUTH);
+        //setMinimumSize(new Dimension(300,400));
     }
 }

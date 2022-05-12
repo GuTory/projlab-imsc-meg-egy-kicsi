@@ -13,7 +13,6 @@ import virologus.Virologus;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -146,7 +145,7 @@ public class ProtoProgram {
      */
     public static void virologusletrehoz(){
         Virologus v = new Virologus();
-        TestIO.output("Virologus: " + v.TestNev);
+        TestIO.output("Virologus: " + v.Nev);
         Varos.getInstance().getVirologusok().add(v);
         Mezo m = keresMezo(data[1]);
         v.setHely(m);
@@ -159,7 +158,7 @@ public class ProtoProgram {
      * @return A megtalált virológus - null, ha nincs találat
      */
     private static Virologus keresVirologus(String nev){
-        Virologus v = Varos.getInstance().getVirologusok().stream().filter(a -> a.TestNev.equals(nev)).findAny().orElse(null);
+        Virologus v = Varos.getInstance().getVirologusok().stream().filter(a -> a.Nev.equals(nev)).findAny().orElse(null);
         activateVirologus(v);
         return v;
     }
@@ -187,7 +186,7 @@ public class ProtoProgram {
      * @param v Az aktiválni kíbánt virológus
      */
     private static void activateVirologus(Virologus v){
-        if(v != active && data.length > 1 && v.TestNev.equals(data[1])){
+        if(v != active && data.length > 1 && v.Nev.equals(data[1])){
             active = v;
             v.TestViselkedesInit();
         }

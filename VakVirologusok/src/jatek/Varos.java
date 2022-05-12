@@ -1,15 +1,12 @@
 package jatek;
 
-import agens.Benito;
 import agens.Kod;
 import felszereles.Balta;
 import terkep.Mezo;
 import test.TestIO;
-import util.Anyagok;
 import virologus.Virologus;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Varos {
@@ -67,7 +64,7 @@ public class Varos {
         mezok = new ArrayList<>();
         virologusok = new ArrayList<>();
         kodok = new ArrayList<>();
-        /*mezok.add(new Mezo());
+        mezok.add(new Mezo());
         mezok.add(new Mezo());
         mezok.add(new Mezo());
 
@@ -85,7 +82,7 @@ public class Varos {
         mezok.get(2).virologusBe(virologusok.get(1));
 
         virologusok.get(1).beFelszereles(new Balta());
-        aktivVirologus = virologusok.get(0);*/
+        aktivVirologus = virologusok.get(0);
     }
 
     /**
@@ -116,7 +113,7 @@ public class Varos {
             }
         }
         Jatek.jatekVege(virologus);
-        TestIO.output("jatek vege: " + virologus.TestNev + " nyert");
+        TestIO.output("jatek vege: " + virologus.Nev + " nyert");
     }
 
     /**
