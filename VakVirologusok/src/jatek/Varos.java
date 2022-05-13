@@ -1,6 +1,8 @@
 package jatek;
 
 import Graphics.Publisher;
+import agens.Agens;
+import agens.Benito;
 import agens.Felejto;
 import agens.Kod;
 import felszereles.*;
@@ -92,6 +94,8 @@ public class Varos {
 
         virologusok.get(1).beFelszereles(new Kopeny());
         virologusok.get(0).beFelszereles(new Balta());
+        virologusok.get(3).getTaska().anyagBerak(new Anyagok(5,5));
+        virologusok.get(0).getTaska().agensBerak(new Agens(new Benito(new Anyagok(1,1),10,10)));
         aktivVirologus = virologusok.get(0);
     }
 
@@ -171,11 +175,21 @@ public class Varos {
     public Virologus getActivVirologus(){ return aktivVirologus; }
 
     public void kovetkezoVirologus(){
+        Virologus kovi = kovetkezoVirologusAllapottolFuggetlenul();
+        while (kovi.getJelenlegiViselkedes().getPrior() == 2 ||
+                kovi.getJelenlegiViselkedes().getPrior() == 0){
+            aktivVirologus=kovi;
+            kovi = kovetkezoVirologusAllapottolFuggetlenul();
+        }
+        aktivVirologus = kovi;
+    }
+
+    private Virologus kovetkezoVirologusAllapottolFuggetlenul(){
         int x = virologusok.indexOf(aktivVirologus);
         if(x + 1 >= virologusok.size()){
             x = 0;
             Jatek.idoTelt();
         }else x += 1;
-        aktivVirologus = virologusok.get(x);
+        return virologusok.get(x);
     }
 }

@@ -17,11 +17,7 @@ public class MozogFrame extends ActionFrame {
         super(f, "Mozgás");
         OKButton.addActionListener(this);
 
-        ArrayList<Mezo> sz = aktiv.getHely().getSzomszedok();
-        Vector<Mezo> mezok = new Vector<>();
-        for(Mezo mezo : sz){
-            mezok.add(mezo);
-        }
+        Vector<Mezo> mezok = new Vector<>(aktiv.getHely().getSzomszedok());
 
         JLabel label = new JLabel("Melyik mezőre lépsz?");
         szomszedok = new JComboBox<>(mezok);

@@ -16,11 +16,8 @@ public class EldobFrame extends ActionFrame {
         super(f, "Eldobás");
         OKButton.addActionListener(this);
 
-        List<Felszereles> fe = aktiv.getTaska().getFelszerelesek();
-        Vector<Felszereles> felsz = new Vector<>();
-        for(Felszereles mezo : fe){
-            felsz.add(mezo);
-        }
+        Vector<Felszereles> felsz = new Vector<>(aktiv.getTaska().getFelszerelesek());
+        //TODO: legyen itt anyag és ágens is
 
         JLabel label = new JLabel("Mit dobsz el?");
         felszerelesek = new JComboBox<>(felsz);

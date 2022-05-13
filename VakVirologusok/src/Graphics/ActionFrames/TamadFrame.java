@@ -18,12 +18,8 @@ public class TamadFrame extends ActionFrame{
         super(f, "Támadás");
         OKButton.addActionListener(this);
 
-        ArrayList<Virologus> v = aktiv.getHely().getVirologusok();
-        Vector<Virologus> vir = new Vector<>();
-        for(Virologus virologus : v){
-            if(virologus != aktiv)
-                vir.add(virologus);
-        }
+        Vector<Virologus> vir = new Vector<>(aktiv.getHely().getVirologusok());
+        vir.remove(aktiv);
 
         JLabel label = new JLabel("Kit támadsz meg?");
         virologusok = new JComboBox<>(vir);

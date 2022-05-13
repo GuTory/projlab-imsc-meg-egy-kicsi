@@ -20,6 +20,7 @@ public class Rajzolo extends Canvas {
         //Virológusok kirajzolása
 
         int virologusokszama = Aktiv.getHely().getVirologusok().size()-1;
+        if(virologusokszama ==0) return;
         ArrayList<Point> Points = new ArrayList<>();
         ArrayList<Point> TopPoints = new ArrayList<>();
         for(int i=0; i<= virologusokszama; i++){

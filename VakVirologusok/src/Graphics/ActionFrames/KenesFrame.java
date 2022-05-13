@@ -18,14 +18,12 @@ public class KenesFrame extends ActionFrame{
     JComboBox<Agens> mivelTud;
 
     public KenesFrame(JatekFrame f){
-        super(f, "Kenes");
+        super(f, "Kenés");
         OKButton.addActionListener(this);
 
-        ArrayList<Virologus> v = aktiv.getHely().getVirologusok();
-        Vector<Virologus> vir = new Vector<>();
-        for(Virologus virologus : v){
-            vir.add(virologus);
-        }
+
+        Vector<Virologus> vir = new Vector<>(aktiv.getHely().getVirologusok());
+        vir.remove(aktiv);
 
         JLabel labelKit = new JLabel("Kit kensz meg?");
         kitTud = new JComboBox<>(vir);

@@ -17,11 +17,7 @@ public class AgensKeszitFrame extends ActionFrame {
         super(f, "Ágens készítés");
         OKButton.addActionListener(this);
 
-        List<Kod> k = aktiv.getKodok();
-        Vector<Kod> kodok = new Vector<>();
-        for(Kod kod : k){
-            kodok.add(kod);
-        }
+        Vector<Kod> kodok = new Vector<>(aktiv.getKodok());
 
         JLabel label = new JLabel("Milyen ágenst készítesz?");
         tanultKodok = new JComboBox<>(kodok);

@@ -18,27 +18,23 @@ public class LopasFrame extends ActionFrame{
 
 
     public LopasFrame(JatekFrame f){
-        super(f, "Kenes");
+        super(f, "Lopás");
         OKButton.addActionListener(this);
 
-        ArrayList<Virologus> v = aktiv.getHely().getVirologusok();
-        Vector<Virologus> vir = new Vector<>();
-        for(Virologus virologus : v){
-            if(virologus != aktiv)
-                vir.add(virologus);
-        }
+        Vector<Virologus> vir = new Vector<>(aktiv.getHely().getVirologusok());
+        vir.remove(aktiv);
 
-        JLabel labelKit = new JLabel("Kit kensz meg?");
+        JLabel labelKit = new JLabel("Kitől lopsz és mit?");
         kitolLop = new JComboBox<>(vir);
         contentPane.add(labelKit);
         contentPane.add(kitolLop);
 
         Vector<String> mit = new Vector<>();
-        mit.add("Felszereles");
-        mit.add("Agens");
+        mit.add("Felszerelés");
+        mit.add("Ágens");
         mit.add("Anyag");
 
-        JLabel labelMivel = new JLabel("Mivel kened meg?");
+        JLabel labelMivel = new JLabel("Mit lopsz?");
         mitLop = new JComboBox<>(mit);
         contentPane.add(labelMivel);
         contentPane.add(mitLop);
