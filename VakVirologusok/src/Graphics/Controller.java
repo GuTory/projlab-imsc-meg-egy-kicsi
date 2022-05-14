@@ -27,7 +27,7 @@ public class Controller {
     }
 
     public void JatekIndit(){
-        Jatek.jatekIndit();
+        Jatek.jatekIndit(4);
         MainFrame = new JatekFrame();
         MainFrame.setVisible(true);
     }

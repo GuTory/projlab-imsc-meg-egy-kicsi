@@ -278,7 +278,7 @@ public class ProtoProgram {
      * Elindítja a játékot.
      */
     public static void jatekindit(){
-        Jatek.jatekIndit();
+        Jatek.jatekIndit(0);
     }
 
     /**

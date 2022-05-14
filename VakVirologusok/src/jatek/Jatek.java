@@ -4,7 +4,12 @@ package jatek;
 import Graphics.Controller;
 import Graphics.JatekFrame;
 import Graphics.Publisher;
+import terkep.Mezo;
 import virologus.Virologus;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class Jatek {
     /**
@@ -32,9 +37,14 @@ public class Jatek {
 
     /**
      * Létrehozza a várost, és elindítja a játékot.
+     * @param virologusokSzama A játékban szereplő virológusok száma
      */
-    public static void jatekIndit(){
-        Varos.getInstance();
+    public static void jatekIndit(int virologusokSzama) {
+        Varos v = Varos.getInstance();
+        for(int i = 0; i < virologusokSzama-1; i++) {
+            v.virologusHozzad();
+        }
+
     }
 
     /**

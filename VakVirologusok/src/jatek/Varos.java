@@ -1,18 +1,16 @@
 package jatek;
 
 import Graphics.Publisher;
-import agens.Agens;
-import agens.Benito;
-import agens.Felejto;
-import agens.Kod;
+import agens.*;
 import felszereles.*;
-import terkep.Mezo;
+import terkep.*;
 import test.TestIO;
 import util.Anyagok;
 import virologus.Virologus;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Varos {
     /**
@@ -70,33 +68,65 @@ public class Varos {
         virologusok = new ArrayList<>();
         kodok = new ArrayList<>();
         mezok.add(new Mezo());
-        mezok.add(new Mezo());
-        mezok.add(new Mezo());
 
-        virologusok.add(new Virologus());
-        virologusok.add(new Virologus());
-        virologusok.add(new Virologus());
-        virologusok.add(new Virologus());
+        Labor l1 = new Labor(), l2 = new Labor(), l3 = new Labor(), l4 = new FertozoLabor();
+        l1.setKod(new Benito(new Anyagok(4, 4), 3, 3));
+        l2.setKod(new Felejto(new Anyagok(5, 5), 2, 2));
+        l3.setKod(new Vedelem(new Anyagok(2, 2), 5, 3));
+        l4.setKod(new Vitustanc(new Anyagok(3, 3), 3, 3));
 
-        mezok.get(0).setSzomszedok(new ArrayList<>(List.of(mezok.get(1))));
-        mezok.get(1).setSzomszedok(new ArrayList<>(List.of(mezok.get(0))));
-        mezok.get(1).setSzomszedok(new ArrayList<>(List.of(mezok.get(2))));
-        mezok.get(2).setSzomszedok(new ArrayList<>(List.of(mezok.get(1))));
+        Ovohely o1 = new Ovohely(), o2 = new Ovohely(), o3 = new Ovohely(), o4 = new Ovohely();
+        o1.setFelszereles(new Kesztyu());
+        o1.setFelszereles(new Balta());
+        o3.setFelszereles(new Kopeny());
+        o4.setFelszereles(new Zsak());
 
-        virologusok.get(0).setHely(mezok.get(0));
+        Raktar r1 = new Raktar(), r2 = new Raktar(), r3 = new Raktar();
+        r1.setAnyagok(new Anyagok(4, 2));
+        r2.setAnyagok(new Anyagok(7, 3));
+        r3.setAnyagok(new Anyagok(1, 7));
+
+        mezok.add(l1);
+        mezok.add(l2);
+        mezok.add(l3);
+        mezok.add(l4);
+        mezok.add(o1);
+        mezok.add(o2);
+        mezok.add(o3);
+        mezok.add(o4);
+        mezok.add(r1);
+        mezok.add(r2);
+        mezok.add(r3);
+
+        mezok.get(0).setSzomszedok(new ArrayList<>(List.of(mezok.get(9), mezok.get(11), mezok.get(10))));
+        mezok.get(1).setSzomszedok(new ArrayList<>(List.of(mezok.get(2), mezok.get(3), mezok.get(8), mezok.get(9))));
+        mezok.get(2).setSzomszedok(new ArrayList<>(List.of(mezok.get(1), mezok.get(3), mezok.get(4), mezok.get(9), mezok.get(10))));
+        mezok.get(3).setSzomszedok(new ArrayList<>(List.of(mezok.get(1), mezok.get(2), mezok.get(4), mezok.get(7), mezok.get(8))));
+        mezok.get(4).setSzomszedok(new ArrayList<>(List.of(mezok.get(2), mezok.get(3), mezok.get(5), mezok.get(6), mezok.get(7), mezok.get(10), mezok.get(11))));
+        mezok.get(5).setSzomszedok(new ArrayList<>(List.of(mezok.get(4), mezok.get(6), mezok.get(11))));
+        mezok.get(6).setSzomszedok(new ArrayList<>(List.of(mezok.get(4), mezok.get(5), mezok.get(7))));
+        mezok.get(7).setSzomszedok(new ArrayList<>(List.of(mezok.get(3), mezok.get(4), mezok.get(6), mezok.get(8))));
+        mezok.get(8).setSzomszedok(new ArrayList<>(List.of(mezok.get(1), mezok.get(3), mezok.get(7))));
+        mezok.get(9).setSzomszedok(new ArrayList<>(List.of(mezok.get(0), mezok.get(1), mezok.get(2), mezok.get(10))));
+        mezok.get(10).setSzomszedok(new ArrayList<>(List.of(mezok.get(0), mezok.get(2), mezok.get(4), mezok.get(9), mezok.get(11))));
+        mezok.get(11).setSzomszedok(new ArrayList<>(List.of(mezok.get(0), mezok.get(4), mezok.get(5), mezok.get(10))));
+
+        /*virologusok.get(0).setHely(mezok.get(0));
         mezok.get(0).virologusBe(virologusok.get(0));
         virologusok.get(1).setHely(mezok.get(0));
         mezok.get(0).virologusBe(virologusok.get(1));
         virologusok.get(2).setHely(mezok.get(0));
         mezok.get(0).virologusBe(virologusok.get(2));
         mezok.get(0).virologusBe(virologusok.get(3));
-         virologusok.get(3).setHely(mezok.get(0));
+        virologusok.get(3).setHely(mezok.get(0));
 
         virologusok.get(1).beFelszereles(new Kopeny());
         virologusok.get(0).beFelszereles(new Balta());
         virologusok.get(3).getTaska().anyagBerak(new Anyagok(5,5));
-        virologusok.get(0).getTaska().agensBerak(new Agens(new Benito(new Anyagok(1,1),10,10)));
-        aktivVirologus = virologusok.get(0);
+        virologusok.get(0).getTaska().agensBerak(new Agens(new Benito(new Anyagok(1,1),10,10)));*/
+
+         virologusHozzad();
+         aktivVirologus = virologusok.get(0);
     }
 
     /**
@@ -174,6 +204,16 @@ public class Varos {
 
     public Virologus getActivVirologus(){ return aktivVirologus; }
 
+    public void virologusHozzad() {
+        Random random = new Random();
+
+        Virologus virologus = new Virologus();
+        virologusok.add(virologus);
+        Mezo hely = mezok.get(random.nextInt(mezok.size()));
+        virologus.setHely(hely);
+        hely.virologusBe(virologus);
+    }
+
     public void kovetkezoVirologus(){
         Virologus kovi = kovetkezoVirologusAllapottolFuggetlenul();
         while (kovi.getJelenlegiViselkedes().getPrior() == 2 ||
@@ -189,7 +229,7 @@ public class Varos {
         if(x + 1 >= virologusok.size()){
             x = 0;
             Jatek.idoTelt();
-        }else x += 1;
+        } else x += 1;
         return virologusok.get(x);
     }
 }
