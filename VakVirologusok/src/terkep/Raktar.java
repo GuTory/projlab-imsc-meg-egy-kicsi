@@ -31,7 +31,8 @@ public class Raktar extends Mezo{
      * A raktárban megtehető extra tevékenység: anyag felvétel.
      */
     public void akcio(Virologus virologus) {
-        virologus.getTaska().anyagBerak(anyagok);
+        if(virologus.getTaska().anyagBerak(anyagok))
+            anyagok.clear();
     }
 
     /**
@@ -50,7 +51,6 @@ public class Raktar extends Mezo{
     @Override
     public String toString(){
         String s ="Raktar: " + TestNev;
-        if(anyagok != null && anyagok.meret() > 0) s +=  "\n" + anyagok.toString();
         return s;
     }
 

@@ -279,6 +279,9 @@ public class Virologus {
      * @param kod a megtanulni kívánt kód.
      */
     public void kodMegtanul(Kod kod) {
+        for(Kod _kod: kodok){
+            if(_kod.equals(kod)) return;
+        }
         kodok.add(kod);
         Varos.getInstance().vegeEllenoriz(this);
      }

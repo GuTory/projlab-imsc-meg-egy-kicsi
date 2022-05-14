@@ -88,4 +88,9 @@ public class Anyagok {
         }
         return s;
     }
+
+    public void clear(){
+        anyagok.put("nukleotid", 0);
+        anyagok.put("aminosav", 0);
+    }
 }
