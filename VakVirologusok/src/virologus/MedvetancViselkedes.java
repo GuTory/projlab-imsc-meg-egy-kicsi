@@ -37,6 +37,7 @@ public class MedvetancViselkedes extends Viselkedes{
             ken(mezonAllo, new Agens(new Medvetanc()));
         }
         uj.tombol();
+        uj.akcio(gazda);
         return true;
     }
 

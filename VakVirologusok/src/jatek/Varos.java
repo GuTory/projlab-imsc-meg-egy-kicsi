@@ -111,20 +111,6 @@ public class Varos {
         mezok.get(10).setSzomszedok(new ArrayList<>(List.of(mezok.get(0), mezok.get(2), mezok.get(4), mezok.get(9), mezok.get(11))));
         mezok.get(11).setSzomszedok(new ArrayList<>(List.of(mezok.get(0), mezok.get(4), mezok.get(5), mezok.get(10))));
 
-        /*virologusok.get(0).setHely(mezok.get(0));
-        mezok.get(0).virologusBe(virologusok.get(0));
-        virologusok.get(1).setHely(mezok.get(0));
-        mezok.get(0).virologusBe(virologusok.get(1));
-        virologusok.get(2).setHely(mezok.get(0));
-        mezok.get(0).virologusBe(virologusok.get(2));
-        mezok.get(0).virologusBe(virologusok.get(3));
-        virologusok.get(3).setHely(mezok.get(0));
-
-        virologusok.get(1).beFelszereles(new Kopeny());
-        virologusok.get(0).beFelszereles(new Balta());
-        virologusok.get(3).getTaska().anyagBerak(new Anyagok(5,5));
-        virologusok.get(0).getTaska().agensBerak(new Agens(new Benito(new Anyagok(1,1),10,10)));*/
-
          virologusHozzad();
          aktivVirologus = virologusok.get(0);
     }
@@ -212,6 +198,7 @@ public class Varos {
         Mezo hely = mezok.get(random.nextInt(mezok.size()-1));
         virologus.setHely(hely);
         hely.virologusBe(virologus);
+        hely.akcio(virologus);
     }
 
     public void kovetkezoVirologus(){

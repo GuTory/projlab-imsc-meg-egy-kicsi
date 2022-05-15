@@ -27,7 +27,7 @@ public class Virologus {
     /**
      * A következőnek létrejövő virológus sorszáma.
      */
-    protected static int TestID = 1;
+    protected static int ID = 1;
 
     /**
      * A virológus visszadob ellenállásának helye az ellenallasok tömbben.
@@ -84,8 +84,8 @@ public class Virologus {
      * Beállítja a virológus nevét, ellenállásait, viselkedését, táskáját.
      */
     public Virologus() {
-        Nev = "virologus" + TestID;
-        TestID++;
+        Nev = "virologus" + ID;
+        ID++;
 
         kodok = new ArrayList<>();
 
