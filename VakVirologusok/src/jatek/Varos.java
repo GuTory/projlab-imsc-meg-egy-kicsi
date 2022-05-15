@@ -209,7 +209,7 @@ public class Varos {
 
         Virologus virologus = new Virologus();
         virologusok.add(virologus);
-        Mezo hely = mezok.get(random.nextInt(mezok.size()));
+        Mezo hely = mezok.get(random.nextInt(mezok.size()-1));
         virologus.setHely(hely);
         hely.virologusBe(virologus);
     }

@@ -26,8 +26,8 @@ public class Controller {
         return instance;
     }
 
-    public void JatekIndit(){
-        Jatek.jatekIndit(4);
+    public void JatekIndit(int virologusokSzama){
+        Jatek.jatekIndit(virologusokSzama);
         MainFrame = new JatekFrame();
         MainFrame.setVisible(true);
     }
