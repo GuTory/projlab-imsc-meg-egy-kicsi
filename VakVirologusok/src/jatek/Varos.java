@@ -69,11 +69,16 @@ public class Varos {
         kodok = new ArrayList<>();
         mezok.add(new Mezo());
 
+        kodok.add(new Benito(new Anyagok(4, 4), 3, 3));
+        kodok.add(new Felejto(new Anyagok(5, 5), 2, 2));
+        kodok.add(new Vedelem(new Anyagok(2, 2), 5, 3));
+        kodok.add(new Vitustanc(new Anyagok(3, 3), 3, 3));
+
         Labor l1 = new Labor(), l2 = new Labor(), l3 = new Labor(), l4 = new FertozoLabor();
-        l1.setKod(new Benito(new Anyagok(4, 4), 3, 3));
-        l2.setKod(new Felejto(new Anyagok(5, 5), 2, 2));
-        l3.setKod(new Vedelem(new Anyagok(2, 2), 5, 3));
-        l4.setKod(new Vitustanc(new Anyagok(3, 3), 3, 3));
+        l1.setKod(kodok.get(0));
+        l2.setKod(kodok.get(1));
+        l3.setKod(kodok.get(2));
+        l4.setKod(kodok.get(3));
 
         Ovohely o1 = new Ovohely(), o2 = new Ovohely(), o3 = new Ovohely(), o4 = new Ovohely();
         o1.setFelszereles(new Kesztyu());
@@ -111,8 +116,8 @@ public class Varos {
         mezok.get(10).setSzomszedok(new ArrayList<>(List.of(mezok.get(0), mezok.get(2), mezok.get(4), mezok.get(9), mezok.get(11))));
         mezok.get(11).setSzomszedok(new ArrayList<>(List.of(mezok.get(0), mezok.get(4), mezok.get(5), mezok.get(10))));
 
-         virologusHozzad();
-         aktivVirologus = virologusok.get(0);
+        virologusHozzad();
+        aktivVirologus = virologusok.get(0);
     }
 
     /**
@@ -142,8 +147,7 @@ public class Varos {
                 return;
             }
         }
-        Jatek.jatekVege(virologus);
-        TestIO.output("jatek vege: " + virologus.Nev + " nyert");
+        Jatek.jatekVege();
     }
 
     /**
@@ -154,14 +158,6 @@ public class Varos {
         setKodok(v.getKodok());
         setMezok(v.getMezok());
         setVirologusok(v.getVirologusok());
-    }
-
-    public void kor() {
-        /*
-        for (Virologus v : virologusok) {
-            TestIO.output(v.TestNev);
-            v.kor();
-        }*/
     }
 
     /**

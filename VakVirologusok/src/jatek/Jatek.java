@@ -29,9 +29,8 @@ public class Jatek {
 
     /**
      * Véget vet a játéknak, és a paraméterben kapott virológust kihirdeti győztesnek.
-     * @param virologus A győztes
      */
-    public static void jatekVege(Virologus virologus){
+    public static void jatekVege(){
         Publisher.getInstance().updateNyer();
     }
 
