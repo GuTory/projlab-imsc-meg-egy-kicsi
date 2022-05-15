@@ -13,6 +13,11 @@ import java.util.Vector;
 public class AgensKeszitFrame extends ActionFrame {
     JComboBox<Kod> tanultKodok;
 
+    /**
+     * AgensKeszitFrame konstruktora, itt lehet kiválasztani miből szeretne
+     * a játékos ágenst készíteni, majd OK gombbal elfogadni.
+     * @param f az ős JátékFrame ablak
+     */
     public AgensKeszitFrame(JatekFrame f){
         super(f, "Ágens készítés");
         OKButton.addActionListener(this);
@@ -39,6 +44,10 @@ public class AgensKeszitFrame extends ActionFrame {
         pack();
     }
 
+    /**
+     * Ha megnyomta az OK gombot meghívja az KeszitCallback-et a kiválasztott kóddal amiből ágens lesz.
+     * @param e az event
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if(tanultKodok.getSelectedItem() == null) {

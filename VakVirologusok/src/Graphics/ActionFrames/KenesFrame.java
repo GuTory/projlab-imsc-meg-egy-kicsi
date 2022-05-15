@@ -17,6 +17,11 @@ public class KenesFrame extends ActionFrame{
     JComboBox<Virologus> kitTud;
     JComboBox<Agens> mivelTud;
 
+    /**
+     * KenesFrame konstruktora, itt lehet kiválasztani kit mivel szeretne
+     * a játékos megkenni, majd OK gombbal elfogadni.
+     * @param f az ős JátékFrame ablak
+     */
     public KenesFrame(JatekFrame f){
         super(f, "Kenés");
         OKButton.addActionListener(this);
@@ -62,6 +67,10 @@ public class KenesFrame extends ActionFrame{
         pack();
     }
 
+    /**
+     * Ha megnyomta az OK gombot meghívja az MegkenCallback-et a kiválasztott játékossal és ágenssel.
+     * @param e az event
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if(kitTud.getSelectedItem() == null || mivelTud.getSelectedItem() == null) {

@@ -10,6 +10,11 @@ public class Rajzolo extends Canvas {
 
     private Virologus Aktiv;
 
+    /**
+     * A főképernyőn a virológusokat rajzolja ki.
+     * Az egy mezőn álló virológusokat és állapotukat rajzolja ki.
+     * @param g Graphics objektum, ezzel rajzolunk.
+     */
     public void paint(Graphics g){
         super.paint(g);
         g.setColor(Aktiv.getHely().color());
@@ -42,6 +47,10 @@ public class Rajzolo extends Canvas {
         }
     }
 
+    /**
+     * frissíti az aktív virológust és újrarajzol
+     * @param virologus az új aktív virológus
+     */
     public void frissit(Virologus virologus){
         Aktiv = virologus;
         repaint(); //meghívja a paint-et

@@ -15,6 +15,11 @@ public abstract class ActionFrame extends JFrame implements ActionListener {
     protected JatekFrame szulo;
     protected Virologus aktiv;
 
+    /**
+     * Ősosztály konstruktora
+     * @param f a játék frame, az ablak őse
+     * @param text Az ablak neve
+     */
     public ActionFrame(JatekFrame f, String text){
         szulo = f;
         setTitle(text);

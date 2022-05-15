@@ -13,6 +13,11 @@ public class JatekInditFrame extends JFrame implements ActionListener {
 
     JComboBox<Integer> CBoxVirologusokSzama;
 
+    /**
+     * Itt lehet kiválasztani, hogy hány virológussal indítjus el a játékot.
+     * Ez jeleník meg játékindítás előtt.
+     * Egy menüben kiváasztható a számuk és Ok-gombbal a játék elindítható.
+     */
     public JatekInditFrame() {
         setTitle("Vak virologusok");
         OKButton = new JButton("OK");
@@ -53,7 +58,9 @@ public class JatekInditFrame extends JFrame implements ActionListener {
         pack();
     }
 
-
+    /**
+     * Ha megnyomták az OK gombot, akkor elindítja a játékot a megaaott számú virológussal.
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         Publisher.getInstance();

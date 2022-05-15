@@ -13,6 +13,11 @@ import java.util.Vector;
 public class MozogFrame extends ActionFrame {
     JComboBox<Mezo> szomszedok;
 
+    /**
+     * MozogFrame konstruktora, itt lehet kiválasztani hova szeretne a játékos
+     * lépni, majd OK gombbal elfogadni.
+     * @param f az ős JátékFrame ablak
+     */
     public MozogFrame(JatekFrame f){
         super(f, "Mozgás");
         OKButton.addActionListener(this);
@@ -39,6 +44,10 @@ public class MozogFrame extends ActionFrame {
         pack();
     }
 
+    /**
+     * Ha megnyomta az OK gombot meghívja az MozogCallback-et a kiválasztott új mezővel.
+     * @param e az event
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         boolean siker = Controller.GetInstance().MozogCallback((Mezo)szomszedok.getSelectedItem());

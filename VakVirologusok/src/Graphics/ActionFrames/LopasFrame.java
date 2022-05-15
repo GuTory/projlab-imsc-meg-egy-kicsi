@@ -17,6 +17,11 @@ public class LopasFrame extends ActionFrame{
     JComboBox<String> mitLop;
 
 
+    /**
+     * LopasFrame konstruktora, itt lehet kiválasztani kitől, mit szeretne
+     * a játékos ellopni, majd OK gombbal elfogadni.
+     * @param f az ős JátékFrame ablak
+     */
     public LopasFrame(JatekFrame f){
         super(f, "Lopás");
         OKButton.addActionListener(this);
@@ -60,6 +65,11 @@ public class LopasFrame extends ActionFrame{
         pack();
     }
 
+    /**
+     * Ha megnyomta az OK gombot meghívja a megfelelő lopás callback-jét
+     * a kiválasztott ellopandó tárggal és virológussal.
+     * @param e az event
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if(kitolLop.getSelectedItem() == null || mitLop.getSelectedItem() == null) {

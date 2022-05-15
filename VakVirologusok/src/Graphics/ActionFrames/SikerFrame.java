@@ -7,6 +7,11 @@ import java.awt.event.ActionEvent;
 
 public class SikerFrame extends ActionFrame{
 
+    /**
+     * SikerFrame konstruktoraértesít egy akció sikerességéről.
+     * @param f az ős JátékFrame ablak
+     * @param s a kiírandó szöveg
+     */
     public SikerFrame(JatekFrame f, String s){
         super(f, "Siker");
         OKButton.addActionListener(this);
@@ -25,6 +30,10 @@ public class SikerFrame extends ActionFrame{
         pack();
     }
 
+    /**
+     * Ha megnyomta az OK gomboteltűnik az ablak.
+     * @param e az event
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         dispose();

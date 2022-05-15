@@ -38,6 +38,13 @@ public class JatekFrame extends JFrame implements Observer {
     private Virologus aktiv;
     private Rajzolo rajzolo;
 
+    /**
+     * A főablak, ebben vannak a panelek amik a játékhoz kellenek.
+     * Ez a konstruktor inicializál mindent.
+     * Az összes panelt.
+     * A gombokat is.
+     * És megjeleníti a játékot is.
+     */
     public JatekFrame(){
         super("Vak virologusok");
         JPanel SouthPanel = new JPanel(new FlowLayout());

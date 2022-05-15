@@ -14,6 +14,11 @@ import java.util.Vector;
 public class TamadFrame extends ActionFrame{
     private JComboBox<Virologus> virologusok;
 
+    /**
+     * TamadFrame konstruktora, itt lehet kiválasztani kit szeretne a
+     * játékos megtámadni, majd OK gombbal elfogadni.
+     * @param f az ős JátékFrame ablak
+     */
     public TamadFrame(JatekFrame f){
         super(f, "Támadás");
         OKButton.addActionListener(this);
@@ -41,6 +46,10 @@ public class TamadFrame extends ActionFrame{
         pack();
     }
 
+    /**
+     * Ha megnyomta az OK gombot meghívja az TamadCallback-et a kiválasztott játékossal.
+     * @param e az event
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if(virologusok.getSelectedItem() == null) {

@@ -12,6 +12,10 @@ import java.util.Vector;
 public class EldobFrame extends ActionFrame {
     JComboBox<Felszereles> felszerelesek;
 
+    /**
+     * EldobFrame konstruktora, itt lehet kiválasztani mit szeretne a játékos kidobni, majd OK gombbal elfogadni.
+     * @param f az ős JátékFrame ablak
+     */
     public EldobFrame(JatekFrame f){
         super(f, "Eldobás");
         OKButton.addActionListener(this);
@@ -39,6 +43,10 @@ public class EldobFrame extends ActionFrame {
         pack();
     }
 
+    /**
+     * Ha megnyomta az OK gombot meghívja az EldobCallback-et a kiválasztott felszereléssel.
+     * @param e az event
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if(felszerelesek.getSelectedItem() == null) {

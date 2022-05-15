@@ -9,6 +9,11 @@ import java.awt.event.ActionEvent;
 
 public class NyertFrame extends ActionFrame{
 
+    /**
+     * NyertFrame konstruktora.
+     * Értesíti a játékosokat, hogy valaki nyert
+     * @param f az ős JátékFrame ablak
+     */
     public NyertFrame(JatekFrame f){
         super(f, "Győzelem");
         OKButton.addActionListener(this);
@@ -29,6 +34,10 @@ public class NyertFrame extends ActionFrame{
         pack();
     }
 
+    /**
+     * Ha megnyomta az OK gombot kilép az alkalmazásból.
+     * @param e az event
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         System.exit(0);
