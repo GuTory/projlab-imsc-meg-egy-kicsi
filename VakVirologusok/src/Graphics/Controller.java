@@ -39,7 +39,6 @@ public class Controller {
      */
     public void JatekIndit(int virologusokSzama){
         Jatek.jatekIndit(virologusokSzama);
-        MainFrame = new JatekFrame();
         MainFrame.setVisible(true);
     }
 
