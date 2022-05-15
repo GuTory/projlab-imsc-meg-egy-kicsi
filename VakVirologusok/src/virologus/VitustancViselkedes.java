@@ -30,6 +30,7 @@ public class VitustancViselkedes extends Viselkedes{
         List<Mezo> szomszedok = gazda.getHely().getSzomszedok();
         Mezo uj = szomszedok.get(new Random().nextInt(szomszedok.size()));
         atleptet(uj);
+        uj.akcio(gazda);
         return true;
     }
 

@@ -88,6 +88,7 @@ public class Viselkedes {
      */
     public boolean mozog(Mezo mezo) {
         atleptet(mezo);
+        mezo.akcio(gazda);
         return true;
      }
 
